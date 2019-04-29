@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+       <html lang="en">
+       <head>
+           <meta charset="utf-8">
+           <style type="text/css">
+       
+body {
+   font-family: Helvetica, arial, sans-serif;
+   font-size: 14px;
+   line-height: 1.6;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background-color: white;
+   padding: 30px; }
+
+body > *:first-child {
+   margin-top: 0 !important; }
+body > *:last-child {
+   margin-bottom: 0 !important; }
+
+a {
+   color: #4183C4; }
+a.absent {
+   color: #cc0000; }
+a.anchor {
+   display: block;
+   padding-left: 30px;
+   margin-left: -30px;
+   cursor: pointer;
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+   margin: 20px 0 10px;
+   padding: 0;
+   font-weight: bold;
+   -webkit-font-smoothing: antialiased;
+   cursor: text;
+   position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+   text-decoration: none; }
+
+h1 tt, h1 code {
+   font-size: inherit; }
+
+h2 tt, h2 code {
+   font-size: inherit; }
+
+h3 tt, h3 code {
+   font-size: inherit; }
+
+h4 tt, h4 code {
+   font-size: inherit; }
+
+h5 tt, h5 code {
+   font-size: inherit; }
+
+h6 tt, h6 code {
+   font-size: inherit; }
+
+h1 {
+   font-size: 28px;
+   color: black; }
+
+h2 {
+   font-size: 24px;
+   border-bottom: 1px solid #cccccc;
+   color: black; }
+
+h3 {
+   font-size: 18px; }
+
+h4 {
+   font-size: 16px; }
+
+h5 {
+   font-size: 14px; }
+
+h6 {
+   color: #777777;
+   font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+   margin: 15px 0; }
+
+hr {
+   border: 0 none;
+   color: #cccccc;
+   height: 4px;
+   padding: 0;
+}
+
+body > h2:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child + h2 {
+   margin-top: 0;
+   padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+   margin-top: 0;
+   padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+   margin-top: 0; }
+
+li p.first {
+   display: inline-block; }
+li {
+   margin: 0; }
+ul, ol {
+   padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+   margin-top: 0; }
+
+dl {
+   padding: 0; }
+dl dt {
+   font-size: 14px;
+   font-weight: bold;
+   font-style: italic;
+   padding: 0;
+   margin: 15px 0 5px; }
+dl dt:first-child {
+   padding: 0; }
+dl dt > :first-child {
+   margin-top: 0; }
+dl dt > :last-child {
+   margin-bottom: 0; }
+dl dd {
+   margin: 0 0 15px;
+   padding: 0 15px; }
+dl dd > :first-child {
+   margin-top: 0; }
+dl dd > :last-child {
+   margin-bottom: 0; }
+
+blockquote {
+   border-left: 4px solid #dddddd;
+   padding: 0 15px;
+   color: #777777; }
+blockquote > :first-child {
+   margin-top: 0; }
+blockquote > :last-child {
+   margin-bottom: 0; }
+
+table {
+   padding: 0;border-collapse: collapse; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+
+img {
+   max-width: 100%; }
+
+span.frame {
+   display: block;
+   overflow: hidden; }
+span.frame > span {
+   border: 1px solid #dddddd;
+   display: block;
+   float: left;
+   overflow: hidden;
+   margin: 13px 0 0;
+   padding: 7px;
+   width: auto; }
+span.frame span img {
+   display: block;
+   float: left; }
+span.frame span span {
+   clear: both;
+   color: #333333;
+   display: block;
+   padding: 5px 0 0; }
+span.align-center {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-center > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: center; }
+span.align-center span img {
+   margin: 0 auto;
+   text-align: center; }
+span.align-right {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px 0 0;
+   text-align: right; }
+span.align-right span img {
+   margin: 0;
+   text-align: right; }
+span.float-left {
+   display: block;
+   margin-right: 13px;
+   overflow: hidden;
+   float: left; }
+span.float-left span {
+   margin: 13px 0 0; }
+span.float-right {
+   display: block;
+   margin-left: 13px;
+   overflow: hidden;
+   float: right; }
+span.float-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: right; }
+
+code, tt {
+   margin: 0 2px;
+   padding: 0 5px;
+   white-space: nowrap;
+   border: 1px solid #eaeaea;
+   background-color: #f8f8f8;
+   border-radius: 3px; }
+
+pre code {
+   margin: 0;
+   padding: 0;
+   white-space: pre;
+   border: none;
+   background: transparent; }
+
+.highlight pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+
+pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+pre code, pre tt {
+   background-color: transparent;
+   border: none; }
+
+sup {
+   font-size: 0.83em;
+   vertical-align: super;
+   line-height: 0;
+}
+* {
+   -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+   body {
+      width: 854px;
+      margin:0 auto;
+   }
+}
+@media print {
+   table, pre {
+      page-break-inside: avoid;
+   }
+   pre {
+      word-wrap: break-word;
+   }
+}
+
+</style>
+</head>
+<body>
+<h1>RAIL Test Application</h1>
+
+<p>The RAIL test application (railtest) provides you with a simple tool for
+testing out the radio and the functionality of the RAIL library. For any
+advanced usage you will have to write your own software against the RAIL library
+and create a custom radio configuration.</p>
+
+<h2>Overview</h2>
+
+<p>A summary of functionality provided as part of the railtest application is shown
+below.</p>
+
+<ul>
+<li>Transmit and receive packets</li>
+<li>Schedule transmits at a specific time in the RAIL timebase</li>
+<li>Configure RAIL address filtering to receive only specific packets</li>
+<li>Enable CCA mechanisms (CSMA/LBT) to validate that a channel is clear before
+transmit</li>
+<li>Set a timer callback in the RAIL timebase to see how the RAIL timer API works</li>
+<li>Change the transmit channel within the current configuration's band</li>
+<li>Change the transmit power level</li>
+<li>Enable RF energy sensing of specified duration across the 2.4 GHz and/or
+Sub-GHz bands, and sleep to wake on this event.</li>
+<li>Output a continuous unmodulated tone for debugging</li>
+<li>Output a continuous modulated PN9 stream for debugging</li>
+<li>Enter into direct mode where data can be sent and received using asynchronous
+GPIOs as input and output.</li>
+</ul>
+
+<h3>Modes</h3>
+
+<p>RAILtest has a number of different modes that it can be in. Each of these modes
+enables a subset of the test application's functionality, so that nonsensical
+commands are ignored. (Like trying to transmit a tone and a packet at the same
+time.) The modes are listed below, with a short description.</p>
+
+<ul>
+<li>None - The app is doing nothing, but the radio may be on. Parameters can be
+set in this mode based on the current radio state, and the timer can be used.</li>
+<li>Stream - Send a stream of pseudo-random bits</li>
+<li>Tone - Send a tone at the carrier frequency</li>
+<li>ContinuousTx - Send an unending stream of packets, separated by a
+configurable delay</li>
+<li>DirectMode - Send data to and from a GPIO, without any packet handling</li>
+<li>PacketTx - Send a specific number of packets, with a summary print at the end</li>
+<li>ScheduledTx - Send one packet scheduled in the future</li>
+<li>TxAfterRx - Schedule a packet after each Rx after a specific delay</li>
+<li>RxOverflow - Overflow on receive by delaying in <code>RAILCb_RxPacketReceived</code></li>
+<li>TxUnderflow - Underflows by not loading data for the next TX sequence</li>
+<li>TxCancel - Cancel a single packet transmit to force an error callback</li>
+<li>RfSense - Sense RF energy to wake the radio</li>
+<li>PER - Packet Error Rate test. A GPIO is toggled, and stats on gathered on
+received packets</li>
+<li>BER - Bit Error Rate test. Statistics are gathered on received bits.</li>
+</ul>
+
+<h2>Command Line Interface</h2>
+
+<p>The most powerful way to interact with the sample application is using the
+provided command line interface. The setup instructions above described the
+different ways to connect to this interface.</p>
+
+<h4>Command Input</h4>
+
+<p>The syntax for this interface is the standard <code>command [arg0, arg1, ...]</code> syntax
+where the number and type of arguments depends on the specific command. Numeric
+values can be prefixed with <code>0x</code> to indicate hexadecimal values. Note that the
+maximum number of arguments to any command is 9 and the maximum length of a
+command line is 255 characters.</p>
+
+<p>For a full listing of the command options you can reference the 'Full Help Text'
+section below or use the <code>help</code> command.</p>
+
+<h4>Command Responses</h4>
+
+<p>All responses to commands are formatted in a human readable yet parsable format.
+There are two variations of this format: single and multi line. Both of these
+follow the following set of rules.</p>
+
+<ul>
+<li>Start and end with curly braces { }</li>
+<li>List the command name, enclosed in parentheses ( )</li>
+<li>Contain any number of tag/value pairs enclosed in curly braces { }</li>
+<li>Carriage returns and line feeds are treated as whitespace by any parser</li>
+</ul>
+
+<h5>Single Response</h5>
+
+<p>Used when there is only a single response to a command.</p>
+
+<ul>
+<li>There is a single start/end curly brace wrapper</li>
+<li>Tag/value pairs are wrapped in a single set of curly braces, separated by a
+colon {tag:value}.</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>&gt; getchannel
+{{(getchannel)}{channel:4}}
+</code></pre>
+
+<h5>Multi Response</h5>
+
+<p>Used when a command may have multiple responses. For example, when reading a
+block of memory, or receiving multiple packets.</p>
+
+<ul>
+<li>Response starts with a header, delimited by a hash # at the start of
+the line.</li>
+<li>Header includes the command name, followed by any tags individually
+wrapped with curly braces { }</li>
+<li>Following the header, any number of responses can be provided</li>
+<li>Data lines do not contain the command name or tags, only the values
+that correspond to the tags in the order described in the header</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>&gt; getmemw 0x20000000 4
+#{{(getmemw)}{address}{value}}
+{{0x20000000}{0x0000e530}}
+{{0x20000004}{0x000051c6}}
+{{0x20000008}{0x0000c939}}
+{{0x2000000c}{0x0000e090}}
+</code></pre>
+
+<h2>Application Features</h2>
+
+<h3>Packet Mode</h3>
+
+<p>The application starts in packet mode with the receiver enabled. In this mode
+we receive and transmit packets using the radio's frame controller hardware. To
+disable receive use the <code>rx 0</code> command. To transmit use <code>tx [numPackets]</code> or
+press button PB0. If you hold PB0 for a couple of seconds or run the <code>tx 0</code>
+command you can toggle the continuous transmit mode. When transmitting multiple
+packets or infinite packets there is a configurable delay in between each
+transmit. By default this is 250ms, but it can be set with the <code>setTxDelay</code>
+command.</p>
+
+<p>All received packets are printed to the console with information like CRC, RSSI,
+and timestamp as long as notifications are enabled. Notifications are enabled by
+default, but they can be turned off with the <code>setRxNotification 0</code> command.</p>
+
+<p>The application by default sends a fixed packet, but it is possible to override
+the values via <code>setTxPayload</code>. The command allows you to modify the values of
+the payload at specific offsets. For instance to modify the first 4 bytes sent
+in the packet to be <code>0x01 0x02 0x03 0x04</code>, this is the command:</p>
+
+<pre><code>setTxPayload 0 0x01 0x02 0x03 0x04
+</code></pre>
+
+<p>To view the currently configured TX Packet information, use <code>printTxPacket</code>.</p>
+
+<p><em>Note: The packet format depends on the current PHY configuration. If your PHY
+has a dynamic frame length byte then that will be used to determine how much
+data should be sent.</em></p>
+
+<h3>Direct Mode</h3>
+
+<p>In direct mode the radio will still attempt to decode received packets, but it
+will only be able to transmit packets sent over the DIN pin. The GPIOs for
+direct mode are fixed for now to the following pins.</p>
+
+<pre><code>DOUT - EFR32_PC11 -&gt; EXP_HEADER16/WSTK_P13
+DIN  - EFR32_PC10 -&gt; EXP_HEADER15/WSTK_P12
+</code></pre>
+
+<p>The data on these pins is asynchronous and can be connected directly to a UART.
+To enter direct mode issue the <code>directMode 1</code> command after starting the app.
+To leave direct mode use <code>directMode 0</code>. If you want to transmit you must enable
+the transmitter by issuing <code>directTx 1</code> and later stop it with <code>directTx 0</code>.
+Receive is controlled using the standard <code>rx 1/0</code> command, but is enabled by
+default when not transmitting.</p>
+
+<p><em>NOTE: Direct mode does not work in certain modulations (e.g 2GFSK). If you
+require this mode contact support to verify your configuration.</em></p>
+
+<h3>Channels/Frequencies</h3>
+
+<p>The specific channel configuration depends on the PHY configuration you have
+chosen for your test app. To switch between channels use the <code>setChannel [num]</code>
+command. In addition, you can use button PB1 to cycle between channels.</p>
+
+<p>To modify your frequency to a value not defined in the channel list
+you will need to set the application into the <code>FREQUENCY_OVERRIDE</code> debug mode
+via <code>setDebugMode</code> which tells the application to ignore the current channel
+selection. Once in the <code>FREQUENCY_OVERRIDE</code> debug mode, you can use the
+<code>freqOverride</code> command to switch to another center frequency.</p>
+
+<p><em>Note: The freqOverride command requires you to be in <code>FREQUENCY_OVERRIDE</code> debug
+mode.  The radio state must also be IDLE in order for the frequency to be
+modified.  Call 'rx 0' first.</em></p>
+
+<p>*</p>
+
+<pre><code>setDebugMode 1
+freqOverride 865000000
+</code></pre>
+
+<p>To leave <code>FREQUENCY_OVERRIDE</code> debug mode and return to normal channel based
+operation, use <code>setDebugMode 0</code>.</p>
+
+<p><em>Caution: The modem is configured to a specific band. The application will not
+restrict you from changing the frequency out of band but this could cause
+significant issues, including forcing a chip reboot.</em></p>
+
+<h3>Command Scripting</h3>
+
+<p>The command scripting feature built into RAILTest allows for CLI commands to be
+executed without back-and-forth interaction on the command line. The same
+commands that can be executed one by one can be queued up within RAILTest and
+executed sequentially later. Additionally, a command script can be saved to
+flash, and any script saved to flash will run automatically on device boot.
+In order to use flash with command scripting in RAILTest, the Flash Data plugin
+must be enabled.</p>
+
+<p>This is an example of how to enter, print, and run a script from RAM.
+Note that the wait command needs to be used in order to allow time for the first
+scripted command (i.e. "tx 1") to successfully run to completion before the
+second scripted command (i.e. "tx 2") starts.</p>
+
+<pre><code>enterScript
+tx 1
+wait 500000
+tx 2
+endScript
+printScript
+runScript
+</code></pre>
+
+<p>This is an example of how to enter, print, run, and clear a script from flash.</p>
+
+<pre><code>enterScript 1
+tx 1
+wait 500000
+tx 2
+endScript
+printScript 1
+runScript 1
+clearScript 1
+</code></pre>
+
+<p>This is an example of how to enter and run a script from flash on boot.</p>
+
+<pre><code>enterScript 1
+tx 1
+wait 500000
+tx 2
+endScript
+reset
+</code></pre>
+
+<h3>RAIL Timebase</h3>
+
+<p>The microsecond RAIL timebase is used for features requiring specific timing.
+You can read this timebase with <code>getTime</code>, and you can also set this
+microsecond timebase with <code>setTime</code>. The user should avoid changing the
+timebase when the timebase is actively being used, i.e. during clear channel
+assessment, during scheduled TX or RX, etc.</p>
+
+<h3>Scheduled TX</h3>
+
+<p>The RAIL API has its own time base that can be used to schedule the start of
+transmits. It measures time as a 32bit integer in microseconds. As part of this
+change many APIs will now return the time they were run at, all Rx packets
+report the time they were received, and all Tx packets return the time that
+the transmit was completed. There is also a new command <code>getTime</code> to print
+the current time in the RAIL timebase.</p>
+
+<p>To use test scheduled transmit we provide two new commands: <code>txAt</code> and
+<code>txAfterRx</code>. These allow you to send a packet at an absolute time in the RAIL
+timebase or exactly some number of microseconds after each receive respectively.</p>
+
+<p><em>NOTE: These APIs should provide reliable timing but there may be some overhead
+related to preamble and PA ramp time that you have to adjust for to transmit at
+the exact time you want.</em></p>
+
+<h3>Clear Channel Assessment</h3>
+
+<p>The RAIL API provides the ability to specify a Pre-Transmit Operation for every
+transmit, one of which is Scheduled Transmit discussed above.  Others are also
+provided to support two common medium access methodologies which delay
+transmission until the channel is clear:</p>
+
+<ul>
+<li>CSMA-CA (Carrier Sense Multiple Access with Collision Avoidance) -- based on
+IEEE 802.15.4 specification</li>
+<li>LBT (Listen Before Talk) -- based on ETSI EN 300 220-1 specification</li>
+</ul>
+
+<p>Both CSMA-CA and LBT are similar:  Prior to transmission, a device waits for
+a random 'backoff' period of time and then performs a CCA (Clear Channel
+Assessment) for a fixed period of time.  If the channel is free, the transmit
+proceeds; if busy, the process is repeated with a new random backoff period.
+The random backoff period is determined by a randomly chosen multiple of a
+fixed backoff unit of time.</p>
+
+<p>For CSMA-CA, the random multiplier is a power-of-2 exponential whose range
+increases on each try up to a limit, and the CCA period is typically short,
+smaller than a backoff unit and around the time it takes a small packet to
+be transmitted.  For LBT, the random multiplier is linear and typically
+chosen to allow the random period to range up to the CCA period, which can
+be quite long -- much longer than the on-air time of the actual transmission
+it's gating.  LBT also specifies that if the channel is found busy during CCA,
+the process cannot repeat until the channel is free.</p>
+
+<p>In RAIL and railtest, several parameters are exposed via the <code>setLbtParams</code>
+and <code>getLbtParams</code> commands to configure either CSMA-CA or LBT operation.
+Their interpretation depends on which mode has been chosen:</p>
+
+<ul>
+<li><code>minBo</code> -- Minimum backoff.  For CSMA-CA this first try's power-of-2
+random exponential range, i.e. the backoff multiplier will range from
+0 to 2^minBo - 1.  Subsequent tries increase <code>minBo</code> by 1 up to <code>maxBo</code>.
+For LBT this is the minimum backoff multiplier for all tries, typically 0.</li>
+<li><code>maxBo</code> -- Maximum backoff.  For CSMA-CA this is the maximum power-of-2
+random exponential range to which subseqnent tries can increase.  For LBT this
+is the maximum backoff multiplier for all tries, typically maxBo * backoff =
+duration.  If both <code>minBo</code> and <code>maxBo</code> are 0, a non-random fixed <code>backoff</code>
+time is configured.</li>
+<li><code>tries</code> -- The maximum number of tries ('busy' CCAs), up to 15, that the
+CSMA-CA or LBT operation will tolerate before declaring the transmission a
+failure due to channel busy.  A value of 0 will perform no CCA assessments, and
+always transmit immediately.</li>
+<li><code>thresh</code> -- The CCA RSSI threshold, in dBm, above which the channel is
+considered 'busy'.</li>
+<li><code>backoff</code> -- The backoff unit period, in RAIL's microsecond time base.  This is
+mulitiplied by the random backoff multiplier controlled by <code>minBo</code> and <code>maxBo</code>
+to determine the overall backoff period.  For random backoffs, this value must
+be in the range 100 to 511 microseconds; for fixed backoffs it can go up to
+65535 microseconds.</li>
+<li><code>duration</code> -- The CCA duration, in RAIL's microsecond time base.  The radio
+determines the maximum RSSI during this period for comparison against the CCA
+threshold.</li>
+<li><code>timeout</code> -- An overall timeout, in RAIL's microsecond time base, for the
+operation.  If transmission doesn't start before this timeout expires, the
+transmission will fail.  This is more important for limiting LBT due to LBT's
+unbounded requirement that if the channel is busy, the next try must wait
+for the channel to clear.  A value of 0 means no timeout is imposed.</li>
+</ul>
+
+<p>Several examples:</p>
+
+<ul>
+<li>railtest's default parameters are suitable for the IEEE802.15.4 PHY for CSMA-CA,
+equivalent to:
+<code>setLbtParams 3 5 4 -75 320 128 0</code>.
+This specifies up to 4 CCA attempts; the 1st will choose a random multiplier of
+0..7 (2^3-1), the 2nd 0..15 (2^4-1), the 3rd 0..31 (2^5-1), and the 4th 0..31
+since the <code>maxBo</code> limit is 5.</li>
+<li>ETSI EN 300 220-1 LBT's parameters in the 863 MHz band would be:
+<code>setLbtParams 0 10 15 -80 500 5000 1000000</code>.
+This specifies a 5 millisecond CCA duration with random backoff period of
+0..5 milliseconds (0..10 * 0.5 milliseconds) and a 1 second timeout limit in
+case the channel remains busy.</li>
+<li>A single CCA of 160 microseconds after a fixed 1024 microsecond backoff,
+against a -70 dBm threshold would be:
+<code>setLbtParams 0 0 1 -70 1024 160 0</code>.</li>
+</ul>
+
+<p>In railtest, CSMA-CA and LBT are enabled as a mode applied to subsequent
+transmits via <code>setLbtMode</code> whose choices are 'off', 'csma', and 'lbt'.</p>
+
+<p><em>NOTE: On EFR32, LBT is currently implemented using the EFR32's CSMA-based
+hardware engine, so LBT parameters are mapped to roughly equivalent CSMA
+parameters.</em></p>
+
+<p><em>NOTE: Scheduled Transmit and Clear Channel Assessment are currently mutually
+exclusive, with Scheduled Transmit taking precedence.</em></p>
+
+<h3>Address Filtering</h3>
+
+<p>The address filtering code examines the packet as follows.</p>
+
+<table>
+<thead>
+<tr>
+  <th align="center"><code>Bytes: 0 - 255</code></th>
+  <th align="right"><code>0 - 8</code></th>
+  <th align="right"><code>0 - 255</code></th>
+  <th align="right"><code>0 - 8</code></th>
+  <th align="center"><code>Variable</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td align="center"><code>Data0</code></td>
+  <td align="right"><code>Field0</code></td>
+  <td align="right"><code>Data1</code></td>
+  <td align="right"><code>Field1</code></td>
+  <td align="center"><code>Data2</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>In the above structure, anything listed as DataN is an optional section of bytes
+that we will not process for address filtering. The FieldN segments reference
+the specific sections in the packet that will be examined during filtering for
+addresses. There may be up to four addresses per field and they may each have a
+size of up to 8 bytes. To setup address filtering you must first configure where
+the addresses are in your packet and how long they are. Next, you need to
+configure what combinations of matches in Field0 and Field1 should constitute an
+address match. Lastly, you need to  enter addresses into the tables for each
+field and enable them.</p>
+
+<p>The <code>configAddressFilter</code> command can be used to set the offsets and sizes for
+the address fields as well as how combinations of matches in Field0 and Filed1
+are combined to determine whether or not an address matches.</p>
+
+<p>Configuring which combinations of Field0 and Field1 constitute a match is
+the most complex portion of the address filter. The easiest way to think
+about this is with a truth table. If you consider each of the four possible
+address entries in a field, you can have a match on any one of those or a
+match for none of them. This is shown in the 5x5 truth table below where
+Field0 matches are the rows and Field1 matches are the columns.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Fields</th>
+  <th>No Match</th>
+  <th>Address 0</th>
+  <th>Address 1</th>
+  <th>Address 2</th>
+  <th>Address 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>No Match</strong></td>
+  <td>bit0</td>
+  <td>bit1</td>
+  <td>bit2</td>
+  <td>bit3</td>
+  <td>bit4</td>
+</tr>
+<tr>
+  <td><strong>Address 0</strong></td>
+  <td>bit5</td>
+  <td>bit6</td>
+  <td>bit7</td>
+  <td>bit8</td>
+  <td>bit9</td>
+</tr>
+<tr>
+  <td><strong>Address 1</strong></td>
+  <td>bit10</td>
+  <td>bit11</td>
+  <td>bit12</td>
+  <td>bit13</td>
+  <td>bit14</td>
+</tr>
+<tr>
+  <td><strong>Address 2</strong></td>
+  <td>bit15</td>
+  <td>bit16</td>
+  <td>bit17</td>
+  <td>bit18</td>
+  <td>bit19</td>
+</tr>
+<tr>
+  <td><strong>Address 3</strong></td>
+  <td>bit20</td>
+  <td>bit21</td>
+  <td>bit22</td>
+  <td>bit23</td>
+  <td>bit24</td>
+</tr>
+</tbody>
+</table>
+
+<p>Since this is only 25 bits it can be represented in one 32bit integer where a
+1 indicates filter pass and a 0 indicates filter fail. This is the matchTable
+parameter in the <code>configAddressFilter</code> command. For a simple one field
+configuration set the matchTable to <code>0x1fffffe</code> and for a two field
+configuration pairing indices across the fields use <code>0x1041040</code>.</p>
+
+<p>After you have configured address filtering you must also set which addresses
+are valid and enable them. This can be done with the <code>setAddress</code> and
+<code>setAddressEnable</code> commands. You must also turn on the address filtering feature
+with the <code>setAddressFiltering</code> command.</p>
+
+<p>As an example, to configure an address of <code>0x00 0x01 0x02 0x03</code> in <code>field0,
+index0</code> for a filter that has one field starting at offset 0 with a length of 4
+bytes you would use the following commands.</p>
+
+<pre><code>configAddressFilter 0x1fffffe 0 4 0 0
+setAddress 0 0 0x00 0x01 0x02 0x03
+setAddressEnable 0 0 1
+setAddressFiltering 1
+</code></pre>
+
+<p>In addition to the standard address filtering, if your frame length decoding
+algorithm is by frame type, then there is additional filtering functionality
+available. Address filtering can be enabled or disabled based on the frame type
+that is decoded. The way to set this is by the <code>addressFilterByFrame</code> command.
+This command takes an 8 bit bitmask, in which each bit represents whether
+addresses are present in that frame. The least significant bit determines
+whether to apply the address filter to frame 0, and the most significant bit
+determines whether to apply the address filter to frame 7.
+<code>addressFilterByFrame</code> must be called after <code>configAddressFilter</code> for it to
+take effect.</p>
+
+<h3>Automatic State Transitions</h3>
+
+<p>RAIL provides an API to configure state transitions to happen automatically on
+certain radio events. These events are a successful receive, a failed receive,
+a successful transmission, and a failed transmission. All of these events can
+transition to a radio state of idle or receive. In addition, a transmission can
+be configured to happen after a successful receive.</p>
+
+<p>These states are configured via the <code>setTxTransitions</code> and <code>setRxTransitions</code>
+commands. Each of these commands take in two radio states, which are passed
+in as single letter strings. To transition to receive after a transmission,
+regardless of it's success, the command is <code>setTxTransitions r r</code>.</p>
+
+<p>When settings the receive transitions, there is also a third argument, which
+is a bitfield to configure which events count as errors. The documentation for
+this bitfield can be found in the RAIL library documentation. Calling
+<code>setRxTransitions i i 0xFF</code> will ignore all errors that are possible to ignore,
+and transition the radio to idle after attempting to receive one packet.</p>
+
+<p>In addition to the state transitions, timings can be set for the transitions.
+The 6 timings that are currently configurable are idleToRx, idleToTx, rxToTx,
+txToRx, rxSearchTimeout and txToRxSearchTimeout. Each of these timings
+configure an amount of delay between two states. The search timeouts allow you
+to set a maximum time that the chip will sit in the RX search state. These can
+be used to implement short receive timeouts. The rxSearchTimeout is used when
+coming to receive from idle and the txToRxSearchTimeout is used when
+transitioning from a past transmit. Setting [rx|txToRx]SearchTimeout to zero
+disables the timeout and radio will stay in RX until an event changes the
+state. Transitions to idle simply happen as fast as possible. Each timing is
+configurable in microseconds, up to a maximum of 13 ms with the exception of
+txToRxSearchTimeout which could be up to a quarter of the RAIL timebase, which
+is 2^32/4 microseconds or 18 minutes. For example, to disable the timeouts and
+set all other transitions to take 200 us, use
+<code>setStateTimings 200 200 200 200 0 0</code>.</p>
+
+<h3>Auto Acknowledgment</h3>
+
+<p>RAIL contains auto acknowledgment APIs that are exposed through the RAILTEST
+command interface. To initialize and enable this functionality use
+<code>autoAckConfig</code>. For example, <code>autoAckConfig rx 100 192 1000</code> will configure
+the 'defaultState', the state at which the radio returns after an ack
+operation, to receive. Transitions from idle will take 100 us, turnaround
+transitions will take 192 us and will wait for an ack for 1000 us. To load up a
+custom ack payload, users can call <code>setAckPayload</code> and <code>setAckLength</code>.</p>
+
+<p>If a packet is received during the ack window, then the <code>isAck</code> flag for that
+packet will be true. The ack windows begins at the end of turnaround time, and
+lasts for the timeout length. If auto acknowledgment is not enabled, then the
+<code>isAck</code> flag will always be false.</p>
+
+<p>To customize ack functionality, users can pause either the ack transmit after a
+receive or waiting for ack after a transmit via the <code>autoAckPause</code> command. To
+modify if/how the ack is transmitted after a receive operation, use the
+<code>setTxAckOptions</code> command.</p>
+
+<p>Conversely, after a transmit operation, waiting for ack is controlled by the tx
+options configured by <code>configTxOptions</code>. When combined with the <code>txWithOptions</code>
+command, the configuration is honored. However, whenever a simple <code>tx</code> is
+called, configured options will be ignored and defaults will be used for the
+transmit (i.e. don't wait for ack, send CRC, use sync word 0).</p>
+
+<h3>RF Energy Sensing</h3>
+
+<p>The EFR32 has the ability to sense the presence of RF Energy above -20 dBm
+within either or both the 2.4 GHz and Sub-GHz bands, and trigger an event
+if that energy is continuously present for certain durations of time.</p>
+
+<p>This feature is exposed via library RAIL_RfSense() and RAIL_RfSensed() APIs,
+whose use is exemplified by the railtest commands 'rfSense' and 'sleep'.
+Both commands allow you to specify the duration in microseconds of continuous
+RF energy desired, and which RF band(s) to monitor.  The requested duration
+will be mapped to the nearest supported by the hardware; it is not terribly
+precise and can be off by a factor of 2 or more.  Once RF energy of sufficient
+duration has been sensed, the sensing operation terminates and a new one must
+be started if additional sensing is desired.</p>
+
+<p>The 'rfSense' command activates sensing in the background during normal
+railtest operation, and will report when energy of sufficient duration has been
+detected via an asynchronous message (like how it reports when packets are
+received).  Note that sensing energy within a band on EFR32 precludes normal
+packet reception in that same band; this is by design.</p>
+
+<p>The 'sleep' command allows you to activate RF sensing in combination with
+entering one of the Energy-Saving Modes EM0..EM4.  To wake from these modes,
+RF energy of the specified duration and band must be sensed.  Energy modes
+0 through 3 will also wake and terminate RF sensing on any serial input to
+the CLI.  EM4 does not support waking on serial input; it will only wake on
+RF sense or a pin reset.</p>
+
+<p>Some examples:</p>
+
+<pre><code>&gt; rfSense 500 2 // Sense RF energy of ~0.5ms or longer in sub-GHz band
+{{(rfsense)}{RfSense:MHz}{RfUs:413}}  // Closest HW supports is ~0.4ms
+...
+{{(rfSensedCheck)}{RfSensed:MHz}{RfUs:413}}
+
+&gt; sleep 2 500 1 // Sleep in EM2 for RF energy of ~0.5ms in 2.4 GHz band
+{{(sleep)}{EM:2}{SerialWakeup:On}{RfSense:GHz}}
+...
+{{(sleepWoke)}{EM:2}{SerialWakeup:No}{RfSensed:Yes}{RfUs:413}}
+
+&gt; sleep 4 500 3 // Sleep in EM4 for RF energy of ~0.5ms in any band
+{{(sleep)}{EM:4s}{SerialWakeup:Off}{RfSense:Any}}
+...
+RAIL Test App
+{{(sleepWoke)}{EM:4s}{SerialWakeup:No}{RfSensed:Yes}}
+</code></pre>
+
+<h2>Protocol Specific Features</h2>
+
+<h3>IEEE 802.15.4</h3>
+
+<p>RAIL provides IEEE 802.15.4 specific hardware acceleration that can be
+configured through RAILTEST commands. To configure IEEE 802.15.4 hardware
+acceleration, use the <code>enable802154</code> command. The options exposed in
+<code>enable802154</code> allow you to configure similar parameters as <code>autoAckConfig</code>. To
+configure the IEEE 802.15.4 2.4GHz Radio Configuration, use
+<code>config2p4GHz802154</code>. This will configure the IEEE 802.15.4 2.4GHz modem
+settings as well as channel scheme, making channels 11-26 available for use.</p>
+
+<p>Further IEEE 802.15.4 configuration is done through <code>acceptFrames</code>,
+<code>setPromiscuousMode</code>, <code>setPanCoordinator</code>. To configure the node's address, use
+the <code>setPanId802154</code>, <code>setShortAddr802154</code>, <code>setLongAddr802154</code> commands. These
+commands map very closely to the RAIL API that it wraps, so users should look
+at the RAIL Library doxygen for further information.</p>
+
+<p>From this point, the user can use the normal <code>tx</code> and <code>rx</code> commands to send
+packets back and forth. The IEEE 802.15.4 ack payload is already loaded into
+the ack buffer; do not call 'setAckPayload' or 'setAckLength'. RAILTEST is
+configured to always set frame pending bit in the ack if it successfully
+receives a data command to the node. Any ack modifications should use commands
+detailed in the <a href="#auto-acknowledgement">Auto Acknowledgement</a> section.</p>
+
+<p>Transmit side:</p>
+
+<pre><code>&gt; rx 0
+{{(rx)}{Rx:Disabled}{Idle:Enabled}{Time:1846852}}
+&gt; config2p4GHz802154
+{{(config2p4GHz802154)}{802.15.4:Enabled}}
+&gt; enable802154 rx 100 192 1000
+{{(enable802154)}{802.15.4:Enabled}{defaultState:Rx}{idleTiming:100}{turnaroundTime:192}{ackTimeout:1000}}
+
+// Load packet directed towards the receive side
+// Packet has the destination address set on the receive side.
+&gt; setTxLength 26
+{{(setTxLength)}{TxLength:26}}
+&gt; setTxPayload 0 0x1b 0x61 0x98 0x00 0x34 0x12 0x44 0x33 0x55 0x44
+{{(setTxPayload)}{len:26}{payload: 0x1b 0x61 0x98 0x00 0x34 0x12 0x44 0x33 0x55 0x44 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00}}
+&gt; setTxPayload 10 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09
+{{(setTxPayload)}{len:26}{payload: 0x1b 0x61 0x98 0x00 0x34 0x12 0x44 0x33 0x55 0x44 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x00 0x00 0x00 0x00 0x00 0x00}}
+&gt; setTxPayload 20 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f
+{{(setTxPayload)}{len:26}{payload: 0x1b 0x61 0x98 0x00 0x34 0x12 0x44 0x33 0x55 0x44 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f}}
+
+// Assumes there is another node that will receive and ack
+&gt; tx 1
+&gt; {{(tx)}{PacketTx:Enabled}{None:Disabled}{Time:9401164}}
+{{(rxPacket)}{len:4}{timeUs:9764592}{crc:Pass}{coding:Pass}{rssi:-5.50}{isAck:True}{payload: 0x05 0x02 0x00 0x00}}
+
+// Assumes a node does not ack
+&gt; tx 1
+&gt; {{(tx)}{PacketTx:Enabled}{None:Disabled}{Time:18161202}}
+{{(rxAckTimeout)}{error:Searching for RX Ack has timed out.}{errorCode:47}}
+</code></pre>
+
+<p>Receive side:</p>
+
+<pre><code>&gt; rx 0
+{{(rx)}{Rx:Disabled}{Idle:Enabled}{Time:1846852}}
+&gt; config2p4GHz802154
+{{(config2p4GHz802154)}{802.15.4:Enabled}}
+&gt; enable802154 rx 100 192 1000
+{{(enable802154)}{802.15.4:Enabled}{defaultState:Rx}{idleTiming:100}{turnaroundTime:192}{ackTimeout:1000}}
+&gt; setPanId802154 4660 // PANID: 0x1234, OTA Value: 0x34 0x12
+{{(setPanId802154)}{802.15.4PanId:Enabled}}
+&gt; setShortAddr802154 13124 // Short Addr: 0x3344, OTA Value: 0x44 0x33
+{{(setShortAddr802154)}{802.15.4ShortAddress:Enabled}}
+// Long Addr (OTA): 0xDD 0xCC 0xBB 0xAA 0x99 0x88 0x77 0x66
+&gt; setLongAddr802154 221 204 187 170 153 136 119 102
+{{(setLongAddr802154)}{802.15.4LongAddress:Enabled}}
+&gt; rx 1
+{{(rx)}{Rx:Enabled}{Idle:Disabled}{Time:2070858}}
+
+// Receive a packet and ack
+{{(rxPacket)}{len:26}{timeUs:29662246}{crc:Pass}{coding:Pass}{rssi:-5.50}{isAck:False}{payload: 0x1b 0x61 0x98 0x00 0x34 0x12 0x44 0x33 0x55 0x44 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f}}
+{{(txEnd)}{txStatus:Complete}{transmitted:1}{lastTxTime:7878936}{failed:0}{lastTxStatus:0x0}}
+</code></pre>
+
+<h3>Bluetooth Low Energy</h3>
+
+<p>RAIL provides Bluetooth Low Energy (BLE) specific hardware acceleration.
+RAILTEST provides a few wrappers over these APIs but since BLE is so timing
+critical, there is not much one can do via RAILTEST commands. To enable BLE
+hardware acceleration, use the <code>setBleMode 1</code> command. Users can then configure
+channel specific settings with <code>setBleChannelParams</code>. There is a preset
+configuration to enable advertising on channel 37 using the <code>setBleAdvertising</code>
+command.</p>
+
+<p>RAILTEST can output a BLE advertising packet on channel 37 with the following
+commands:</p>
+
+<pre><code>&gt; rx 0
+rx 0
+{{(rx)}{Rx:Disabled}{Idle:Enabled}{Time:1999306}}
+&gt; setBleMode 1
+setBleMode 1
+{{(setBleMode)}{BLE:Enabled}}
+&gt; setBleAdvertising
+setBleAdvertising 37
+{{(setBleAdvertising)}{AdvertisingChannel:37}}
+{{(setBleAdvertising)}{len:28}{payload: 0x02 0x1a 0xff 0xee 0xdd 0xcc 0xbb 0xaa 0x02 0x01 0x06 0x10 0x08 0x53 0x69 0x6c 0x61 0x62 0x73 0x20 0x52 0x41 0x49 0x4c 0x54 0x45 0x53 0x54}}
+&gt; tx 0
+tx 0
+&gt; {{(tx)}{ContinuousTx:Enabled}{None:Disabled}{Time:16160500}}
+</code></pre>
+
+<p>After these commands, use your phone to search for available Bluetooth devices.
+Users should see 'Silabs RAILTEST' as an available device. RAILTEST is <strong>not</strong>
+a connectable device.</p>
+
+<h2>Testing Modes</h2>
+
+<h3>Packet Error Rate Testing</h3>
+
+<p>RAILtest can be used to determine the packet error rate (PER) for a given
+setup. To set up this test, a piece of test equipment needs to be configured to
+send a packet on the rising edge of a GPIO. That should be connected to PC7 on
+the EFR32, or PC3 on the WSTK. <code>perRx 100 10000</code> will configure the Packet
+Error Rate test to send 100 packets, waiting 10000 us between each packet. At
+the end of the test, the app will give an output indicating that Per mode has
+finished, and the statistics on the test can be recovered with <code>perStatus</code> and
+<code>status</code>. Note that calling <code>perRx 0 0</code> will cancel an ongoing test, and that
+calling <code>perRx</code> will have the same effect as calling <code>resetCounters</code>.</p>
+
+<h3>Bit Error Rate Testing</h3>
+
+<p>The EFR32 hardware has the ability to enter bit error rate (BER) receive
+mode for diagnostic purposes.  In BER mode, the chip will be looking to
+receive a PN9 (x^9 + x^5 + 1) transmission.  In order to run the BER test
+successfully, a radio configuration specific to BER mode must be
+generated by the radio configurator.</p>
+
+<p>The 'setBerConfig' command allows the user to specify how many bytes to
+receive in BER receive mode. The maximum number of bytes you can
+designate to receive is 536870911. Specifying a number of 0 or a number
+greater than the maximum possible value will automatically configure the
+BER test to receive the maximum number of bytes for testing.</p>
+
+<p>The 'berRx' command allows the user to enter and exit BER receive mode.
+If the test is allowed to run to completion, there is no need to exit
+BER receive mode.</p>
+
+<p>The 'berStatus' command allows the user to query for test statistics
+during or after a test. The statistics are reset when 'setBerConfig' is
+run or when "berRx 1" is run. The statistics include
+BitsToTest (total bits to be tested),
+BitsTested (the number of bits already received and tested),
+PercentDone (percentage of how many configured bytes have been received),
+RSSI (an instantaneous RSSI value corresponding to the last byte received),
+BitErrors (the number of received bits determined to be in error), and
+PercentBitError (percentage of bit errors to bits tested).</p>
+
+<p>Some examples:</p>
+
+<pre><code>&gt; setberconfig 100000
+
+&gt; berrx 1
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:800000}{BitsTested:0}{PercentDone:0.00}
+{RSSI:0}{BitErrors:0}{PercentBitError:0.00}}
+
+// PN9 transmission enabled here
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:800000}{BitsTested:121312}{PercentDone:15.16}
+{RSSI:-23}{BitErrors:0}{PercentBitError:0.00}}
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:800000}{BitsTested:800000}{PercentDone:100.00}
+{RSSI:-24}{BitErrors:0}{PercentBitError:0.00}}
+
+&gt; berrx 1
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:800000}{BitsTested:363936}{PercentDone:45.49}
+{RSSI:-23}{BitErrors:0}{PercentBitError:0.00}}
+
+&gt; setberconfig 1000000
+
+&gt; berrx 1
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:8000000}{BitsTested:888672}{PercentDone:11.11}
+{RSSI:-23}{BitErrors:0}{PercentBitError:0.00}}
+
+// PN9 transmission disabled here
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:8000000}{BitsTested:4418528}{PercentDone:55.23}
+{RSSI:-96}{BitErrors:960478}{PercentBitError:21.74}}
+
+&gt; berstatus
+{{(berStatus)}{BitsToTest:8000000}{BitsTested:8000000}{PercentDone:100.00}
+{RSSI:-97}{BitErrors:2752908}{PercentBitError:34.41}}
+</code></pre>
+
+<h3>Misc</h3>
+
+<h4>Ram Modem Reconfiguration</h4>
+
+<p>RAILtest can dynamically change the modem configuration allowing for a quick
+evaluation of different protocols or settings without the need of compiling
+or flashing the chip. This is enabled via the <code>writeRmrStructure</code>,
+<code>updateConfigurationPointer</code> and <code>reconfigureModem</code> commands. These commands are
+intended to be used only by Studio and not directly from the CLI.</p>
+
+<h4>Register/Memory access</h4>
+
+<p>To modify any memory on the system use the <code>getmemw</code> and <code>setmemw</code> commands. To
+use <code>getmemw</code> specify the starting address and the number of 32bit words you
+want to read. Using <code>setmemw</code> is slightly different in that you specify the
+starting address and the 32bit words to write starting at the specified address.
+These commands operate on 32bit words so all addresses <strong>must</strong> be 32bit
+aligned.</p>
+
+<p><em>NOTE: These commands provide direct access to the chip's address space. Writing
+a value to an address can change RAM and register values, and even reading from
+an address can change the operation of the chip. Any action taken with these
+commands will potentially conflict with the running program, possibly leading to
+unexpected behavior or a system crash. You should typically only use these
+commands when specifically instructed to do so by your Silicon Labs support
+contact.</em></p>
+
+<h4>Debug</h4>
+
+<ul>
+<li>To output a tone on the current channel (or overridden frequency) use the
+<code>setTxTone</code> command.</li>
+<li>To output a PN9 stream on the current channel (or overridden frequency) use
+the <code>setTxStream</code> command.</li>
+</ul>
+
+<h3>Full Help Text</h3>
+
+<pre><code>&lt;command&gt; &lt;args&gt; &lt;help text&gt;
+  u=uint8, v=uint16, w=uint32, s=int32, b=string, ?=Anything, *=0 or more of previous
+ --- Application Configuration ---
+setEventConfig         ww         [mask events] Modify RAIL_ConfigEvents with the given mask and events
+printDataRates                    Print the data rates of the current PHY
+resetCounters                     Resets the Tx and Rx counters
+setPeripheralEnable    u          [enable] Enable(1) or Disable(0) LEDs and LCD peripherals
+setNotifications       u          [enable] Enable(1) or Disable(0) status prints that happen asynchronously (rxPacket, txEnd, txError)
+getLogLevels                      Get whether notifications are set or peripherals are enabled
+getVersion                        Get version information.
+getVersionVerbose                 Get verbose version information.
+setPtiProtocol         u          [protocol] Set PTI protocol for Network Analyzer (0=Custom 2=Thread 3=BLE 4=Connect 5=Zigbee 6=Z-Wave)
+setPrintingEnable      u          [enable] Universally enable or disable all printing in railtest. Enabled by default.
+ --- Receive and Transmit ---
+rx                     w          [enable] Enable(1) or Disable(0) receive mode
+rxAt                   wbwbu*     [start mode end mode rxTransEndSched hardEnd] Configure scheduled receive.
+setRxOptions           w*         [rxOptionsBitField] Configure receive options, based on RAIL_RX_OPTION defines
+tx                     w          [n] Transmit n packets with tx options. If n is 0 transmit infinitely
+txWithOptions          w          [n] Same functionality as tx. This command is deprecated
+txAt                   wb*        [time mode] Transmit a packet at the time and mode specified
+txAfterRx              w          [time] Schedule a TX for a delay in us after each receive. 0 to disable
+configTxOptions        w*         [txOptionsBitfield] Sets the bitmask to be used as the tx options. See #defines starting with "RAIL_TX_OPTION_" in rail_types.h
+setFixedLength         v          [fixedLength] Configure fixed length
+setchannel             v          [channel] Set the current radio channel
+getchannel                        Get the current radio channel
+setPower               sb*        [power raw] Set the current transmit power in deci dBm, or raw units if 'raw' is specified
+getPower                          Get the current transmit power in deci dBm
+getPowerConfig                    Get the current transmit power config.
+sweepTxPower                      Sweep power levels for the current PA and stream at each level.
+offsetLqi              s          [offset] Add this offset value to the hardware's 8-bit hardware LQI value before being made available to the application.
+getRssi                w*         [wait] Get RSSI in dBm if the receiver is turned on. Optionally specify whether or not to wait for a valid value in case it is initially invalid.
+sweepPower             ssw        [lowPower] [hiPower] [period] Sweep power in square wave fashion. Specify power in deci dBm, period in microseconds.
+startAvgRssi           wu*        [averageTimeUs] [channel] Start AGC RSSI averaging
+getAvgRssi                        Get AGC RSSI averaging result.
+setRssiOffset          s          Sets the RSSI offset in dBm.
+getRssiOffset                     Gets the RSSI offset.
+setTxTone              w          [enable] Enable(1) or Disable(0) a tone from the radio
+setTxStream            w          [enable] Enable(1) or Disable(0) a PN9 stream from the radio
+status                            Print the current status counters
+fifoStatus                        Print the current fifo related counters
+setTxDelay             w          [delay] Set the inter-packet delay in milliseconds for repeated Tx
+getTxDelay                        Get the inter-packet delay in milliseconds for repeated Tx
+setTxPayload           vu*        [offset byte0 byte1 ...] Set the packet bytes to be sent
+setTxPayloadQuiet      vu*        [offset byte0 byte1 ...] Functions like 'setTxPayload', but outputs less information
+setTxLength            v          [length] Set the number of bytes to load into the FIFO before transmitting. Actual packet length may vary based on radio configuration
+printTxPacket                     Print the current Tx data and length
+peek                   v*         [number of bytes] [offset] Peek at the start of receive buffer.
+getTime                           Get the current time from the RAIL timebase in microseconds
+setTime                w          Set the current time in the RAIL timebase in microseconds
+dataConfig             bb         [txMethod rxMethod] Choose between 'pkt' and 'fifo' data methods for RAIL Tx and Rx
+setRxFifo              v          [length] Set the receive buffer's length, which is used in both packet mode and FIFO mode. The length cannot be set above RX_BUFFER_SIZE.
+setTxFifoThreshold     v          [txFifoThreshold] Set the Tx Fifo Almost Emtpy threshold
+setRxFifoThreshold     v          [rxFifoThreshold] Set the Rx Fifo Almost Emtpy threshold
+fifoModeTestOptions    uu         [txFifoManual rxFifoManual] Manual control over RAILTEST fifo actions
+rxFifoManualRead       uvu*       [appendedInfo bytesToRead printTiming] Read bytes out of receive fifo and print
+txFifoManualLoad                  Will attempt to load data into the fifo if there is space
+fifoReset              uu         [tx rx] Reset the transmit or receive fifo
+abortRxPacket          w          [abortOffset] Delay after sync word before idling radio.
+printTxAcks            w          [printTxAcks] Enable printing of tx ack packets as they happen.
+configRxChannelHopping w*         [(channel mode parameter delay)...] Configure RX Channel Hopping to hop in the sequence provided, for the given RAIL_RxChannelHoppingMode_t mode, parameter, and interchannel delay. One mode and parameter must be provided per channel.
+enableRxChannelHopping uu*        [enable (reset)] Enable/disable rx channel hopping. The channel hopping will start again from the first member of the sequence is reset is true.
+getChannelHoppingRssi  u          [channelIndex] Get the latest RSSI for the channel at the index of the hopping sequence specified.
+configRxDutyCycle      www        [mode parameter delay] Configure RX Duty Cycle mode to cycle the receiver with the given parameters.
+enableRxDutyCycle      u          [enable] Enable/disable rx duty cycle mode.
+setTxAltPreambleLen    w          [length] Set an alternate preable length for transmit, which can be enabled in txOptions.
+printRxErrors          w          [enable] Enable (1) or Disable (0) printing of Rx error packets
+ --- Energy Modes and RF Sense ---
+sleep                  uw*        [EM# [RfSenseUs RfBand]] Sleep in EM# with RFSenseUs on RfBand (0=none,1=2.4GHz,2=SubGHz,3=both) (and UART input)
+rfsense                ww         [RfSenseUs RfBand] Start RfSensing with RSenseUs on RfBand
+ --- Address Filtering ---
+configAddressFilter    wu*        [matchTable offset0 size0 offset1 size1] Configure the addresss filter.
+setAddressFiltering    u          [enable] Enable(1) or Disable(0) address filtering.
+getAddressFiltering               Print the current state of address filtering.
+printAddresses                    Print the current address filtering addresses.
+setAddress             uuu*       [field index value...] Set the address value at (field, index) to value.
+setAddressEnable       uuu        [field index enable] Enable address filtering for the given address.
+ --- Error Rate Testing ---
+perRx                  ww         [packets delayUs] Start a Packet Error Rate test. 'perRx 0 0' will disable ongoing test.
+perStatus                         Output the results of the PER test. Also see 'status' command
+setBerConfig           w          [number bytes] Set number of bytes to receive in BER mode; 536870911 = max number of bytes to test; 0 = set max number of bytes to test
+berRx                  w          [enable] Enable(1) or Disable(0) BER receive mode
+berStatus                         Get status of last BER test or of current running test; status information is reset for commands setBerConfig and berRx enable
+ --- Listen Before Talk (LBT) ---
+setLbtMode             b*         [modeStr] Set LBT mode off, csma, lbt
+getLbtParams                      Get the current LBT parameters
+setLbtParams           uuusvvw    [minBo maxBo tries thresh backoff duration timeout] Set LBT parameters
+ --- 802.15.4 Mode ---
+enable802154           bvvv       [defaultState idleTime turnaroundTime ackTimeout] Enable 802.15.4 mode
+config2p4GHz802154     u*         [antDiv coex] Configure the radio for 2.4 GHz 802.15.4. This should be called in addition to 'enable802154'.
+config863MHz802154                Configure the radio for 863 MHz 802.15.4 GB868. This should be called in addition to 'enable802154'.
+config915MHz802154                Configure the radio for 915 MHz 802.15.4 GB868. This should be called in addition to 'enable802154'.
+acceptFrames           uuuu       [command ack data beacon] Enable(1) or Disable(0) 802.15.4 frame acceptance. Default settings for 802.15.4 are 1 0 1 1.
+setPromiscuousMode     u          [enable] Enable(1) or Disable(0) promiscuous mode
+setPanCoordinator      u          [enable] Enable(1) or Disable(0) the node acting as a PAN coordinator
+setPanId802154         vu*        [panId index] Set the PAN ID for the given index. Index defaults to 0 if not given
+setShortAddr802154     vu*        [shortAddr index] Set the short address(es) for the given index. Index defaults to 0 if not given
+setLongAddr802154      uuuuuuuuu* [longAddr_0 ... longAddr_7 index] Set the long address for the given index. Index defaults to 0 if not given
+setAddresses802154     vvb*       [panId0 shortAddr0 longAddr0 panId1 ... ] Set all 802.15.4 address information.
+setDataReqLatency      w          [us]  Set data request event processing latency.
+ --- BLE Mode ---
+setBleMode             u          [enable] Set BLE mode to enabled or disabled
+getBleMode                        Get the current BLE mode
+setBleChannelParams    uw*        [logicalChannel accessAddr crcInit disableWhiten] Configure channel parameters related to BLE
+setBlePhySwitchToRx    uw*        [enable phy timeDelta physicalChannel logicalChannel accessAddr crcInit disableWhiten] Configure parameters for BLE PhySwitchToRx. RX is entered timeDelta us after sync word of received packet.
+setBleAdvertising      u          [advChannel] Configure for BLE advertising on channel 37, 38, or 39
+setBle1Mbps            u*         [isViterbi] Switch to the 1Mbps BLE PHY
+setBle2Mbps            u*         [isViterbi] Switch to the 2Mbps BLE PHY
+setBleCoding           u          [coding] Switch to the given RAIL_BLE_Coding_t value
+ --- Z-Wave Mode ---
+setZWaveMode           u*         [enable [options]] Set Z-Wave mode to enabled or disabled
+getZWaveMode                      Get the current Z-Wave mode
+setZWaveRegion         u          [region] Set Z-Wave region
+getZWaveRegion                    Get the current Z-Wave region
+listZWaveRegions                  List supported Z-Wave regions
+getZWaveBaudRate                  Get the baudrate of the current Z-Wave channel
+setZWaveNodeId         u          [nodeId] Sets Z-Wave NodeId
+setZWaveHomeId         wu         [homeId hash] Sets Z-Wave HomeId and its hash
+ --- RAIL Timer ---
+setTimer               wb         [timeout mode] Set the RAIL timer timeout. You can use either an absolute (abs) or relative (rel) timer mode.
+timerCancel                       Cancel the RAIL timer if it's active.
+printTimerStats                   Print current timer configuration.
+enableMultiTimer       u          [enable] Enable (1) or disable (0) the multiTimer API for use. By default the multiTimer is disabled for single protocol RAIL and enabled for multiprotocol RAIL.
+setMultiTimer          uwb        [timer timeout mode] Set a specific timer's timeout, starting with timer 0. You can use either an absolute (abs) or relative (rel) timer mode.
+multiTimerCancel       u          [timer] Cancel a specific timer if it's active, starting with timer 0.
+printMultiTimerStats   u          [timer] Print a specific timer's configuration, starting with timer 0.
+delayUs                w          [delay] Blocking delay for specified number of microseconds.
+ --- Auto Acking ---
+autoAckConfig          bvvv       [defaultState idleTime turnaroundTime ackTimeout] Configure and enable auto ack functionality in RAIL.
+autoAckDisable                    Disable auto ack. Use autoAckConfig to reenable.
+setAckPayload          vu*        [offset byte0 byte1 ...] Set the ack bytes to be sent.
+setAckLength           v          [length] Set the number of bytes to transmit for ack payloads
+printAckPacket                    Print the current ack data and length
+getAutoAck                        Print the current state of auto acking.
+autoAckPause           uu         [RxPause TxPause] Pause(1) or Resume(0) Auto Acking
+setTxAckOptions        uu         [cancelAck useTxBuf] Enable(1) or Disable(0) feature for one receive
+ --- GPIO Functions ---
+setGpioOutPin          buu        [port pin state] Set a GPIO pin's data out bit.
+ --- Diagnostic and Test ---
+getConfigIndex                    Get the index of the current radio configuration selected for use. See the entries in *channelConfigs[]. Start with index 0.
+setConfigIndex         u          [index] Set the index of the current radio configuration selected for use, and associate this new configuration to the current railHandle. See the entries in *channelConfigs[]. Start with index 0.
+getmemw                ww*        [address count] Read count 32bit words starting at address
+setmemw                ww*        [address value...] Write as many 32bit values as specified starting at address
+setCtune               v          [ctune] Set the value of CTUNE in the CMU-&gt;HFXOSTEADYSTATECTRL register
+getCtune                          Get the value of CTUNE in the CMU-&gt;HFXOSTEADYSTATECTRL register
+setPaCtune             uu         [txPaCtune] [rxPaCtune] Set the value of PACTUNE for TX and RX mode
+enablePaCal            u          [enable] Enable(1) or Disable(0) PA power calibration
+setDebugSignal         ?          Configure chip specific debug output. Use 'setDebugSignal help' for more details.
+setDebugMode           w          [mode] 1 = Frequency Override. 0 = Disable debug mode
+freqOverride           w          [freq] Change to freq specified in Hz. Requires debug mode to be enabled. Only small frequency deviations from the current configuration are supported.
+directMode             u          [enable] Enable(1) or Disable(0) direct mode
+directTx               u          [enable] Enable(1) or Disable(0) TX in direct mode
+txCancel               s          [delay] Set the time in microseconds after which we should cancel a tx (a negative value disables this)
+getRandom              vu*        [len hidden] Get len bytes of random data from the radio. Only print them to the screen if hidden is 0 (default).
+setTxUnderflow         w          [enable] Enable(1) or Disable(0) TX underflows
+setRxOverflow          w*         [enable delayUs] Enable(1) or Disable(0) RX overflows. The overflow will be caused by hanging in the interrupt handler for delayUs
+setCalibrations        w          [enable] Enable(1) or Disable(0) RAIL calibrations
+setTxTransitions       bb         [txSuccess txError] Set each RAIL TX state transition value to r(x) or i(dle)
+setRxTransitions       bb         [rxSuccess rxError] Set each RAIL RX state transition value to t(x), r(x), or i(dle).
+setTimings             vvvv*      [idleToRx txToRx idleToTx rxToTx rxSearch txToRxSearch] Set RAIL state transition timings in microseconds
+forceAssert            w          [errorCode] Force a RAIL assert with the given error code.
+printEvents            w*         [printEvents&lt;31:0&gt; [printEvents&lt;63:32&gt;]] Enable printing of RAIL events in chronological order.
+getAppMode                        Print the current app mode of RAILTEST. Values printed are those to be found in AppMode_t.
+getRadioState                     Get the RAIL radio state. Values returned correspond to RAIL_RadioState_t.
+verifyRadio            wuuu       [durationUs restart override callback] Verify radio memory contents and return after duration in microseconds. Restart (1) or resume (0) from last run.
+enterScript            u*         [(flash)] Enter script entry mode. Conclude entry mode with text 'endScript'. Specify if script is saved to RAM (0, default) or RAM and flash (1). If saved to flash, script will run on boot.
+runScript              u*         [(flash)] Run the script entered via enterScript. Run the script in RAM (0, default) or in flash (1).
+printScript            u*         [(flash)] Print the script entered via enterScript. Display the script in RAM (0, default) or in flash (1).
+clearScript            u*         [(flash)] Clear the script entered via enterScript. Clear the script in RAM (0, default) or in flash (1).
+wait                   wb*        [time (mode)] Suspend processing of any input until time in the future. Optionally specify whether the time is relative (rel) (default) or absolute (abs).
+reset                             Perform a reboot of the chip
+ --- RAM Modem Reconfiguration Commands ---
+writeRmrStructure                         uvuw*      This command should only be called by Simplicity Studio and not directly from the CI.
+updateConfigurationPointer                uvu        This command should only be called by Simplicity Studio and not directly from the CI.
+reconfigureModem                                     This command should only be called by Simplicity Studio and not directly from the CI.
+ --- End of RAM Modem Reconfiguration Commands ---
+ --- Antenna Commands ---
+setRfPath              w          [rfPath] 0=Path0, 1=Path1
+ --- End of Antenna Commands ---
+</code></pre>
+
+<h2>Radio Configurator Notes</h2>
+
+<ul>
+<li>Sigfox profile is in Alpha and is still considered experimental.</li>
+</ul>
+
+<h2>Changelist</h2>
+
+<h4>RAIL 2.6.x:</h4>
+
+<ul>
+<li>Fixed <code>setMultiTimer</code> which was ignoring its mode argument; <code>abs</code> mode
+now works.</li>
+<li>The commands <code>setRxOptions</code> and <code>configTxOptions</code> can now be called without
+any parameters to print the current state of these options.</li>
+<li>railtest now uses its config-changed callback for both external and internal
+radio configs to ensure that the appropriate PA level is always selected.</li>
+<li>Added 802.15.4 setDataReqLatency command for testing purposes.</li>
+<li>Fixed some asynchronous event print outs related to Z-Wave beam frame
+reception since they could corrupt the output.</li>
+<li>Added <code>getChannelHoppingRssi</code> command to read the RSSI when in channel hopping
+mode on each available channel.</li>
+</ul>
+
+<h4>RAIL 2.5.x:</h4>
+
+<ul>
+<li>Added the below multi-timer commands. If the multitimer is never enabled (or
+subsequently disabled with <code>enableMultiTimer</code>), then the RAIL timer is a
+single-instance, hardware timer. If the multitimer is enabled, the RAIL timer
+becomes one instance of the software-based multitimer. The multitimer
+can only be enabled or disabled when no timers are running.
+<ul>
+<li><code>enableMultiTimer</code>, <code>setMultiTimer</code>, <code>multiTimerCancel</code>,
+<code>printMultiTimerStats</code></li>
+</ul></li>
+<li>Added <code>printRxErrors</code> command to enable/disable printing of unsuccessfully
+received packets. Defaults to disabled.</li>
+<li>Added the ability to save command scripts to flash and run them from flash.
+Renamed command <code>startScript</code> to <code>runScript</code>. Added command <code>clearScript</code>.</li>
+</ul>
+
+<h4>RAIL 2.4.x:</h4>
+
+<ul>
+<li>Added the RAM Modem Reconfiguration commands. These commands allow the
+dynamic configuration of the modem via a set of studio scripted commands.</li>
+</ul>
+
+<h4>RAIL 2.0.x:</h4>
+
+<ul>
+<li><code>setChannel</code> no longer requires the radio be idle.  If Rx is active
+('rx 1") then any Tx or Rx in progress will be aborted and the new
+channel then switched to.</li>
+</ul>
+
+<h4>RAIL 1.6.x:</h4>
+
+<ul>
+<li>simple <code>tx</code> command transmits with defaults (i.e. don't wait for ack,
+send CRC, use sync word 0)</li>
+<li>configTxOptions now controls 3 options
+<ul>
+<li>BIT0: Wait for ack</li>
+<li>BIT1: Send CRC</li>
+<li>BIT2: Sync Word ID</li>
+</ul></li>
+<li>setRxOptions now controls 3 options
+<ul>
+<li>BIT0: Store CRC</li>
+<li>BIT1: Ignore CRC errors</li>
+<li>BIT2: Enable dual sync</li>
+</ul></li>
+</ul>
+
+<h4>RAIL 1.5.x:</h4>
+
+<ul>
+<li>Added the following commands:
+<ul>
+<li><code>rxConfig</code>, <code>setRxOptions</code>, <code>setFixedLength</code>, <code>fifoStatus</code>, <code>dataConfig</code>,
+<code>setTxFifoThreshold</code>, <code>setRxFifoThreshold</code>, <code>iqCapture</code></li>
+</ul></li>
+</ul>
+
+<h4>RAIL 1.4.1:</h4>
+
+<ul>
+<li>Added the following commands:
+<ul>
+<li><code>setPtiProtcol</code>, <code>sweepPower</code>, <code>startAvgRssi</code>, <code>getAvgRssi</code>, <code>setBle1Mbps</code>,
+<code>setBle2Mbps</code></li>
+</ul></li>
+</ul>
+
+<h4>RAIL 1.3.1:</h4>
+
+<ul>
+<li>Added <a href="#bluetooth-low-energy">Bluetooth Low Energy</a> commands
+<ul>
+<li><code>setBleMode</code>, <code>getBleMode</code>, <code>setBleChannelParams</code>, <code>setBleAdvertising</code></li>
+</ul></li>
+<li>Fixed help text for <code>setPanId802154</code>, <code>setshortAddr802154</code>,
+<code>setLongAddr802154</code></li>
+<li>Changed parameters for <code>acceptFrames</code> separating the bitmask into individual
+elements</li>
+</ul>
+
+<h4>RAIL 1.3.0:</h4>
+
+<ul>
+<li>Added <a href="#auto-acknowledgement">Auto Acknowledgement</a> commands
+<ul>
+<li><code>autoAckConfig</code>, <code>autoAckDisable</code>, <code>setAckPayload</code>, <code>setAckLength</code>,
+<code>printAckPacket</code>, <code>getAutoAck</code>, <code>autoAckPause</code>, <code>setTxAckOptions</code></li>
+</ul></li>
+<li>Added <a href="#ieee-802-15-4">IEEE 802.15.4</a> commands
+<ul>
+<li><code>enable802154</code>, <code>config2p4GHz802154</code>, <code>acceptFrames</code>, <code>setPromiscuousMode</code>,
+<code>setPanCoordinator</code>, <code>setPanId802154</code>, <code>setShortAddr802154</code>,
+<code>setLongAddr802154</code></li>
+</ul></li>
+<li>Added scheduled RX command <code>rxAt</code></li>
+<li>Added <code>transmitWithOptions</code> and <code>configTxOptions</code> commands</li>
+<li>Added <code>setDebugSignal</code> command.</li>
+</ul>
+
+<h4>RAIL 1.2.1:</h4>
+
+<ul>
+<li>Added <code>setPaCtune</code> which can configure custom PA capacitor tuning values for
+TX and RX</li>
+<li>Fixed RSSI slope requiring a 4dB power change for 1dB change in the received
+packet print</li>
+</ul>
+
+<h4>RAIL 1.2.0:</h4>
+
+<ul>
+<li>Added <a href="#bit-error-rate-testing">bit error rate test</a> commands -
+<code>setBerConfig</code>, <code>berRx</code>, and <code>berStatus</code>.</li>
+<li>Added <a href="#packet-error-rate-testing">packet error rate test</a> commands -
+<code>perRx</code>, <code>perStatus</code>.</li>
+<li>Added the ability to set the RAIL timebase in microseconds - <code>setTime</code>.</li>
+<li>RxOverflow counter now only counts number of overflows, instead of
+mistakenly counting some non-overflow events.</li>
+<li>Removed the RfUs output parameter from the 'sleep' command due to it being
+incorrect.</li>
+</ul>
+
+<h4>RAIL 1.1 - May 15, 2016:</h4>
+
+<ul>
+<li><a href="#automatic-state-transitions">Automatic state transitions</a> and timings added
+via <code>setRxTransitions</code>, <code>setTxTransitions</code>, and <code>setTimings</code>.</li>
+<li>Ability to selectively enable the address filter on certain frame types
+added through <code>addressFilterByFrame</code> command.</li>
+<li>Independent status booleans were removed in favor of a single <code>AppMode</code>
+status variable, which keeps track of the state of RAILtest.</li>
+<li>More validation is done to ensure that certain RAIL commands are only run in
+the correct AppMode and radio state. The radio must be IDLE for <code>setChannel</code>,
+<code>freqOverride</code>, <code>setPower</code>, and <code>setCtune</code> to succeed.</li>
+<li><code>setTestMode</code> was removed in favor of individual commands for
+<code>setTxUnderflow</code>, <code>setRxOverflow</code>, and <code>setCalibrations</code></li>
+<li><code>toggleTone</code> became <code>setTxTone</code>, and <code>toggleStream</code> became <code>setTxStream</code>.</li>
+<li>Removed command <code>getTicks</code>, since the RAIL_GetTime() function made the
+timer used unnecessary.</li>
+<li>Removed command <code>txTimeReport</code>, since it was exposing implemenation-specific
+behavior encapsulated by RAIL.</li>
+</ul>
+
+<h4>Beta 1 - November 16, 2015:</h4>
+
+<ul>
+<li>New library features for RF Energy Sensing exposed via new <code>rfSense</code> and
+<code>sleep</code> commands.</li>
+<li>New RAIL timer functionality exposed via the <code>setTimer</code>, <code>timerCancel</code>, and
+<code>printTimerStats</code> commands.</li>
+<li>New <code>printDataRates</code> command to get information about the current PHY's data
+rates.</li>
+<li>Documentation clean up.</li>
+</ul>
+
+<h4>Alpha 2 - September 14, 2015:</h4>
+
+<ul>
+<li>Commands for filtering of receive packets based on defined address fields
+and compare values.</li>
+<li>Scheduling of packet transmission at an absolute time or after a defined
+delay.</li>
+<li>Packet transmission conditional on Clear Channel Assessment (CSMA, LBT).</li>
+<li>The ability to read RSSI manually.</li>
+<li>Capability to switch between multiple PHY configurations at runtime.</li>
+<li>Revised help text (more uniform parameter descriptions).</li>
+</ul>
+</body>
+</html>

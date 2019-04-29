@@ -1,0 +1,142 @@
+# Internal Test Application
+
+mustang {
+  name=Connect (SoC): Mustang
+  dir=mustang-app/
+  isc=mustang-app/mustang-app.isc
+  architecture=efr32,simulation
+  include=simulation/flex-callbacks.c, .internal_hwconfig
+  This internal application provides extensive hooks and commands for testing purposes.
+}
+
+
+# SoC Applications
+
+commissioned-device {
+  name=Connect (SoC): Commissioned Device
+  dir=commissioned-device/
+  isc=commissioned-device/commissioned-device.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c, .internal_hwconfig
+  This application demonstrates direct communication between nodes in
+  range. The network parameters are commissioned by the application.
+}
+
+mac-device {
+  name=Connect (SoC): MAC Mode Device
+  dir=mac-device/
+  isc=mac-device/mac-device.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c, .internal_hwconfig
+  This application demonstrates direct MAC mode communication between nodes in
+  range.
+}
+
+sensor {
+  name=Connect (SoC): Sensor
+  dir=sensor-sink/sensor
+  isc=sensor-sink/sensor/sensor.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c, .internal_hwconfig
+  This application demonstrates a star network topology setup.
+  Bi-directional communication is possible between the sensor(s) and the sink nodes.
+}
+
+sink {
+  name=Connect (SoC): Sink
+  dir=sensor-sink/sink
+  isc=sensor-sink/sink/sink.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c, .internal_hwconfig
+  This application demonstrates a star network topology setup.
+  Bi-directional communication is possible between the sensor(s) and the sink nodes.
+}
+
+wire-replacement {
+  name=Connect (SoC): Wire-Replacement
+  dir=wire-replacement/
+  isc=wire-replacement/wire-replacement.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c, .internal_hwconfig
+  This application demonstrates point to point bi-directional direct or
+  indirect communication between two nodes.
+}
+
+
+# Host Applications
+
+commissioned-device-host {
+  name=Connect (Host): Commissioned Device
+  dir=commissioned-device/
+  isc=commissioned-device/commissioned-device-host.isc
+  architecture=unix,simulation
+  include=flex-callbacks.c
+  This application demonstrates direct communication between nodes in
+  range. The network parameters are commissioned by the application.
+  It runs on Unix UART Host, with EFR32 NCP.
+}
+
+mac-device-host {
+  name=Connect (Host): MAC Mode Device
+  dir=mac-device/
+  isc=mac-device/mac-device-host.isc
+  architecture=efr32,simulation
+  include=flex-callbacks.c
+  This application demonstrates direct MAC mode communication between nodes in
+  range.
+  It runs on Unix UART Host, with EFR32 NCP.
+}
+
+sensor-host {
+  name=Connect (Host): Sensor
+  dir=sensor-sink/sensor
+  isc=sensor-sink/sensor/sensor-host.isc
+  architecture=unix,simulation
+  include=flex-callbacks.c
+  This application demonstrates a star network topology setup.
+  Bi-directional communication is possible between the sensor(s) and the sink nodes.
+  It runs on Unix UART Host, with EFR32 NCP.
+}
+
+sink-host {
+  name=Connect (Host): Sink
+  dir=sensor-sink/sink
+  isc=sensor-sink/sink/sink-host.isc
+  architecture=unix,simulation
+  include=flex-callbacks.c
+  This application demonstrates a star network topology setup.
+  Bi-directional communication is possible between the sensor(s) and the sink nodes.
+  It runs on Unix UART Host, with EFR32 NCP
+}
+
+wire-replacement-host {
+  name=Connect (Host): Wire-Replacement
+  dir=wire-replacement/
+  isc=wire-replacement/wire-replacement-host.isc
+  architecture=unix,simulation
+  include=flex-callbacks.c
+  This application demonstrates point to point bi-directional direct or
+  indirect communication between two nodes. It runs on Unix UART Host, with EFR32 NCP.
+}
+
+# NCP Applications
+
+ncp-uart-hw {
+  name=Connect (NCP): UART HW (Hardware Flow Control)
+  dir=ncp/ncp-uart-hw
+  isc=ncp/ncp-uart-hw/ncp-uart-hw.isc
+  architecture=efr32,simulation
+  include=.internal_hwconfig
+  This network coprocessor (NCP) application supports communication with
+  a host application over a UART interface with hardware flow control.
+}
+
+ncp-uart-sw {
+  name=Connect (NCP): UART SW (Software Flow Control)
+  dir=ncp/ncp-uart-sw
+  isc=ncp/ncp-uart-sw/ncp-uart-sw.isc
+  architecture=efr32,simulation
+  include=.internal_hwconfig
+  This network coprocessor (NCP) application supports communication with
+  a host application over a UART interface with software flow control.
+}

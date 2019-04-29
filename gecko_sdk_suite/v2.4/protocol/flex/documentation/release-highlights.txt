@@ -1,0 +1,10 @@
+
+What's new in Flex 2.4.0.0:
+  * Update to RAIL_LIB 2.5.1.0
+ 
+What's new in Flex 2.4.0.0:
+  * New Alpha Multi-PHY Radio Configurator GUI
+  * Range Test for Dynamic Multiprotocol BLE Proprietary Wireless with BLE
+  * Alpha 500kbps PHY support for Connect
+  * IAR EWARM 8.30.1 support
+  * Various bug fixes

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='ASCII'?>
+<model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
+  <descriptors id="Artik_020_A">
+    <property key="partCompatibility" value="mcu.arm.efr32.bg1.artik_020_a"/>
+    <property key="hardwareConfigData" value="artik_020_a/ARTIK_020_A.device"/>
+  </descriptors>
+  <descriptors id="efr32.artik_020_a.extension">
+    <property key="hardwareConfigData" value="artik_020_a/ARTIK_020_A.deviceextension"/>
+  </descriptors>
+  <descriptors id="efr32.artik.artik_020_a.portio">
+    <property key="hardwareConfigData" value="artik_020_a/PORTIO.portio"/>
+  </descriptors>
+  <descriptors id="Artik_020_E">
+    <property key="partCompatibility" value="mcu.arm.efr32.bg1.artik_020_e"/>
+    <property key="hardwareConfigData" value="artik_020_e/ARTIK_020_E.device"/>
+  </descriptors>
+  <descriptors id="efr32.artik_020_e.extension">
+    <property key="hardwareConfigData" value="artik_020_e/ARTIK_020_E.deviceextension"/>
+  </descriptors>
+  <descriptors id="efr32.artik.artik_020_e.portio">
+    <property key="hardwareConfigData" value="artik_020_e/PORTIO.portio"/>
+  </descriptors>
+  <descriptors id="Artik_030_A">
+    <property key="partCompatibility" value="mcu.arm.efr32.mg1.artik_030_a"/>
+    <property key="hardwareConfigData" value="artik_030_a/ARTIK_030_A.device"/>
+  </descriptors>
+  <descriptors id="efr32.artik_030_a.extension">
+    <property key="hardwareConfigData" value="artik_030_a/ARTIK_030_A.deviceextension"/>
+  </descriptors>
+  <descriptors id="efr32.artik.artik_030_a.portio">
+    <property key="hardwareConfigData" value="artik_030_a/PORTIO.portio"/>
+  </descriptors>
+  <descriptors id="Artik_030_E">
+    <property key="partCompatibility" value="mcu.arm.efr32.mg1.artik_030_e"/>
+    <property key="hardwareConfigData" value="artik_030_e/ARTIK_030_E.device"/>
+  </descriptors>
+  <descriptors id="efr32.artik_030_e.extension">
+    <property key="hardwareConfigData" value="artik_030_e/ARTIK_030_E.deviceextension"/>
+  </descriptors>
+  <descriptors id="efr32.artik.artik_030_e.portio">
+    <property key="hardwareConfigData" value="artik_030_e/PORTIO.portio"/>
+  </descriptors>
+  <descriptors id="efr32.artik.port">
+    <property key="hardwareConfigData" value="modules/PORT/PORT.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.portio">
+    <property key="hardwareConfigData" value="modules/PORTIO/PORTIO.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.pin">
+    <property key="hardwareConfigData" value="modules/PIN/PIN.pin"/>
+  </descriptors>
+  <descriptors id="efr32.artik.cmu">
+    <property key="hardwareConfigData" value="modules/CMU/CMU.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.prs">
+    <property key="hardwareConfigData" value="modules/PRS/PRS.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.timer0">
+    <property key="hardwareConfigData" value="modules/TIMER0/TIMER0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.timer1">
+    <property key="hardwareConfigData" value="modules/TIMER1/TIMER1.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.usart0">
+    <property key="hardwareConfigData" value="modules/USART0/USART0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.usart1">
+    <property key="hardwareConfigData" value="modules/USART1/USART1.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.leuart0">
+    <property key="hardwareConfigData" value="modules/LEUART0/LEUART0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.letimer0">
+    <property key="hardwareConfigData" value="modules/LETIMER0/LETIMER0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.pcnt0">
+    <property key="hardwareConfigData" value="modules/PCNT0/PCNT0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.i2c0">
+    <property key="hardwareConfigData" value="modules/I2C0/I2C0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.acmp0">
+    <property key="hardwareConfigData" value="modules/ACMP0/ACMP0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.acmp1">
+    <property key="hardwareConfigData" value="modules/ACMP1/ACMP1.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.gpio">
+    <property key="hardwareConfigData" value="modules/GPIO/GPIO.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.pti">
+    <property key="hardwareConfigData" value="modules/PTI/PTI.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.modem">
+    <property key="hardwareConfigData" value="modules/MODEM/MODEM.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.adc0">
+    <property key="hardwareConfigData" value="modules/ADC0/ADC0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.idac0">
+    <property key="hardwareConfigData" value="modules/IDAC0/IDAC0.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.lfxo">
+    <property key="hardwareConfigData" value="modules/LFXO/LFXO.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.dcdc">
+    <property key="hardwareConfigData" value="modules/DCDC/DCDC.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.emu">
+    <property key="hardwareConfigData" value="modules/EMU/EMU.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.wdog">
+    <property key="hardwareConfigData" value="modules/WDOG/WDOG.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.btl_button">
+    <property key="hardwareConfigData" value="modules/BTL_BUTTON/BTL_BUTTON.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.button">
+    <property key="hardwareConfigData" value="modules/BUTTON/BUTTON.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.extflash">
+    <property key="hardwareConfigData" value="modules/EXTFLASH/EXTFLASH.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.i2csensor">
+    <property key="hardwareConfigData" value="modules/I2CSENSOR/I2CSENSOR.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.ioexp">
+    <property key="hardwareConfigData" value="modules/IOEXP/IOEXP.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.led">
+    <property key="hardwareConfigData" value="modules/LED/LED.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.serial">
+    <property key="hardwareConfigData" value="modules/SERIAL/SERIAL.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.spidisplay">
+    <property key="hardwareConfigData" value="modules/SPIDISPLAY/SPIDISPLAY.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.spincp">
+    <property key="hardwareConfigData" value="modules/SPINCP/SPINCP.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.uartncp">
+    <property key="hardwareConfigData" value="modules/UARTNCP/UARTNCP.module"/>
+  </descriptors>
+  <descriptors id="efr32.artik.vcom">
+    <property key="hardwareConfigData" value="modules/VCOM/VCOM.module"/>
+  </descriptors>
+</model:MDescriptors>

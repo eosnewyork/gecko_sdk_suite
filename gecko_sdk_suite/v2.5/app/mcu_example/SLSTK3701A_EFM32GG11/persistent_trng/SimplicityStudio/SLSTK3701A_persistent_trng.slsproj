@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3701A_persistent_trng" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_crypto.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_msc.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_prs.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv.nvm3">
+    <include pattern="nvm3/.*/nvm3_hal_flash.c" />
+    <include pattern="nvm3/.*/nvm3_lock.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargettextdisplay.c" />
+    <include pattern="Drivers/textdisplay.c" />
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh06.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.mbedtls">
+    <include pattern="mbedtls/sha256.c" />
+    <include pattern="mbedtls/bignum.c" />
+    <include pattern="mbedtls/ctr_drbg.c" />
+    <include pattern="mbedtls/entropy.c" />
+    <include pattern="mbedtls/entropy_poll.c" />
+    <include pattern="mbedtls/error.c" />
+    <include pattern="mbedtls/platform.c" />
+    <include pattern="mbedtls/version.c" />
+    <include pattern="mbedtls/version_features.c" />
+    <include pattern="sl_crypto/crypto_aes.c" />
+    <include pattern="sl_crypto/crypto_management.c" />
+    <include pattern="sl_crypto/trng.c" />
+    <include pattern="sl_crypto/crypto_sha.c" />
+    <include pattern="sl_crypto/shax.c" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-trng.h"' />
+  <file name="persistent_trng.icf" uri="persistent_trng.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <file name="persistent_trng.ld" uri="persistent_trng.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+  </folder>
+  <toolOption toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="${workspace_loc:/${ProjName}/persistent_trng.icf}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/persistent_trng.ld}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

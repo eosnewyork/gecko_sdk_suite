@@ -1,0 +1,1148 @@
+# This file can list directories where to load plugins from or
+# declare virtual plugins.
+# Any line that says: pluginDirectory=RELATIVE/PATH/
+# will cause appbuilder to read in that directory for plugin subdirectories.
+#
+# Virtual plugins are declared with sections:
+# plugin(xxx) {
+#   BLOCK IDENTICAL TO plugin.properties
+# }
+
+
+pluginDirectory=../plugins/
+
+plugin(hal) {
+  root=$HAL/../../
+  name=HAL Library
+  category=Connect HAL
+  architecture=efr32~series[1],simulation
+  description=HAL Library
+
+  callbacks= $FRAMEWORK/meta-inf/callbacks/hal-library-callbacks.info
+
+  providedApis=hal,token,board,button,led
+  requiredApis=sim-eeprom,diagnostic
+  api.hal.header=$HAL/hal.h
+
+  # BUG: FLEX-436
+  # Requiring setups for Connect SoC.
+  # unix-library is being used to enforce reqs for Connect Host
+  needsSetup=bookkeeping,eventConfiguration,token,debugConfiguration,callbackConfiguration
+
+  # Files that are released in source
+
+  # Common files
+  $EMDRV/uartdrv/src/uartdrv.c
+  $HAL/micro/cortexm3/efm32/button.c
+  $HAL/micro/cortexm3/efm32/cstartup-common.c
+  $HAL/micro/cortexm3/efm32/hal-config-gpio.c
+  $HAL/micro/cortexm3/efm32/hal-config.c
+  $HAL/micro/cortexm3/efm32/isr-stubs.s79
+  $HAL/micro/cortexm3/efm32/led.c
+  $HAL/micro/cortexm3/efm32/mfg-token.c
+  $HAL/micro/cortexm3/efm32/micro-common.c
+  $HAL/micro/cortexm3/efm32/micro.c
+  $HAL/micro/cortexm3/efm32/sleep-efm32.c
+  $HAL/micro/cortexm3/efm32/symbol-timer.c
+  $HAL/micro/cortexm3/efm32/token.c
+  $HAL/micro/generic/mem-util.c
+  $HAL/micro/generic/crc.c
+  $HAL/micro/generic/random.c
+  $HAL/micro/generic/token-def.c
+  $HAL/plugin/buzzer/buzzer-efr32.c
+  $HAL/plugin/serial/cortexm/efm32/com.c
+  $KIT/common/bsp/bsp_stk_leds.c
+  $KIT/common/drivers/dmactrl.c
+  $KIT/common/drivers/udelay.c
+
+  # EFR-specific files
+  (efr32):$EMLIB/src/em_crypto.c
+  (efr32):$HAL/micro/cortexm3/efm32/faults-v7m.s79
+  (efr32):$KIT/common/bsp/bsp_stk.c
+  (efr32):base/hal/plugin/adc/adc-efr32.c
+  (efr32):$HAL/micro/cortexm3/efm32/mpu.c
+
+  #Files that go to the HAL library
+  # TODO FIX: workaround for (efr32+iar):$DEVICE/SiliconLabs/$--chipFamily;U--$/Source/IAR/startup_$--chipFamily;L--$.c
+  (efr32~family[B]~series[1]~device_configuration[1]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32BG1P/Source/IAR/startup_efr32bg1p.c
+  (efr32~family[F]~series[1]~device_configuration[1]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32FG1P/Source/IAR/startup_efr32fg1p.c
+  (efr32~family[F]~series[1]~device_configuration[1]~performance[V]+iar):$DEVICE/SiliconLabs/EFR32FG1V/Source/IAR/startup_efr32fg1v.c
+  (efr32~family[M]~series[1]~device_configuration[1]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32MG1P/Source/IAR/startup_efr32mg1p.c
+  (efr32~family[B]~series[1]~device_configuration[2]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32BG12P/Source/IAR/startup_efr32bg12p.c
+  (efr32~family[F]~series[1]~device_configuration[2]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32FG12P/Source/IAR/startup_efr32fg12p.c
+  (efr32~family[M]~series[1]~device_configuration[2]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32MG12P/Source/IAR/startup_efr32mg12p.c
+  (efr32~family[B]~series[1]~device_configuration[3]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32BG13P/Source/IAR/startup_efr32bg13p.c
+  (efr32~family[F]~series[1]~device_configuration[3]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32FG13P/Source/IAR/startup_efr32fg13p.c
+  (efr32~family[M]~series[1]~device_configuration[3]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32MG13P/Source/IAR/startup_efr32mg13p.c
+  #(efr32~family[Z]~series[1]~device_configuration[3]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32ZG13P/Source/IAR/startup_efr32zg13p.c
+  (efr32~family[B]~series[1]~device_configuration[4]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32BG14P/Source/IAR/startup_efr32bg14p.c
+  (efr32~family[F]~series[1]~device_configuration[4]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32FG14P/Source/IAR/startup_efr32fg14p.c
+  (efr32~family[F]~series[1]~device_configuration[4]~performance[V]+iar):$DEVICE/SiliconLabs/EFR32FG14V/Source/IAR/startup_efr32fg14v.c
+  (efr32~family[M]~series[1]~device_configuration[4]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32MG14P/Source/IAR/startup_efr32mg14p.c
+  #(efr32~family[Z]~series[1]~device_configuration[4]~performance[P]+iar):$DEVICE/SiliconLabs/EFR32ZG14P/Source/IAR/startup_efr32zg14p.c
+  (efr32~family[M]~series[2]~device_configuration[1]~performance[A]+iar):$DEVICE/SiliconLabs/EFR32MG21A/Source/IAR/startup_efr32mg21a.c
+
+  # TODO FIX: (efr32+gcc):$DEVICE/SiliconLabs/$--chipFamily;U--$/Source/GCC/startup_$--chipFamily;L--$.c
+  (efr32~family[B]~series[1]~device_configuration[1]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32BG1P/Source/GCC/startup_efr32bg1p.c
+  (efr32~family[F]~series[1]~device_configuration[1]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32FG1P/Source/GCC/startup_efr32fg1p.c
+  (efr32~family[F]~series[1]~device_configuration[1]~performance[V]+gcc):$DEVICE/SiliconLabs/EFR32FG1V/Source/GCC/startup_efr32fg1v.c
+  (efr32~family[M]~series[1]~device_configuration[1]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32MG1P/Source/GCC/startup_efr32mg1p.c
+  (efr32~family[B]~series[1]~device_configuration[2]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32BG12P/Source/GCC/startup_efr32bg12p.c
+  (efr32~family[F]~series[1]~device_configuration[2]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32FG12P/Source/GCC/startup_efr32fg12p.c
+  (efr32~family[M]~series[1]~device_configuration[2]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32MG12P/Source/GCC/startup_efr32mg12p.c
+  (efr32~family[B]~series[1]~device_configuration[3]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32BG13P/Source/GCC/startup_efr32bg13p.c
+  (efr32~family[F]~series[1]~device_configuration[3]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32FG13P/Source/GCC/startup_efr32fg13p.c
+  (efr32~family[M]~series[1]~device_configuration[3]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32MG13P/Source/GCC/startup_efr32mg13p.c
+  #(efr32~family[Z]~series[1]~device_configuration[3]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32ZG13P/Source/GCC/startup_efr32zg13p.c
+  (efr32~family[B]~series[1]~device_configuration[4]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32BG14P/Source/GCC/startup_efr32bg14p.c
+  (efr32~family[F]~series[1]~device_configuration[4]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32FG14P/Source/GCC/startup_efr32fg14p.c
+  (efr32~family[F]~series[1]~device_configuration[4]~performance[V]+gcc):$DEVICE/SiliconLabs/EFR32FG14V/Source/GCC/startup_efr32fg14v.c
+  (efr32~family[M]~series[1]~device_configuration[4]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32MG14P/Source/GCC/startup_efr32mg14p.c
+  #(efr32~family[Z]~series[1]~device_configuration[4]~performance[P]+gcc):$DEVICE/SiliconLabs/EFR32ZG14P/Source/GCC/startup_efr32zg14p.c
+  (efr32~family[M]~series[2]~device_configuration[1]~performance[A]+gcc):$DEVICE/SiliconLabs/EFR32MG21A/Source/GCC/startup_efr32mg21a.c
+
+  $HAL/micro/cortexm3/efm32/flash.c
+  $HAL/micro/cortexm3/efm32/micro-common-internal.c
+  $HAL/micro/cortexm3/efm32/micro-internal.c
+  $HAL/micro/cortexm3/efm32/register-access.c
+  $HAL/micro/cortexm3/efm32/system-timer.c
+  (efr32):$FRAMEWORK/plugins/stack/platform/micro/cortexm3/efm32/efr32/aes.c
+
+  precompiled(efr32+iar){
+    file= $FRAMEWORK/plugins/libraries/hal-$--chipFamily;L--$-library-iar.a
+
+    $HAL/micro/cortexm3/efm32/flash.c
+    $HAL/micro/cortexm3/efm32/micro-common-internal.c
+    $HAL/micro/cortexm3/efm32/micro-internal.c
+    $HAL/micro/cortexm3/efm32/register-access.c
+    $HAL/micro/cortexm3/efm32/system-timer.c
+    $FRAMEWORK/plugins/stack/platform/micro/cortexm3/efm32/efr32/aes.c
+  }
+
+  precompiled(efr32+gcc){
+    file= $FRAMEWORK/plugins/libraries/hal-$--chipFamily;L--$-library-gcc.a
+
+    $HAL/micro/cortexm3/efm32/flash.c
+    $HAL/micro/cortexm3/efm32/micro-common-internal.c
+    $HAL/micro/cortexm3/efm32/micro-internal.c
+    $HAL/micro/cortexm3/efm32/register-access.c
+    $HAL/micro/cortexm3/efm32/system-timer.c
+    $FRAMEWORK/plugins/stack/platform/micro/cortexm3/efm32/efr32/aes.c
+  }
+
+  setup(additionalFiles) {
+    PATH(FRAMEWORK_RELATIVE):../
+    PATH(FRAMEWORK_RELATIVE):plugins
+    PATH(FRAMEWORK_RELATIVE):plugins/stack
+    PATH(HAL_RELATIVE):../../
+    PATH(ABSOLUTE):$CMSIS/Include
+    PATH(HAL_RELATIVE):..
+    PATH(HAL_RELATIVE):
+    PATH(HAL_RELATIVE):micro
+    PATH(HAL_RELATIVE):micro/cortexm3/common
+    PATH(HAL_RELATIVE):micro/cortexm3/efm32/board
+    PATH(HAL_RELATIVE):micro/cortexm3/efm32/config
+    PATH(HAL_RELATIVE):micro/cortexm3/efm32
+    PATH(ABSOLUTE):$EMLIB/inc
+    PATH(ABSOLUTE):$EMDRV/common/inc
+    PATH(ABSOLUTE):$EMDRV/dmadrv/inc
+    PATH(ABSOLUTE):$EMDRV/gpiointerrupt/inc
+    PATH(ABSOLUTE):$EMDRV/rtcdrv/inc
+    PATH(ABSOLUTE):$EMDRV/sleep/inc
+    PATH(ABSOLUTE):$EMDRV/uartdrv/inc
+    PATH(ABSOLUTE):$EMDRV/ustimer/inc
+    PATH(ABSOLUTE):$KIT/common/bsp
+    PATH(ABSOLUTE):$KIT/common/drivers
+    PATH(ABSOLUTE):$KIT/common/halconfig
+    PATH(HAL_RELATIVE):plugin/
+
+    # EFR32 specific include paths
+    (efr32)=PATH(HAL_RELATIVE):/micro/cortexm3/efm32/efr32
+    (efr32)=PATH(ABSOLUTE):$EMDRV/tempdrv/config
+    (efr32)=PATH(ABSOLUTE):$EMDRV/tempdrv/inc
+    (efr32)=PATH(ABSOLUTE):$GLIB
+    (efr32)=PATH(ABSOLUTE):$GLIB/glib
+    (efr32)=PATH(ABSOLUTE):$GLIB/dmd
+
+  }
+
+  setup(template) {
+    linkerProgramEntryLabel=__iar_program_start
+    linkerIcfFile=$--halDir--$\micro\cortexm3\efm32\iar-cfg.icf
+    linkerLdFile=$--halDir--$/micro/cortexm3/efm32/gcc-cfg.ld
+    linkerNoSys=-lnosys
+    (efr32~series[1]):lockbitsInMainflashSize=0
+    (efr32~series[2]):lockbitsInMainflashSize=8192
+  }
+
+  setup(macros) {
+    -DEMLIB_USER_CONFIG
+    -DDEBUG_LEVEL=NO_DEBUG
+  }
+}
+
+plugin(diagnostic) {
+  name=Diagnostic
+  description=Program counter diagnostic functions.
+  category=Connect Debug
+  quality=production
+  root=$HAL
+  requiredApis=hal
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=diagnostic,diagnostic-cortexm3
+  api.diagnostic.header=micro/diagnostic.h
+  api.diagnostic-cortexm3.header=micro/cortexm3/diagnostic.h
+
+  requiredApis=hal,serial
+  micro/cortexm3/efm32/diagnostic.c
+  micro/cortexm3/efm32/assert-crash-handlers.c
+
+  setup(macros) {
+    -DDEBUG_EFM
+  }
+}
+
+plugin(diagnostic-stub) {
+  name=Diagnostic Stub
+  description=Stub implementation of the diagnostic API for devices that do not use diagnostics.
+  category=Connect Debug
+  quality=stub
+  root=$HAL
+  requiredApis=hal
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=diagnostic
+  api.diagnostic.header=micro/diagnostic.h
+
+  micro/cortexm3/efm32/diagnostic-stub.c
+}
+
+plugin(sim-eeprom1) {
+  name=Simulated EEPROM version 1 Library
+  description=This library simulates an EEPROM within the internal flash of the chip to maximize the lifetime of flash pages and reduce write cycles.  The simulated EEPROM extends the lifetime of flash by wear leveling writes across the flash.  It is used for persistent storage of tokens for the network and application layers.  The network tokens are automatically managed by the network stack.  The application may add its own tokens.  See Application note AN703 for more information.
+  category=Connect HAL
+  quality=production
+  root=$HAL
+  requiredApis=hal
+
+  callbacks= $HAL/config/sim-eeprom-callback.info
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=sim-eeprom
+  api.sim-eeprom.header=plugin/sim-eeprom/sim-eeprom.h
+
+  setup(template) {
+    simeepromSize=8192
+  }
+
+  plugin/sim-eeprom1/sim-eeprom.c
+  plugin/sim-eeprom1/sim-eeprom-internal.c
+
+  precompiled(efr32+iar) {
+    file=$FRAMEWORK/plugins/libraries/sim-eeprom1-library-iar.a
+
+    plugin/sim-eeprom1/sim-eeprom-internal.c
+  }
+
+  precompiled(efr32+gcc) {
+    file=$FRAMEWORK/plugins/libraries/libsim-eeprom1-library-gcc.a
+
+    plugin/sim-eeprom1/sim-eeprom-internal.c
+  }
+
+}
+
+plugin(sim-eeprom2) {
+  name=Simulated EEPROM version 2 Library
+  description=This library simulates an EEPROM within the internal flash of the chip to maximize the lifetime of flash pages and reduce write cycles.  The simulated EEPROM extends the lifetime of flash by wear leveling writes across the flash.  It is used for persistent storage of tokens for the network and application layers.  The network tokens are automatically managed by the network stack.  The application may add its own tokens.  SimEE1 and SimEE2 share the same fundamental limits on maximum number of tokens, maximum token or element size, and maximum number of elements in an indexed token. Maximum sum total of all token sizes is 2 kB in version 1 and 8 kB in version 2.  Version 2 is designed to reduce the time needed when an application writes a token, at the expense of consuming more flash.  Therefore SimEE2 is more appropriate when writing an element within a large set of tokens during time critical operations.  For example setting a binding within a 100 entry binding table.  Page erasure is under application control, via a callback, due to requiring the chip to disable interrupts during the erasure.  See Application note AN703 for more information.  This library requires the Simulated EEPROM version 1 to version 2 upgrade library or stub upgrade library.  The upgrade stub library is recommended since the stub adds minimal code space.  The full upgrade library should only be used when there are existing units in the field using SimEE1 that are meant to be upgraded.
+  category=Connect HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32~series[1],simulation
+
+  callbacks= $HAL/config/sim-eeprom-callback.info
+
+  providedApis=sim-eeprom
+  api.sim-eeprom.header=plugin/sim-eeprom/sim-eeprom.h
+  requiredApis=hal,sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2/sim-eeprom2-internal.c (efr32)
+  plugin/sim-eeprom2/sim-eeprom2.c          (efr32)
+
+  options=password
+  conditions=verify
+
+  password.name=Password
+  password.description=The Simulated EEPROM 2 Library requires a password with which the user can access the data.
+  password.type=STRING
+  password.default=
+
+  verify.expression=password.equals("!spoon")
+  verify.message=Invalid password specified in the plugin options.  Please see Application Note AN703 to obtain the password and for more information on choosing SimEE2.
+
+  setup(template) {
+    simeepromSize=36864
+  }
+
+  setup(macros) {
+    -DUSE_SIMEE2
+  }
+
+  precompiled(efr32+iar) {
+    file=$FRAMEWORK/plugins/libraries/sim-eeprom2-library-iar.a
+
+    plugin/sim-eeprom2/sim-eeprom2-internal.c
+  }
+
+  precompiled(efr32+gcc) {
+    file=$FRAMEWORK/plugins/libraries/libsim-eeprom2-library-gcc.a
+
+    plugin/sim-eeprom2/sim-eeprom2-internal.c
+  }
+}
+
+plugin(sim-eeprom2-1to2-upgrade) {
+  name=Simulated EEPROM version 1 to version 2 Upgrade Library
+  description=Systems using SimEE2 must have this upgrade library or the upgrade stub library.  The upgrade stub library is recommended since the stub adds minimal code space.  The full upgrade library should only be used when there are existing units in the field using SimEE1 that are meant to be upgraded.  This library upgrades a device that used Simulated EEPROM version 1 to Simulated EEPROM version 2.  This upgrade code is a companion to the main Simulated EEPROM 2 library and the upgrade cannot be run on its own.  This upgrade library runs a simplified copy of the Simulated EEPROM version 1 startup process to find all existing tokens in flash.  This upgrade library only ever reads flash.  An official token repair process handled by the full Simulated EEPROM version 2 will then perform a standard repair.  A standard repair process copies over the found tokens and fills missing tokens with their default, compile time values.
+  category=Connect HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c (efr32)
+
+  precompiled(efr32+iar) {
+    file=$FRAMEWORK/plugins/libraries/sim-eeprom2-1to2-upgrade-library-iar.a
+
+    plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c
+  }
+
+  precompiled(efr32+gcc) {
+    file=$FRAMEWORK/plugins/libraries/libsim-eeprom2-1to2-upgrade-library-gcc.a
+
+    plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c
+  }  
+}
+
+plugin(sim-eeprom2-1to2-upgrade-stub) {
+  name=Simulated EEPROM version 1 to version 2 Upgrade Stub
+  description=This library provides stub functionality for the sim-eeprom2-1to2-upgrade library.  The upgrade stub library is recommended since the stub adds minimal code space.  The full upgrade library should only be used when there are existing units in the field using SimEE1 that are meant to be upgraded.
+  category=Connect HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c (efr32)
+
+  precompiled(efr32+iar) {
+    file=$FRAMEWORK/plugins/libraries/sim-eeprom2-1to2-upgrade-stub-library-iar.a
+
+    plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file=$FRAMEWORK/plugins/libraries/libsim-eeprom2-1to2-upgrade-stub-library-gcc.a
+
+    plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c
+  }
+}
+
+plugin(spi-flash) {
+  name=SPI Flash
+  description=SPI flash interface plugin. Either on-board or add-on board solutions are supported.
+  category=Connect I/O
+  quality=production
+  root=$HAL
+  requiredApis=hal
+  architecture=efr32~series[1]
+
+  providedApis=spi-flash
+
+  options=spiFlashTypeMX25R8035F,spiFlashTypeMX25R6435F
+
+  spiFlashTypeMX25R8035F.name=Macronix MX25R8035F
+  spiFlashTypeMX25R8035F.description=Macronix MX25R8035F SPI flash part support.
+  spiFlashTypeMX25R8035F.type=BOOLEAN
+  spiFlashTypeMX25R8035F.default=1
+  spiFlashTypeMX25R8035F.-D=SPIFLASH_MACRONIX_MX25R8035F
+
+  spiFlashTypeMX25R6435F.name=Macronix MX25R6435F
+  spiFlashTypeMX25R6435F.description=Macronix MX25R6435F SPI flash part support.
+  spiFlashTypeMX25R6435F.type=BOOLEAN
+  spiFlashTypeMX25R6435F.default=1
+  spiFlashTypeMX25R6435F.-D=SPIFLASH_MACRONIX_MX25R6435F
+
+  micro/cortexm3/common/spiflash-class1.c
+  micro/cortexm3/efm32/bootloader/spiflash-low-level.c
+
+  setup(additionalFiles) {
+    PATH(HAL_RELATIVE):micro/cortexm3/efm32/bootloader/
+  }
+
+  setup(hwConfig) {
+    dependentHwConfModules=EXTFLASH,USART0,USART1,USART2,USART3,USART4,USART5
+  }
+}
+
+plugin(wstk-sensors) {
+  name=WSTK Sensors
+  description=This plugin provides access to the WSTK Si7013 sensor IC.
+  includedByDefault=false
+  category=Connect I/O
+  architecture=efr32~series[1]
+  quality=production
+  root=$HAL/../../
+  requiredApis=hal
+
+  providesApis=wstk-sensors
+  api.wstk-sensors.header=$FRAMEWORK/plugins/wstk-sensors.h
+
+  $FRAMEWORK/plugins/wstk-sensors/wstk-sensors.c
+  $KIT/common/drivers/i2cspm.c
+  $KIT/common/drivers/si7013.c
+
+  setup(bookkeeping) {
+    init=emberAfPluginWstkSensorsInit
+  }
+}
+
+plugin(phy) {
+  root=$HAL/../phy
+  name=PHY Library
+  category=Connect PHY
+  architecture=efr32~series[1],simulation
+  description=This plugin provides the radio driver for the selected part.
+  providedApis=phy
+  requiredApis=hal,rail-library
+
+  options=ccaThreshold,phyRail
+
+  ccaThreshold.name=MAC CCA Threshold
+  ccaThreshold.description=CCA Threshold value in dBm.
+  ccaThreshold.type=NUMBER
+  ccaThreshold.default=-65
+  ccaThreshold.define=EMBER_RADIO_CCA_THRESHOLD
+
+  phyRail.name=Phy for RAIL
+  phyRail.description=Phy for RAIL
+  phyRail.type=NUMBER:0,1
+  phyRail.default=0
+  phyRail.override(efr32)=1
+  phyRail.hidden=TRUE
+  phyRail.define=EMBER_PHY_PLUGIN_RAIL
+
+  ###########
+  #  EFR32  #
+  ###########
+
+  # Lower MAC source files
+  (efr32):$FRAMEWORK/plugins/stack/mac/lower-mac-rail-802.15.4.c
+
+  # HACK: BRD4304A is actually a board/module.
+  #       Studio pulls in the module-lna.c for Zigbee/Thread if it seems the External LNA module is enabled.
+  #       For Flex, Studio isn't able to tell apart between Connect / RAIL.
+  #       Therefore, we have the following horrible hack to make things work.
+  (efr32+BRD4304A):$FRAMEWORK/../../../util/plugin/plugin-common/module-lna/module-lna.c
+
+  # RAIL additional library
+  precompiled(efr32) {
+    file= $FRAMEWORK/plugins/libraries/phy-rail-add-$--chipFamily;L--$-library-$--toolchainName--$.a
+
+    $FRAMEWORK/plugins/stack/mac/lower-mac-rail-802.15.4.c
+  }
+
+  setup(additionalFiles) {
+    PATH(HAL_RELATIVE):../phy
+    (efr32)=PATH(ABSOLUTE):$RAIL_LIB/common
+    (efr32)=PATH(ABSOLUTE):$RAIL_LIB/protocol/ieee802154/
+    (efr32)=PATH(ABSOLUTE):$RAIL_LIB/chip/efr32
+    (efr32~family[B]~series[1])=PATH(ABSOLUTE):$RAIL_LIB/chip/efr32/efr32xg1x
+    (efr32~family[B]~series[2])=PATH(ABSOLUTE):$RAIL_LIB/chip/efr32/efr32xg2x
+    (efr32)=PATH(ABSOLUTE):$RAIL_LIB/chip/efr32/rf/common
+    (efr32)=PATH(ABSOLUTE):$RAIL_LIB/chip/efr32/rf/common/cortex
+  }
+}
+
+plugin(stack-common) {
+  root= $FRAMEWORK/plugins/stack
+  name=Stack Common
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=This plugin provides common functionalities such as 15.4-like MAC layer, events system, dynamic memory allocation, and other required infrastracture functions. It also provides the configuration file, which allocates all the sizable RAM data structures.
+
+  callbacks= $FRAMEWORK/meta-inf/callbacks/stack-common-callbacks.info
+  requiredApis=hal,phy,security-aes,security-xxtea,cooordinator-support,parent-support,child-table,indirect-queue,mac-queue,counters,frequency-hopping
+
+  providedApis=stack-common,buffers
+
+  options = minHeapSize
+
+  minHeapSize.name=Minimum Heap Size
+  minHeapSize.description=Minimum size in bytes of the memory heap.
+  minHeapSize.type=NUMBER:250,10000
+  minHeapSize.default=4000
+  minHeapSize.define=EMBER_HEAP_SIZE
+
+  config/ember-configuration.c
+
+  core/stack.c
+  core/ember-library.c
+  framework/event-control.c
+  framework/eui64.c
+  framework/packet-header.c
+  network/network.c
+  network/association.c
+  network/network-command.c
+  network/multi-address-filtering.c
+  mac/upper-mac.c
+  mac/command.c
+  mac/scan.c
+  security/security-common.c
+  security/packet-validate.c
+  framework/buffer-management.c
+  framework/buffer-queue.c
+  framework/buffers-bookkeeping.c
+  framework/byte-utilities.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/stack-common-library-iar.a
+
+    core/stack.c
+    core/ember-library.c
+    framework/event-control.c
+    framework/eui64.c
+    framework/packet-header.c
+    network/network.c
+    network/association.c
+    network/network-command.c
+    network/multi-address-filtering.c
+    mac/upper-mac.c
+    mac/command.c
+    mac/scan.c
+    security/security-common.c
+    security/packet-validate.c
+    framework/buffer-management.c
+    framework/buffer-queue.c
+    framework/buffers-bookkeeping.c
+    framework/byte-utilities.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libstack-common-library-gcc.a
+
+    core/stack.c
+    core/ember-library.c
+    framework/event-control.c
+    framework/eui64.c
+    framework/packet-header.c
+    network/network.c
+    network/association.c
+    network/network-command.c
+    network/multi-address-filtering.c
+    mac/upper-mac.c
+    mac/command.c
+    mac/scan.c
+    security/security-common.c
+    security/packet-validate.c
+    framework/buffer-management.c
+    framework/buffer-queue.c
+    framework/buffers-bookkeeping.c
+    framework/byte-utilities.c
+  }
+
+
+  setup(additionalFiles) {
+    PATH(FRAMEWORK_RELATIVE):plugins/stack
+    PATH(FRAMEWORK_RELATIVE):plugins/stack/include/
+  }
+}
+
+plugin(stack-aes-security) {
+  root= $FRAMEWORK/plugins/stack
+  name=Security AES
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=This plugin provides encryption and authentication functionality based on the AES encryption algorithm (hardware acceleration).
+  requiredApis=stack-common
+
+  providedApis=security-aes
+
+  security/security-aes.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/aes-security-library-iar.a
+
+    security/security-aes.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libaes-security-library-gcc.a
+
+    security/security-aes.c
+  }
+
+}
+
+plugin(stack-aes-security-stub) {
+  root= $FRAMEWORK/plugins/stack
+  name=Security AES Stub
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=AES-based Encryption and authentication stub.
+  requiredApis=stack-common
+
+  providedApis=security-aes
+
+  security/security-aes-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/aes-security-stub-library-iar.a
+
+    security/security-aes-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libaes-security-stub-library-gcc.a
+
+    security/security-aes-stub.c
+  }
+
+}
+
+plugin(stack-xxtea-security) {
+  root= $FRAMEWORK/plugins/stack
+  name=Security XXTEA
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=This plugin provides encryption and authentication functionality based on the XXTEA encryption algorithm (software encryption).
+  requiredApis=stack-common
+
+  providedApis=security-xxtea
+
+  security/security-xxtea.c
+  security/xxtea.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/xxtea-security-library-iar.a
+
+    security/security-xxtea.c
+    security/xxtea.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libxxtea-security-library-gcc.a
+
+    security/security-xxtea.c
+    security/xxtea.c
+  }
+}
+
+plugin(stack-xxtea-security-stub) {
+  root= $FRAMEWORK/plugins/stack
+  name=Security XXTEA Stub
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=XXTEA-based Encryption and authentication stub.
+  requiredApis=stack-common
+
+  providedApis=security-xxtea
+
+  security/security-xxtea-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/xxtea-security-stub-library-iar.a
+
+    security/security-xxtea-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libxxtea-security-stub-library-gcc.a
+
+    security/security-xxtea-stub.c
+  }
+
+}
+
+
+plugin(stack-parent-support) {
+  root= $FRAMEWORK/plugins/stack
+  name=Parent Support
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=This plugin provides parent functionalities such as indirect communication (communication with sleepy devices) and child table. It should be included for any coordinator or range extender node intended to support multiple end-device and/or sleepy end-device nodes. This plugin requires the dynamic memory allocation functionality and the MAC queuing functionality which is currently provided with the MAC queue plugin.
+  requiredApis=stack-common,buffers
+
+  requiredApis=mac-queue,buffers
+  providedApis=cooordinator-support,parent-support,child-table,indirect-queue
+
+  options=childTableSize, childTimeoutS, indirectQueueSize, indirectTransmissionTimoutMS,
+
+  childTableSize.name=Child Table Size
+  childTableSize.description=The maximum numbers of children the coordinator can manage. While the maximum size is 64, for range extenders the child table size can not exceed 32 entries.
+  childTableSize.type=NUMBER:1,64
+  childTableSize.default=16
+  childTableSize.define=EMBER_CHILD_TABLE_SIZE
+
+  childTimeoutS.name=Child Timeout (S)
+  childTimeoutS.description=The time in seconds after which the parent shall remove the child from its child table if did not hear from it. Range extenders periodically exchange network-level commands with the coordinator. End devices and sleepy end devices can periodically poll as keep alive mechanism.
+  childTimeoutS.type=NUMBER
+  childTimeoutS.default=3600
+  childTimeoutS.define=EMBER_CHILD_TIMEOUT_SEC
+
+  indirectQueueSize.name=Indirect Queue Size
+  indirectQueueSize.description=The maximum number of outgoing packets that can be enqueued at the coordinator indirect queue.
+  indirectQueueSize.type=NUMBER:1,16
+  indirectQueueSize.default=8
+  indirectQueueSize.define=EMBER_INDIRECT_QUEUE_SIZE
+
+  indirectTransmissionTimoutMS.name=Indirect Transmission Timout (MS)
+  indirectTransmissionTimoutMS.description=Timeout of the indirect transmission in milliseconds.
+  indirectTransmissionTimoutMS.type=NUMBER:1000,30000
+  indirectTransmissionTimoutMS.default=8000
+  indirectTransmissionTimoutMS.define=EMBER_INDIRECT_TRANSMISSION_TIMEOUT_MS
+
+  network/parent-support.c
+  network/child-table.c
+  network/indirect-queue.c
+  network/coordinator-support.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/parent-support-library-iar.a
+
+    network/parent-support.c
+    network/child-table.c
+    network/indirect-queue.c
+    network/coordinator-support.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libparent-support-library-gcc.a
+
+    network/parent-support.c
+    network/child-table.c
+    network/indirect-queue.c
+    network/coordinator-support.c
+  }
+}
+
+plugin(stack-parent-support-stub) {
+  root= $FRAMEWORK/plugins/stack
+  name=Parent Support Stub
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=Parent functionality stub.
+  requiredApis=stack-common
+
+  providedApis=cooordinator-support,parent-support,child-table,indirect-queue
+
+  network/parent-support-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/parent-support-stub-library-iar.a
+
+    network/parent-support-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libparent-support-stub-library-gcc.a
+
+    network/parent-support-stub.c
+  }
+}
+
+plugin(stack-mac-queue) {
+  root= $FRAMEWORK/plugins/stack
+  name=MAC Packet Queue
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=This plugin provides MAC queue functionality. If this plugin is enabled, the application is able to send multiple packets in bursts, whereas if this plugin is not included, only one packet at the time can be submitted to the Connect stack.
+  requiredApis=stack-common
+
+  providedApis=mac-queue
+
+  options=macOutgoingQueueSize
+
+  macOutgoingQueueSize.name=Outgoing Packet Queue Size
+  macOutgoingQueueSize.description=The maximum number of outgoing packets that can be enqueued at the MAC layer.
+  macOutgoingQueueSize.type=NUMBER:1,16
+  macOutgoingQueueSize.default=8
+  macOutgoingQueueSize.define=EMBER_MAC_OUTGOING_QUEUE_SIZE
+
+  mac/mac-queue.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/packet-queue-library-iar.a
+
+    mac/mac-queue.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libpacket-queue-library-gcc.a
+
+    mac/mac-queue.c
+  }
+}
+
+plugin(stack-mac-queue-stub) {
+  root= $FRAMEWORK/plugins/stack
+  name=MAC Packet Queue Stub
+  category=Connect Stack
+  architecture=efr32~series[1],simulation
+  description=MAC queue functionality stub
+  requiredApis=stack-common
+
+  providedApis=mac-queue
+
+  mac/mac-queue-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/packet-queue-stub-library-iar.a
+
+    mac/mac-queue-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libpacket-queue-stub-library-gcc.a
+
+    mac/mac-queue-stub.c
+  }
+}
+
+plugin(stack-counters) {
+  root= $FRAMEWORK/plugins/stack
+  name=Stack Packet Counters
+  category=Connect Debug
+  architecture=efr32~series[1],simulation
+  description=This plugin provides stack packet counters functionality. If this plugin is enabled, the stack shall keep track of successful and failed transmissions as well as successful received packets and dropped incoming packets.
+  requiredApis=stack-common
+  includedByDefault=true
+
+  providedApis=counters
+
+  framework/counters.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/stack-counters-library-iar.a
+
+    framework/counters.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libstack-counters-library-gcc.a
+
+    framework/counters.c
+  }
+}
+
+plugin(stack-counters-stub) {
+  root= $FRAMEWORK/plugins/stack
+  name=Stack Packet Counters Stub
+  category=Connect Debug
+  architecture=efr32~series[1],simulation
+  description=Stack counters functionality stub.
+  requiredApis=stack-common
+  includedByDefault=false
+
+  providedApis=counters
+
+  framework/counters-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/stack-counters-stub-library-iar.a
+
+    framework/counters-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libstack-counters-stub-library-gcc.a
+
+    framework/counters-stub.c
+  }
+}
+
+plugin(unix-library) {
+  name=Unix Library
+  description=Common functionality for Unix hosts.
+  category=Connect HAL
+  architecture=unix,simulation
+  quality=production
+  root=$HAL
+
+  requiredApis=csp-host
+
+  needsSetup=bookkeeping,eventConfiguration,token,debugConfiguration,callbackConfiguration
+
+  providedApis=crc,hal,random,system-timer,os
+  api.crc.header=micro/crc.h
+  api.hal.header=hal.h
+  api.random.header=micro/random.h
+  api.system-timer.header=micro/system-timer.h
+
+  micro/generic/crc.c
+  micro/generic/random.c
+  micro/generic/system-timer.c
+  micro/unix/host/micro.c
+
+  setup(macros) {
+    -DDEBUG_LEVEL=NO_DEBUG
+  }
+}
+
+plugin(csp-host) {
+  name=Connect Serial Protocol (Host)
+  description=Connect Serial Protocol for the Host
+  category=Connect I/O
+  architecture=unix,simulation
+  quality=production
+  root= $FRAMEWORK/plugins/
+
+  providedApis=csp-host,stack-common
+  requiredApis=ash-v3,poll
+
+  stack/framework/event-control.c
+  stack/framework/byte-utilities.c
+  host-ncp/host-buffer-management.c
+  host-ncp/host-stream.c
+  csp/csp-host.c
+  csp/csp-frame-utilities.c
+  csp/callbacks-frame-utilities.c
+  csp/csp-fire-callbacks.c
+  host-ncp/binary-management.c
+  host-ncp/serial-link-host.c
+  stack/framework/event-queue.c
+  stack/config/ember-configuration.c
+
+  setup(macros) {
+    -DSKIP_API_RENAME
+  }
+}
+
+plugin(csp-ncp) {
+  name=Connect Serial Protocol (NCP)
+  description=Connect Serial Protocol for the NCP
+  category=Connect I/O
+  architecture=efr32~series[1],simulation
+  quality=production
+  root= $FRAMEWORK/plugins/
+
+  providedApis=csp-ncp
+  requiredApis=ash-v3,stack-common,uart-link
+
+  stack/framework/event-queue.c
+  host-ncp/binary-management.c
+  host-ncp/ncp-link.c
+  host-ncp/serial-link-ncp.c
+  host-ncp/generic-list.c
+  csp/csp-ncp.c
+  csp/csp-ncp-utilities.c
+}
+
+plugin(ncp-uart-link) {
+  name=NCP UART Link
+  description=UART functionality for network coprocessors (NCPs).
+  category=Connect HAL
+  architecture=efr32~series[1],simulation
+  quality=production
+  root=$HAL/micro/cortexm3
+
+  providedApis=uart-link
+
+  efm32/uart-link.c (efr32)
+  # uart-sim.c        (simulation)
+
+  options=swFlowControl,xOnXOff
+
+  swFlowControl.name=Use software flow control
+  swFlowControl.description=Use software flow control.
+  swFlowControl.type=BOOLEAN
+  swFlowControl.default=FALSE
+  swFlowControl.define=EMBER_APPLICATION_USES_SOFTWARE_FLOW_CONTROL
+
+  xOnXOff.name=xOnXOff
+  xOnXOff.description=xOnXOff
+  xOnXOff.type=BOOLEAN
+  xOnXOff.default=swFlowControl
+  xOnXOff.hidden=TRUE
+  xOnXOff.define=EMBER_SERIAL1_XONXOFF
+}
+
+plugin(ncp-main) {
+  name=Main (NCP)
+  description=This plugin performs initialization and then repeatedly runs the application loop for Connect applications.  Depending on the configuration, it initializes the HAL, stack, serial ports, event system, plugins, and the application itself.  After initialization, it executes a loop that runs the stack, plugins, and the application itself in a loop.
+  category=Connect Common
+  architecture=efr32~series[1],simulation
+  quality=production
+  root= $FRAMEWORK/plugins/
+
+  requiredApis=csp-ncp
+
+  # TODO: temporary work-around to prevent NCP targets to be built with Micrium.
+  providedApis=os
+
+  implementedCallbacks=main,emberMarkApplicationBuffersHandler,emberActiveScanCompleteHandler,emberChildJoinHandler,emberEnergyScanCompleteHandler,emberFrequencyHoppingStartClientCompleteHandler,emberIncomingBeaconHandler,emberIncomingBeaconExtendedHandler,emberIncomingMessageHandler,emberMessageSentHandler,emberStackStatusHandler,emberIncomingMacMessageHandler,emberMacMessageSentHandler,emberRadioNeedsCalibratingHandler
+
+  callbacks= $FRAMEWORK/meta-inf/callbacks/ncp-main-callbacks.info
+
+  host-ncp/ncp-main.c
+
+  setup(bookkeeping) {
+    provides=main,init,tick,stackIsr
+
+    provides.main=void emberAfMain(void)
+    provides.main.0=emberAfMainCallback
+
+    provides.init=void emberAfInit(void)
+    provides.init.0=emberAfInitCallback
+
+    provides.tick=void emberAfTick(void)
+    provides.tick.0=emberAfTickCallback
+
+    provides.stackIsr=void emberAfStackIsr(void)
+  }
+
+  # TODO: remove this once serial setup is in Connect
+  # This is done because Host has APP_SERIAL=0 in template makefile
+  setup(macros) {
+    -DAPP_SERIAL=0
+  }
+}
+
+plugin(ash-v3) {
+  name=ASHv3
+  description=ASHv3 Functionality for realiable serial communication.
+  category=Connect HAL
+  architecture=unix,efr32,simulation
+  quality=production
+  root=$HAL
+
+  providedApis=ash-v3
+  api.ash-v3.header=micro/generic/ash-v3.h
+
+  requiredApis=hal
+
+  micro/generic/ash-v3.c
+
+  setup(additionalFiles) {
+    PATH(FRAMEWORK_RELATIVE):plugins/host-ncp
+  }
+}
+
+plugin(frequency-hopping) {
+  name=Frequency Hopping
+  description=Frequency Hopping implementation based on FCC specifications.
+  category=Connect Stack
+  quality=production
+  root=$FRAMEWORK/plugins/stack
+
+  architecture=efr32~series[1],simulation
+
+  callbacks= $FRAMEWORK/meta-inf/callbacks/frequency-hopping-callbacks.info
+
+  providedApis=frequency-hopping
+
+  requiredApis=stack-common
+
+  options=seed,startChannel,endChannel,duration,guard,serverBroadcastInfoPeriod,clientResyncPeriod
+
+  seed.name=Channel Sequence Generation Seed
+  seed.description=The frequency hopping channel sequence generation seed.
+  seed.type=NUMBER:0,99
+  seed.default=0
+  seed.define=EMBER_FREQUENCY_HOPPING_SEED
+
+  startChannel.name=Start Channel
+  startChannel.description=The lowest channel on the frequency hopping list.
+  startChannel.type=NUMBER:0,99
+  startChannel.default=0
+  startChannel.define=EMBER_FREQUENCY_HOPPING_START_CHANNEL
+
+  endChannel.name=End Channel
+  endChannel.description=The highest channel on the frequency hopping list.
+  endChannel.type=NUMBER:0,99
+  endChannel.default=9
+  endChannel.define=EMBER_FREQUENCY_HOPPING_END_CHANNEL
+
+  duration.name=Channel Duration (ms)
+  duration.description=Time in milliseconds spent on each channel when frequency hopping (channel slot duration).
+  duration.type=NUMBER:200,1000
+  duration.default=400
+  duration.define=EMBER_FREQUENCY_HOPPING_CHANNEL_DURATION_MS
+
+  guard.name=Channel Guard Duration (ms)
+  guard.description=Portion of a channel slot in milliseconds during which TX is not allowed (both beginning and end of the channel slot).
+  guard.type=NUMBER:20,100
+  guard.default=20
+  guard.define=EMBER_FREQUENCY_HOPPING_CHANNEL_GUARD_DURATION_MS
+
+  serverBroadcastInfoPeriod.name=Server Broadcast Info Period (s)
+  serverBroadcastInfoPeriod.description=Server broadcasts info period in seconds.
+  serverBroadcastInfoPeriod.type=NUMBER:5,1000
+  serverBroadcastInfoPeriod.default=15
+  serverBroadcastInfoPeriod.define=EMBER_FREQUENCY_HOPPING_SERVER_FREQ_INFO_BROADCAST_PERIOD_S
+
+  clientResyncPeriod.name=Client Resync Period (s)
+  clientResyncPeriod.description=Time in seconds after which client triggers an active resync procedure with the server (if needed). Because of clock drifting when the MCU enters EM2 low power mode, for sleepy devices the resync period should be significantly reduced (5s).
+  clientResyncPeriod.type=NUMBER:3,3600
+  clientResyncPeriod.default=60
+  clientResyncPeriod.define=EMBER_FREQUENCY_HOPPING_CLIENT_RESYNC_PERIOD_S
+
+  mac/frequency-hopping.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/frequency-hopping-library-iar.a
+
+    mac/frequency-hopping.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libfrequency-hopping-library-gcc.a
+
+    mac/frequency-hopping.c
+  }
+
+  setup(commandLineConfiguration) {
+    start-fh-server,startFrequencyHoppingServerCommand,,unlocked
+    start-fh-client,startFrequencyHoppingClientCommand,vv,unlocked
+    stop-fh,stopFrequencyHoppingCommand,,unlocked
+  }
+
+}
+
+plugin(frequency-hopping-stub) {
+  name=Frequency Hopping stub
+  description=Frequency Hopping stub library.
+  category=Connect Stack
+  quality=production
+  root=$FRAMEWORK/plugins/stack
+
+  architecture=efr32~series[1],simulation
+
+  providedApis=frequency-hopping
+
+  requiredApis=stack-common
+
+  mac/frequency-hopping-stub.c
+
+  precompiled(efr32+iar) {
+    file= $FRAMEWORK/plugins/libraries/frequency-hopping-stub-library-iar.a
+
+    mac/frequency-hopping-stub.c
+  }
+
+  precompiled(efr32+gcc) {
+    file= $FRAMEWORK/plugins/libraries/libfrequency-hopping-stub-library-gcc.a
+
+    mac/frequency-hopping-stub.c
+  }
+}

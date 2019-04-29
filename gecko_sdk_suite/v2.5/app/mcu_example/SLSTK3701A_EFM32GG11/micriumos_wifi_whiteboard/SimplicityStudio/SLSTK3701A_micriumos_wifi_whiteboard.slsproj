@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3701A_micriumos_wifi_whiteboard" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/gpiointerrupt.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh06.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_display.c" />
+    <include pattern="Graphics/glib.c" />
+    <include pattern="Graphics/glib_bitmap.c" />
+    <include pattern="Graphics/glib_circle.c" />
+    <include pattern="Graphics/glib_line.c" />
+    <include pattern="Graphics/glib_polygon.c" />
+    <include pattern="Graphics/glib_rectangle.c" />
+    <include pattern="Graphics/glib_string.c" />
+    <include pattern="Graphics/glib_font_normal_8x8.c" />
+    <include pattern="Graphics/glib_font_narrow_6x8.c" />
+    <include pattern="Graphics/glib_font_number_16x20.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.micriumos">
+    <include pattern=".*/bsp_cpu.c" />
+    <include pattern=".*/bsp_os.c" />
+    <include pattern=".*/auth.c" />
+    <include pattern=".*/clk.c" />
+    <include pattern=".*/clk_cmd.c" />
+    <include pattern=".*/bitmap.c" />
+    <include pattern=".*/map.c" />
+    <include pattern=".*/slist.c" />
+    <include pattern=".*/common.c" />
+    <include pattern=".*/kal_kernel.c" />
+    <include pattern=".*/lib_ascii.c" />
+    <include pattern=".*/lib_math.c" />
+    <include pattern=".*/lib_mem.c" />
+    <include pattern=".*/lib_str.c" />
+    <include pattern=".*/rtos_err_str.c" />
+    <include pattern=".*/platform_mgr.c" />
+    <include pattern=".*/cpu_core.c" />
+    <include pattern=".*/armv7m_cpu_a.asm" />
+    <include pattern=".*/armv7m_cpu_a.S" />
+    <include pattern=".*/armv6m_v7m_cpu_int.c" />
+    <include pattern=".*/os_core.c" />
+    <include pattern=".*/os_cfg_app.c" />
+    <include pattern=".*/os_dbg.c" />
+    <include pattern=".*/os_flag.c" />
+    <include pattern=".*/os_mem.c" />
+    <include pattern=".*/os_mon.c" />
+    <include pattern=".*/os_msg.c" />
+    <include pattern=".*/os_mutex.c" />
+    <include pattern=".*/os_prio.c" />
+    <include pattern=".*/os_q.c" />
+    <include pattern=".*/os_sem.c" />
+    <include pattern=".*/os_stat.c" />
+    <include pattern=".*/os_task.c" />
+    <include pattern=".*/os_tick.c" />
+    <include pattern=".*/os_time.c" />
+    <include pattern=".*/os_tmr.c" />
+    <include pattern=".*/os_var.c" />
+    <include pattern=".*/armv7m_os_cpu_a.asm" />
+    <include pattern=".*/armv7m_os_cpu_c.c" />
+    <include pattern=".*/armv7m_os_cpu_a.S" />
+    <include pattern=".*/os_priv.h" />
+    <include pattern=".*/os.h" />
+    <include pattern=".*/os_port_sel.h" />
+    <include pattern=".*/os_trace.h" />
+    <include pattern=".*/os_type.h" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="../../../../platform/micrium_os" />
+  <includePath uri="." />
+  <includePath uri="Cfg" />
+  <includePath uri="WiFi" />
+  <includePath uri="../../../../util/third_party/segger/systemview/SEGGER" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Config" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel" />
+  <folder name="SystemView">
+    <file name="SEGGER_RTT.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_RTT.c" />
+    <file name="SEGGER_SYSVIEW.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_SYSVIEW.c" />
+    <file name="SEGGER_SYSVIEW_MicriumOSKernel.c" uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel/SEGGER_SYSVIEW_MicriumOSKernel.c" />
+    <file name="SEGGER_SYSVIEW_Config_MicriumOSKernel.c" uri="Cfg/SEGGER_SYSVIEW_Config_MicriumOSKernel.c" />
+  </folder>
+  <folder name="src">
+    <file name="app_lcd.c" uri="app_lcd.c" />
+    <file name="app_uart.c" uri="app_uart.c" />
+    <file name="app_wifi.c" uri="app_wifi.c" />
+    <file name="app.c" uri="app.c" />
+    <file name="main.c" uri="main.c" />
+    <file name="readme.txt" uri="readme.txt" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  </folder>
+  <folder name="Probe">
+    <file name="uCProbe.wspx" uri="Probe/uCProbe.wspx" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3301A_helges_demo" boardCompatibility="brd2102a" partCompatibility=".*efm32tg11b520f128gm80.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_acmp.c" />
+    <include pattern="emlib/em_adc.c" />
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cryotimer.c" />
+    <include pattern="emlib/em_csen.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_i2c.c" />
+    <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_lesense.c" />
+    <include pattern="emlib/em_rmu.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_vdac.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_stk_leds.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/i2cspm.c" />
+    <include pattern="Drivers/segmentlcd.c" />
+    <include pattern="Drivers/si7013.c" />
+    <include pattern="Drivers/si72xx.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="app_bumode.c" uri="app_bumode.c" />
+    <file name="app_csen.c" uri="app_csen.c" />
+    <file name="app_rtcc.c" uri="app_rtcc.c" />
+    <file name="app_sensor.c" uri="app_sensor.c" />
+    <file name="main.c" uri="main.c" />
+  </folder>
+</project>

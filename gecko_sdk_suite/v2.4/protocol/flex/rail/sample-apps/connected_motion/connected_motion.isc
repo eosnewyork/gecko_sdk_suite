@@ -1,0 +1,149 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4160A+iar
+deviceName: connected_motion
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=false
+appPlugin: command-interpreter-rail=false
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=false
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=false
+appPlugin: hal=false
+appPlugin: hal-config=false
+appPlugin: hal-efr32=true
+appPlugin: heartbeat=false
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=false
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=false
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: pa-conversions=true
+appPlugin: packet-trace=false
+appPlugin: phy=false
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-lib=true
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=false
+appPlugin: serial=false
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=false
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=false
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=false
+appPlugin: stack-counters=false
+appPlugin: stack-counters-stub=false
+appPlugin: stack-form-and-join=false
+appPlugin: stack-mac-queue=false
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=false
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=false
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+PATH(ISC_RELATIVE):main.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/board_4160.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/icm20648.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/util.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/util_sleep.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/imu/imu.c
+PATH(STACK_RELATIVE):hardware/kit/common/bsp/thunderboard/imu/imu_fuse.c
+PATH(STACK_RELATIVE):hardware/kit/EFR32MG1_BRD4160A/config
+PATH(FRAMEWORK_RELATIVE):../rail/sample-apps/connected_motion
+PATH(FRAMEWORK_RELATIVE):../rail/sample-apps/connected_motion/radio/radio_rail.c
+PATH(FRAMEWORK_RELATIVE):../rail/sample-apps/connected_motion/radio/token.c
+}
+{setupId:boardHeader
+allowMissingHeader:true
+useHeaderInPlace:false
+efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4160A+iar=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+efr32~series[1]~device_configuration[4]=null,
+}
+{setupId:callbackConfiguration
+main:false
+}
+{setupId:commandLineConfiguration
+off
+}
+{setupId:debugConfiguration
+off
+area name off
+appSerial=1
+}
+{setupId:efr32RadioConfig
+PHY=serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K
+PROFILE=serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base
+}
+{setupId:eventConfiguration
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+Thunderboard Sense Connected Motion
+
+This example demonstrates how one can use a very simple radio protocol to communicate between nodes where lost packets is of no concern. In this demonstration, each node has a different color, in which it will light up when it detects that it is in motion. The active node transmits its state to nearby nodes, which also light up in the same color. When all nodes are stationary, a  master  node coordinates a green light fading from board to board.
+
+
+Configuration
+
+For the connectedMotion demo to work with more than one board, it needs to be configured. If you hold both push buttons pressed while resetting the device, it will enter a configuration mode. This is indicated by three bright white blinks of the RGB LEDs. In this mode, you can cycle through three colors using the right button: blue, pink and turquoise. To select a color, press the left button. The selection is confirmed by three blinks in the selected color.  The blue node is the master which controls the fading green light, so one and only one of the boards should be configured to be blue.
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=${TOOLKIT_DIR}\config\linker\SiliconLaboratories\$--partNumber--$.icf
+linkerLdFile=$--halDir--$/../../Device/SiliconLabs/$--chipFamilyUpperCase--$/Source/GCC/$--chipFamilyLowerCase--$.ld
+}
+{setupId:token
+}
+
+# Plugin options

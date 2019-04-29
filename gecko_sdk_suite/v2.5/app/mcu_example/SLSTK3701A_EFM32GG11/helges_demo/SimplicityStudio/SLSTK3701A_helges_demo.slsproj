@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3701A_helges_demo" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_acmp.c" />
+    <include pattern="emlib/em_adc.c" />
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cryotimer.c" />
+    <include pattern="emlib/em_csen.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_i2c.c" />
+    <include pattern="emlib/em_lesense.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rmu.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_vdac.c" />
+    <include pattern="emlib/em_timer.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_stk_leds.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh06.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+    <include pattern="Drivers/i2cspm.c" />
+    <include pattern="Drivers/si7013.c" />
+    <include pattern="Drivers/si72xx.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_display.c" />
+    <include pattern="Graphics/glib.c" />
+    <include pattern="Graphics/glib_bitmap.c" />
+    <include pattern="Graphics/glib_circle.c" />
+    <include pattern="Graphics/glib_line.c" />
+    <include pattern="Graphics/glib_polygon.c" />
+    <include pattern="Graphics/glib_rectangle.c" />
+    <include pattern="Graphics/glib_string.c" />
+    <include pattern="Graphics/glib_font_normal_8x8.c" />
+    <include pattern="Graphics/glib_font_narrow_6x8.c" />
+    <include pattern="Graphics/glib_font_number_16x20.c" />
+  </module>
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="app_bumode.c" uri="app_bumode.c" />
+    <file name="app_csen.c" uri="app_csen.c" />
+    <file name="app_rgbled.c" uri="app_rgbled.c" />
+    <file name="app_rtcc.c" uri="app_rtcc.c" />
+    <file name="app_screens.c" uri="app_screens.c" />
+    <file name="app_sensor.c" uri="app_sensor.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

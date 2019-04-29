@@ -1,0 +1,106 @@
+
+void emberIncomingMessageHandler(EmberIncomingMessage *message)
+{
+  UNUSED_VAR(message);
+}
+
+void emberIncomingMacMessageHandler(EmberIncomingMacMessage *message)
+{
+  UNUSED_VAR(message);
+}
+
+void emberMessageSentHandler(EmberStatus status, EmberOutgoingMessage *message)
+{
+  UNUSED_VAR(status);
+  UNUSED_VAR(message);
+}
+
+void emberMacMessageSentHandler(EmberStatus status, 
+                                EmberOutgoingMacMessage *message)
+{
+  UNUSED_VAR(status);
+  UNUSED_VAR(message);
+}
+
+
+void emberStackStatusHandler(EmberStatus status)
+{
+  UNUSED_VAR(status);
+}
+
+void emberStackIsrHandler(void)
+{
+}
+
+bool emberStackIdleHandler(uint32_t *idleTimeMs)
+{
+  UNUSED_VAR(idleTimeMs);
+
+  return false;
+}
+
+void emberMarkApplicationBuffersHandler(void)
+{
+}
+
+void emberRadioNeedsCalibratingHandler(void)
+{
+  emberCalibrateCurrentChannel(); 
+}
+
+
+void emberChildJoinHandler(EmberNodeType nodeType,
+                           EmberNodeId nodeId)
+{
+  UNUSED_VAR(nodeType);
+  UNUSED_VAR(nodeId);
+}
+
+void emberIncomingBeaconHandler(EmberPanId panId,
+                                EmberNodeId nodeId,
+                                int8_t rssi,
+                                bool permitJoining,
+                                uint8_t payloadLength,
+                                uint8_t *payload)
+{
+  UNUSED_VAR(panId);
+  UNUSED_VAR(nodeId);
+  UNUSED_VAR(rssi);
+  UNUSED_VAR(permitJoining);
+  UNUSED_VAR(payloadLength);
+  UNUSED_VAR(payload);
+}
+
+void emberIncomingBeaconExtendedHandler(EmberPanId panId,
+                                        EmberMacAddress *source,
+                                        int8_t rssi,
+                                        bool permitJoining,
+                                        uint8_t beaconFieldsLength,
+                                        uint8_t *beaconFields,
+                                        uint8_t beaconPayloadLength,
+                                        uint8_t *beaconPayload)
+{
+  UNUSED_VAR(panId);
+  UNUSED_VAR(source);
+  UNUSED_VAR(rssi);
+  UNUSED_VAR(permitJoining);
+  UNUSED_VAR(beaconFieldsLength);
+  UNUSED_VAR(beaconFields);    
+  UNUSED_VAR(beaconPayloadLength);
+  UNUSED_VAR(beaconPayload);  
+}
+
+void emberActiveScanCompleteHandler(void)
+{
+}
+
+void emberEnergyScanCompleteHandler(int8_t mean,
+                                    int8_t min,
+                                    int8_t max,
+                                    uint16_t variance)
+{
+  UNUSED_VAR(mean);
+  UNUSED_VAR(min);
+  UNUSED_VAR(max);
+  UNUSED_VAR(variance);
+}

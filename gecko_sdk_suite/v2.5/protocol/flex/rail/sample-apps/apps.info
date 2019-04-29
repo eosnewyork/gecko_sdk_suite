@@ -1,0 +1,254 @@
+switch {
+  category=RAIL Examples
+  name=RAIL: Switch
+  dir=switch/
+  isc=switch/switch.isc
+  architecture=BRD4164A+iar,BRD4163A+iar,BRD4158A+iar,BRD4167A+iar,simulation
+  include=main.c,app_ci.h,app_ci,.internal_hwconfig,app_common.h
+
+  demo.1.bin=switch/efr32mg12p433f1024gl125-brd4164a/switch.s37
+  demo.1.arch=efr32mg12p433f1024gl125+brd4164a
+  demo.2.bin=switch/efr32mg13p733f512gm48-brd4158a/switch.s37
+  demo.2.arch=efr32mg13p733f512gm48+brd4158a
+  demo.3.bin=switch/efr32mg13p733f512gm48-brd4163a/switch.s37
+  demo.3.arch=efr32mg13p733f512gm48+brd4163a
+  demo.4.bin=switch/efr32mg13p733f512gm48-brd4167a/switch.s37
+  demo.4.arch=efr32mg13p733f512gm48+brd4167a
+
+  This application demonstrates the exchange of on/off operations between a RAIL light and RAIL switches.
+
+  The application has the following PHY configuration:
+    frequency: 915MHz
+    deviation: 25k
+    modulation: 2gfsk
+    bitrate: 50 Kbps
+}
+
+light {
+  category=RAIL Examples
+  name=RAIL: Light
+  dir=light/
+  isc=light/light.isc
+  architecture=BRD4164A+iar,BRD4163A+iar,BRD4158A+iar,BRD4167A+iar,simulation
+  include=main.c,app_ci.h,app_ci,.internal_hwconfig,app_common.h
+  This application demonstrates the exchange of on/off operations between a RAIL light and RAIL switches.
+
+  The application has the following PHY configuration:
+    frequency: 915MHz
+    deviation: 25k
+    modulation: 2gfsk
+    bitrate: 50 Kbps
+}
+
+simpletrx-efr32-multiphy {
+  category=RAIL Examples
+  name=RAIL: Simple TRX Multi-PHY
+  dir=simple_trx_multiphy/
+  isc=simple_trx_multiphy/simple_trx_multiphy.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates the usage of multiple phys selectable by channels.
+
+  The application has the following default PHY configuration:
+    Channel 0:
+      frequency: 2.4GHz
+      bitrate: 250 Kbps
+
+    Channel 1:
+      frequency: 915MHz
+      bitrate: 500 Kbps
+}
+
+simpletrx-efr32 {
+  category=RAIL Examples
+  name=RAIL: Simple TRX
+  dir=simple_trx/
+  isc=simple_trx/simple_trx.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates the simplest exchange of transmit and receive operation between two nodes.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+simpletrx-with-sw-ack-efr32 {
+  category=RAIL Examples
+  name=RAIL: Simple TRX with ACK (Software)
+  dir=simple_trx_with_sw_ack/
+  isc=simple_trx_with_sw_ack/simple_trx_with_sw_ack.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates the simplest exchange of transmit and ack operation between two nodes.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+simpletrx-with-fifo-efr32 {
+  category=RAIL Examples
+  name=RAIL: Simple TRX with FIFO (Long Packet)
+  dir=simple_trx_with_fifo/
+  isc=simple_trx_with_fifo/simple_trx_with_fifo.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates the simplest FIFO data transmission operation between two nodes.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+connected-motion {
+  category=RAIL Examples
+  name=RAIL: Connected Motion for EFR32 Thunderboard
+  dir=connected_motion/
+  isc=connected_motion/connected_motion.isc
+  architecture=BRD4160A
+  include=main.c,.internal_hwconfig
+  This application demonstrates communication between nodes where lost packets
+  is of no concern. In this demonstration, each node has a different color and
+  light up when it becomes active via motion detection. The active node propagate
+  its color to nearby nodes. When all nodes are stationary, a master node coordinates
+  a green light fading from board to board.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+dutycycle-efr32 {
+  category=RAIL Examples
+  name=RAIL: Duty Cycle
+  dir=dutycycle/
+  isc=dutycycle/dutycycle.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates low power communication via different data transmission modes.
+  The data transmission modes are Duty Cycle, Master, Slave.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 125k
+    modulation: 2gfsk
+    bitrate: 38.4 kbps
+}
+
+emode-efr32 {
+  category=RAIL Examples
+  name=RAIL: Energy Mode
+  dir=emode/
+  isc=emode/emode.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates low power communication via
+  different power modes (EM0-Active, EM1-Sleep, EM2-Deep Sleep).
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+railtest-efr32 {
+  category=RAIL Examples
+  name=RAIL: RAILTEST
+  dir=../../../../platform/radio/rail_lib/apps
+  isc=railtest/railtest_efr32.isc
+  architecture=efr32,simulation
+  include=railtest/app_hal.c,railtest/app_main.c,railtest/app_modes.c,railtest/app_trx.c,railtest/mode_helpers.c,railtest/railtest_helpers.c,railtest/app_ci.h,railtest/app_ci[-internal_ci.c],railapp/railapp_antenna.c,railtest/.internal_hwconfig
+  This is application demonstrates features of RAIL through command line interface (CLI) interface.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: 2gfsk
+    bitrate: 1 Mbps
+}
+
+rangetest-efr32 {
+  category=RAIL Examples
+  name=RAIL: Range Test
+  dir=rangetest/
+  isc=rangetest/rangetest.isc
+  architecture=BRD4100A,BRD4103A,BRD4104A,BRD4158A,BRD4150A,BRD4150B,BRD4150C,BRD4151A,BRD4152A,BRD4152B,BRD4153A,BRD4159A,BRD4161A,BRD4162A,BRD4163A,BRD4164A,BRD4165B,BRD4167A,BRD4168A,BRD4170A,BRD4250A,BRD4250B,BRD4251A,BRD4251B,BRD4251D,BRD4252A,BRD4253A,BRD4254A,BRD4255A,BRD4256A,BRD4304A,BRD4502A,BRD4502B,BRD4502C,BRD4502D,BRD4502E,BRD4503A,BRD4503B,BRD4503C,BRD4504A,BRD4504B,BRD4505A,BRD4505B,BRD4506A,BRD4542B,BRD4543B,BRD4544A,BRD4545A,BRD4546A,BRD4169B,BRD4169A,BRD4257A,BRD4258A,BRD4258B,BRD4259A,BRD4257B,BRD4105A,BRD4306C,BRD4306D,BRD4305A,BRD4305C,BRD4305D,BRD4305E,simulation,
+  include=app_common.h,graphics.h,pushButton.c,rangetestconfig.c,seq.c,app_defs.h,image.h,pushButton.h,rangetestconfigtypes.h,seq.h,config,menu.c,rangeTest.h,graphics.c,menu.h,rangeTest.c,.internal_hwconfig
+  This application demonstrates over the air range of the EFR32.
+
+  The application has the following PHY configuration:
+    frequency: 2.4GHz
+    deviation: 500k
+    modulation: oqpsk
+    bitrate: 250 Kbps
+}
+
+rangetest-std {
+  category=RAIL Examples
+  name=RAIL: Range Test BLE and IEEE802.15.4
+  dir=rangetest-std/
+  isc=rangetest-std/rangetest-std.isc
+  architecture=BRD4171A,BRD4180A,BRD4181A
+  # railtest is overriding the provided params.
+  # we are putting in the dummy files to get the build to compile.
+  include=app_common.h,graphics.h,pushButton.c,rangetestconfig.c,seq.c,app_defs.h,image.h,pushButton.h,rangetestconfigtypes.h,seq.h,config,menu.c,rangeTest.h,graphics.c,menu.h,rangeTest.c,.internal_hwconfig
+  This application demonstrates over the air range of RD4171A,BRD4180A and BRD4181A boards.
+
+  The application has the following predefined PHYs:
+    BLE, 125kbps
+    BLE, 500kbps
+    BLE, 1Mbps
+    BLE, 2Mbps
+    IEEE80215.4, 250kbps
+}
+
+simple-rail-without-hal-efr32 {
+  category=RAIL Examples
+  name=RAIL: Simple RAIL without HAL
+  dir=simple_rail_without_hal/
+  isc=simple_rail_without_hal/simple_rail_without_hal.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This is a Simple RAIL without HAL sample application.
+}
+
+simple-rail-with-hal-efr32 {
+  category=RAIL Examples
+  name=RAIL: Simple RAIL with HAL
+  dir=simple_rail_with_hal/
+  isc=simple_rail_with_hal/simple_rail_with_hal.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This is a Simple RAIL with HAL sample application.
+}
+
+wmbus-meter {
+  category=RAIL Examples
+  name=RAIL: WMBus Meter
+  dir=wmbus_meter/
+  isc=wmbus_meter/wmbus_meter.isc
+  architecture=efr32,simulation
+  include=main.c,rtcdrv_config.h,wmbus_sample_frame.h,wmbus_sample_frame.c,.internal_hwconfig
+  This application demonstrates the exchange of messages via WMBus protocol between the meter and collector.
+}
+
+wmbus-collector {
+  category=RAIL Examples
+  name=RAIL: WMBus Collector
+  dir=wmbus_collector/
+  isc=wmbus_collector/wmbus_collector.isc
+  architecture=efr32,simulation
+  include=main.c,.internal_hwconfig
+  This application demonstrates the exchange of messages via WMBus protocol between the meter and collector.
+}
+

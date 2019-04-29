@@ -1,0 +1,151 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[F]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]~!module+BRD4252A+iar
+deviceName: simple_rail_with_hal
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=false
+appPlugin: command-interpreter-rail=false
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=false
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=false
+appPlugin: hal=false
+appPlugin: hal-config=false
+appPlugin: hal-efr32=true
+appPlugin: heartbeat=false
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=false
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=false
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: pa-conversions=false
+appPlugin: packet-trace=false
+appPlugin: phy=false
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-lib=true
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=false
+appPlugin: serial=false
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=false
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=false
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=false
+appPlugin: stack-counters=false
+appPlugin: stack-counters-stub=false
+appPlugin: stack-mac-queue=false
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=false
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=false
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+PATH(ISC_RELATIVE):main.c
+}
+{setupId:boardHeader
+allowMissingHeader:true
+useHeaderInPlace:true
+efr32~family[F]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4252A+iar=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+efr32~series[1]~device_configuration[4]=null,
+efr32~series[2]~device_configuration[1]=null,
+}
+{setupId:callbackConfiguration
+main:false
+}
+{setupId:commandLineConfiguration
+off
+}
+{setupId:debugConfiguration
+off
+area name off
+appSerial=1
+}
+{setupId:multiPhyRadioConfigurator
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="dumbo" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+    <base_channel_configuration name="Protocol Configuration" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K"/>
+      <channel_config_entries>
+        <channel_config_entry name="Channel Group 1">
+          <physical_channel_offset>SAME_AS_FIRST_CHANNEL</physical_channel_offset>
+          <channel_number_start>0</channel_number_start>
+          <channel_number_end>20</channel_number_end>
+          <max_power>RAIL_TX_POWER_MAX</max_power>
+        </channel_config_entry>
+      </channel_config_entries>
+    </base_channel_configuration>
+  </base_channel_configurations>
+</multi_phy_configuration>
+}
+{setupId:eventConfiguration
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+This is a simple RAIL sample application, with HAL.
+
+NOTE: Due to the higher current consumption of the continuous radio usage (especially in Rx Mode), it is not recommended to power the boards from a coin cell. Instead, an USB power bank can be used if portability is needed.
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=${TOOLKIT_DIR}\config\linker\SiliconLaboratories\$--partNumber--$.icf
+linkerLdFile=$--halDir--$/../../Device/SiliconLabs/$--chipFamilyUpperCase--$/Source/GCC/$--chipFamilyLowerCase--$.ld
+}
+{setupId:token
+}
+
+# Plugin options
+
+# UI/Setup customization for multi-phy
+hiddenLayoutElements: radio

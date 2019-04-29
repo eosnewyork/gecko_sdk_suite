@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3401A_micriumos_blink" boardCompatibility="brd2500a" partCompatibility=".*efm32pg1b200f256gm48.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.micriumos">
+    <include pattern=".*/bsp_cpu.c" />
+    <include pattern=".*/bsp_os.c" />
+    <include pattern=".*/auth.c" />
+    <include pattern=".*/clk.c" />
+    <include pattern=".*/clk_cmd.c" />
+    <include pattern=".*/bitmap.c" />
+    <include pattern=".*/map.c" />
+    <include pattern=".*/slist.c" />
+    <include pattern=".*/common.c" />
+    <include pattern=".*/kal_kernel.c" />
+    <include pattern=".*/lib_ascii.c" />
+    <include pattern=".*/lib_math.c" />
+    <include pattern=".*/lib_mem.c" />
+    <include pattern=".*/lib_str.c" />
+    <include pattern=".*/rtos_err_str.c" />
+    <include pattern=".*/platform_mgr.c" />
+    <include pattern=".*/cpu_core.c" />
+    <include pattern=".*/armv7m_cpu_a.asm" />
+    <include pattern=".*/armv7m_cpu_a.S" />
+    <include pattern=".*/armv6m_v7m_cpu_int.c" />
+    <include pattern=".*/os_core.c" />
+    <include pattern=".*/os_cfg_app.c" />
+    <include pattern=".*/os_dbg.c" />
+    <include pattern=".*/os_flag.c" />
+    <include pattern=".*/os_mem.c" />
+    <include pattern=".*/os_mon.c" />
+    <include pattern=".*/os_msg.c" />
+    <include pattern=".*/os_mutex.c" />
+    <include pattern=".*/os_prio.c" />
+    <include pattern=".*/os_q.c" />
+    <include pattern=".*/os_sem.c" />
+    <include pattern=".*/os_stat.c" />
+    <include pattern=".*/os_task.c" />
+    <include pattern=".*/os_tick.c" />
+    <include pattern=".*/os_time.c" />
+    <include pattern=".*/os_tmr.c" />
+    <include pattern=".*/os_var.c" />
+    <include pattern=".*/armv7m_os_cpu_a.asm" />
+    <include pattern=".*/armv7m_os_cpu_c.c" />
+    <include pattern=".*/armv7m_os_cpu_a.S" />
+    <include pattern=".*/os_priv.h" />
+    <include pattern=".*/os.h" />
+    <include pattern=".*/os_port_sel.h" />
+    <include pattern=".*/os_trace.h" />
+    <include pattern=".*/os_type.h" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="../../../../platform/micrium_os" />
+  <includePath uri="cfg" />
+  <includePath uri="." />
+  <includePath uri="../../../../util/third_party/segger/systemview/SEGGER" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Config" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel" />
+  <folder name="SystemView">
+    <file name="SEGGER_RTT.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_RTT.c" />
+    <file name="SEGGER_SYSVIEW.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_SYSVIEW.c" />
+    <file name="SEGGER_SYSVIEW_MicriumOSKernel.c" uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel/SEGGER_SYSVIEW_MicriumOSKernel.c" />
+    <file name="SEGGER_SYSVIEW_Config_MicriumOSKernel.c" uri="cfg/SEGGER_SYSVIEW_Config_MicriumOSKernel.c" />
+  </folder>
+  <folder name="src">
+    <file name="ex_main.c" uri="ex_main.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

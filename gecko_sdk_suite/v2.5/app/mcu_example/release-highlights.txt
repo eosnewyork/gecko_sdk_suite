@@ -1,0 +1,7 @@
+
+MCU 5.7.3.0
+ * New product support for the EFM32 Giant Gecko 12 family.
+ * EFM32 Giant Gecko 12 Thunderboard development kit with sample applications, featuring the new PDM interface and more.
+ * Added Gecko Bootloader support and sample applications for EFM32 Giant Gecko 11. 
+ * Updated all Micrium OS based sample applications to use OS v5.06.00.
+ * New Software License Agreement.

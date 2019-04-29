@@ -1,0 +1,211 @@
+#include PLATFORM_HEADER
+
+/** @brief Main Init
+ *
+ * This function is called when the application starts and can be used to
+ * perform any additional initialization required at system startup.
+ */
+void emberAfMainInitCallback(void)
+{
+}
+
+/** @brief Main Tick
+ *
+ * This function is called in each iteration of the main application loop and
+ * can be used to perform periodic functions.  The frequency with which this
+ * function is called depends on how quickly the main loop runs.  If the
+ * application blocks at any time during the main loop, this function will not
+ * be called until execution resumes. Sleeping and idling will block.
+ */
+void emberAfMainTickCallback(void)
+{
+}
+
+/** @brief Stack Status
+ *
+ * This function is called when the stack status changes.  This callbacks
+ * provides applications an opportunity to be notified of changes to the stack
+ * status and take appropriate action.
+ *
+ * @param status   Ver.: always
+ */
+void emberAfStackStatusCallback(EmberStatus status)
+{
+}
+
+/** @brief Incoming Message
+ *
+ * This function is called when a message is received.
+ *
+ * @param message   Ver.: always
+ */
+void emberAfIncomingMessageCallback(EmberIncomingMessage *message)
+{
+}
+
+/** @brief Incoming Mac Message
+ *
+ * This function is called when a node of ::EMBER_MAC_MODE_DEVICE type or
+ * ::EMBER_MAC_MODE_SLEEPY_DEVICE has has received a MAC frame.
+ *
+ * @param message   Ver.: always
+ */
+void emberAfIncomingMacMessageCallback(EmberIncomingMacMessage *message)
+{
+}
+
+/** @brief Message Sent
+ *
+ * This function is called to indicate whether an outgoing message was
+ * successfully transmitted or to indicate the reason of failure.
+ *
+ * @param status    Ver.: always
+ * @param message   Ver.: always
+ */
+void emberAfMessageSentCallback(EmberStatus status,
+                                EmberOutgoingMessage *message)
+{
+}
+
+/** @brief Mac Message Sent
+ *
+ * This function is called at a node of ::EMBER_MAC_MODE_DEVICE type or
+ * ::EMBER_MAC_MODE_SLEEPY_DEVICE type to indicate whether an outgoing MAC frame
+ * was successfully transmitted or to indicate the reason of failure.
+ *
+ * @param status    Ver.: always
+ * @param message   Ver.: always
+ */
+void emberAfMacMessageSentCallback(EmberStatus status,
+                                   EmberOutgoingMacMessage *message)
+{
+}
+
+/** @brief Child Join
+ *
+ * This function is called when a node has joined the network.
+ *
+ * @param nodeType   Ver.: always
+ * @param nodeId     Ver.: always
+ */
+void emberAfChildJoinCallback(EmberNodeType nodeType,
+                              EmberNodeId nodeId)
+{
+}
+
+/** @brief Active Scan Complete
+ *
+ * This function is called when a node has completed an active scan.
+ */
+void emberAfActiveScanCompleteCallback(void)
+{
+}
+
+/** @brief Child Join
+ *
+ * This function is called when a node has joined the network.
+ *
+ * @param mean       Ver.: always
+ * @param min        Ver.: always
+ * @param max        Ver.: always
+ * @param variance   Ver.: always
+ */
+void emberAfEnergyScanCompleteCallback(int8_t mean,
+                                       int8_t min,
+                                       int8_t max,
+                                       uint16_t variance)
+{
+}
+
+/** @brief Mark Application Buffers
+ *
+ * This function is called when the application must mark its buffers.  Buffers
+ * that are not marked will be reclaimed by the stack.
+ */
+void emberAfMarkApplicationBuffersCallback(void)
+{
+}
+
+/** @brief Incoming Beacon
+ *
+ * This function is called when a node is performing an active scan and a beacon
+ * is received.
+ *
+ * @deprecated This callback is deprecated and will be removed in a future
+ *  release. The application should implement
+ *  ::emberAfIncomingBeaconExtendedCallback instead.
+ *
+ * @param panId          Ver.: always
+ * @param nodeId         Ver.: always
+ * @param rssi           Ver.: always
+ * @param permitJoining  Ver.: always
+ * @param payloadLength  Ver.: always
+ * @param payload        Ver.: always
+ */
+void emberAfIncomingBeaconCallback(EmberPanId panId,
+                                   EmberNodeId nodeId,
+                                   int8_t rssi,
+                                   bool permitJoining,
+                                   uint8_t payloadLength,
+                                   uint8_t *payload)
+{
+}
+
+/** @brief Incoming Beacon Extended
+ *
+ * This function is called when a node is performing an active scan and a beacon
+ * is received.
+ *
+ * @param panId                Ver.: always
+ * @param source               Ver.: always
+ * @param rssi                 Ver.: always
+ * @param permitJoining        Ver.: always
+ * @param beaconFieldsLength   Ver.: always
+ * @param beaconFields         Ver.: always
+ * @param beaconPayloadLength  Ver.: always
+ * @param beaconPayload        Ver.: always
+ */
+void emberAfIncomingBeaconExtendedCallback(EmberPanId panId,
+                                           EmberMacAddress *source,
+                                           int8_t rssi,
+                                           bool permitJoining,
+                                           uint8_t beaconFieldsLength,
+                                           uint8_t *beaconFields,
+                                           uint8_t beaconPayloadLength,
+                                           uint8_t *beaconPayload)
+{
+}
+
+/** @brief Frequency Hopping Start Client Complete
+ *
+ * This function is called when a frequency hopping client completed the start
+ * procedure.
+ *
+ * @param status        Ver.: always
+ */
+void emberAfFrequencyHoppingStartClientCompleteCallback(EmberStatus status)
+{
+}
+
+/** @brief Radio Needs Calibrating
+ *
+ * This function is called when the radio hardware has determined that radio
+ * calibration is needed.
+ */
+void emberAfRadioNeedsCalibratingCallback(void)
+{
+  emberCalibrateCurrentChannel();
+}
+
+/** @brief Stack Idle
+ *
+ * This function is called when the stack is about to idle the CPU.
+ *
+ * @param idleTimeMs    Ver.: always
+ *
+ * @return true if the application will handle idling the CPU, false otherwise.
+ */
+bool emberAfStackIdleCallback(uint32_t *idleTimeMs)
+{
+  return false;
+}

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3701A_micriumos_webmic" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_ldma.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/dmadrv.h" />
+    <include pattern="Drivers(/.*){0,1}/dmadrv.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargetserial.c" />
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh06.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_display.c" />
+    <include pattern="Graphics/glib.c" />
+    <include pattern="Graphics/glib_bitmap.c" />
+    <include pattern="Graphics/glib_string.c" />
+    <include pattern="Graphics/glib_line.c" />
+    <include pattern="Graphics/glib_rectangle.c" />
+    <include pattern="Graphics/glib_font_normal_8x8.c" />
+    <include pattern="Graphics/glib_font_narrow_6x8.c" />
+    <include pattern="Graphics/glib_font_number_16x20.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.micriumos">
+    <include pattern=".*/bsp_cpu.c" />
+    <include pattern=".*/bsp_os.c" />
+    <include pattern=".*/bsp_net_ether_gem.c" />
+    <include pattern=".*/bitmap.c" />
+    <include pattern=".*/slist.c" />
+    <include pattern=".*/common.c" />
+    <include pattern=".*/kal_kernel.c" />
+    <include pattern=".*/lib_ascii.c" />
+    <include pattern=".*/lib_math.c" />
+    <include pattern=".*/lib_mem.c" />
+    <include pattern=".*/lib_str.c" />
+    <include pattern=".*/platform_mgr.c" />
+    <include pattern=".*/cpu_core.c" />
+    <include pattern=".*/armv7m_cpu_a.asm" />
+    <include pattern=".*/armv7m_cpu_a.S" />
+    <include pattern=".*/armv6m_v7m_cpu_int.c" />
+    <include pattern=".*/os_core.c" />
+    <include pattern=".*/os_cfg_app.c" />
+    <include pattern=".*/os_dbg.c" />
+    <include pattern=".*/os_flag.c" />
+    <include pattern=".*/os_mem.c" />
+    <include pattern=".*/os_mon.c" />
+    <include pattern=".*/os_msg.c" />
+    <include pattern=".*/os_mutex.c" />
+    <include pattern=".*/os_prio.c" />
+    <include pattern=".*/os_q.c" />
+    <include pattern=".*/os_sem.c" />
+    <include pattern=".*/os_stat.c" />
+    <include pattern=".*/os_task.c" />
+    <include pattern=".*/os_tick.c" />
+    <include pattern=".*/os_time.c" />
+    <include pattern=".*/os_tmr.c" />
+    <include pattern=".*/os_var.c" />
+    <include pattern=".*/armv7m_os_cpu_a.asm" />
+    <include pattern=".*/armv7m_os_cpu_c.c" />
+    <include pattern=".*/armv7m_os_cpu_a.S" />
+    <include pattern=".*/os_priv.h" />
+    <include pattern=".*/os.h" />
+    <include pattern=".*/os_port_sel.h" />
+    <include pattern=".*/os_trace.h" />
+    <include pattern=".*/os_type.h" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.micriumos_net">
+    <include pattern=".*/net_drv_ether_gem.c" />
+    <include pattern=".*/net_drv_phy_generic.c" />
+    <include pattern=".*/net.c" />
+    <include pattern=".*/net_app.c" />
+    <include pattern=".*/net_arp.c" />
+    <include pattern=".*/net_ascii.c" />
+    <include pattern=".*/net_bsd.c" />
+    <include pattern=".*/net_buf.c" />
+    <include pattern=".*/net_cache.c" />
+    <include pattern=".*/net_conn.c" />
+    <include pattern=".*/net_ctr.c" />
+    <include pattern=".*/net_icmp.c" />
+    <include pattern=".*/net_icmpv4.c" />
+    <include pattern=".*/net_icmpv6.c" />
+    <include pattern=".*/net_if.c" />
+    <include pattern=".*/net_if_802x.c" />
+    <include pattern=".*/net_if_ether.c" />
+    <include pattern=".*/net_ip.c" />
+    <include pattern=".*/net_ipv4.c" />
+    <include pattern=".*/net_ipv6.c" />
+    <include pattern=".*/net_mldp.c" />
+    <include pattern=".*/net_ndp.c" />
+    <include pattern=".*/net_sock.c" />
+    <include pattern=".*/net_stat.c" />
+    <include pattern=".*/net_task.c" />
+    <include pattern=".*/net_tcp.c" />
+    <include pattern=".*/net_tmr.c" />
+    <include pattern=".*/net_udp.c" />
+    <include pattern=".*/net_util.c" />
+    <include pattern=".*/net_svc_task.c" />
+    <include pattern=".*/net_dict.c" />
+    <include pattern=".*/dhcp_client.c" />
+    <include pattern=".*/dns_client.c" />
+    <include pattern=".*/dns_client_cache.c" />
+    <include pattern=".*/dns_client_req.c" />
+    <include pattern=".*/dns_client_task.c" />
+    <include pattern=".*/dns_client.h" />
+    <include pattern=".*/net_arp.h" />
+    <include pattern=".*/net_def.h" />
+    <include pattern=".*/net_cfg_net.h" />
+    <include pattern=".*/net_type.h" />
+    <include pattern=".*/net_conn.h" />
+    <include pattern=".*/net_sock.h" />
+    <include pattern=".*/net_stat.h" />
+    <include pattern=".*/net_util.h" />
+    <include pattern=".*/net_tcp.h" />
+    <include pattern=".*/net_if.h" />
+    <include pattern=".*/net_ipv4.h" />
+    <include pattern=".*/net_ipv6.h" />
+    <include pattern=".*/net_ip.h" />
+    <include pattern=".*/net_ndp.h" />
+    <include pattern=".*/dhcp.h" />
+    <include pattern=".*/http.h" />
+    <include pattern=".*/net_base64_priv.h" />
+    <include pattern=".*/net_dict_priv.h" />
+    <include pattern=".*/net_sha1_priv.h" />
+    <include pattern=".*/net_svc_task_priv.h" />
+    <include pattern=".*/net_priv.h" />
+    <include pattern=".*/net_type_priv.h" />
+    <include pattern=".*/net_conn_priv.h" />
+    <include pattern=".*/net_arp_priv.h" />
+    <include pattern=".*/net_app_priv.h" />
+    <include pattern=".*/net_dad_priv.h" />
+    <include pattern=".*/net_sock_priv.h" />
+    <include pattern=".*/net_def_priv.h" />
+    <include pattern=".*/net_stat_priv.h" />
+    <include pattern=".*/net_tcp_priv.h" />
+    <include pattern=".*/net_tmr_priv.h" />
+    <include pattern=".*/net_util_priv.h" />
+    <include pattern=".*/net_cache_priv.h" />
+    <include pattern=".*/net_ctr_priv.h" />
+    <include pattern=".*/net_if_priv.h" />
+    <include pattern=".*/net_ip_priv.h" />
+    <include pattern=".*/net_ipv4_priv.h" />
+    <include pattern=".*/net_ipv6_priv.h" />
+    <include pattern=".*/net_buf_priv.h" />
+    <include pattern=".*/net_icmp_priv.h" />
+    <include pattern=".*/net_udp_priv.h" />
+    <include pattern=".*/net_task_priv.h" />
+    <include pattern=".*/net_ascii_priv.h" />
+    <include pattern=".*/net_igmp_priv.h" />
+    <include pattern=".*/net_ndp_priv.h" />
+    <include pattern=".*/net_icmpv4_priv.h" />
+    <include pattern=".*/net_icmpv6_priv.h" />
+    <include pattern=".*/net_mldp_priv.h" />
+    <include pattern=".*/net_bsd_priv.h" />
+    <include pattern=".*/net_if_ether_priv.h" />
+    <include pattern=".*/net_if_802x_priv.h" />
+    <include pattern=".*/net_cmd_priv.h" />
+    <include pattern=".*/dhcp_client_priv.h" />
+    <include pattern=".*/dhcp_priv.h" />
+    <include pattern=".*/dns_client_req_priv.h" />
+    <include pattern=".*/dns_client_cache_priv.h" />
+    <include pattern=".*/dns_client_priv.h" />
+    <include pattern=".*/dns_client_task_priv.h" />
+    <include pattern=".*/http.c" />
+    <include pattern=".*/http_dict.c" />
+    <include pattern=".*/http_server.c" />
+    <include pattern=".*/http_server_conn.c" />
+    <include pattern=".*/http_server_mem.c" />
+    <include pattern=".*/http_server_priv.h" />
+    <include pattern=".*/http_server_req.c" />
+    <include pattern=".*/http_server_resp.c" />
+    <include pattern=".*/http_server_sock.c" />
+    <include pattern=".*/http_server_str.c" />
+    <include pattern=".*/http_server_task.c" />
+    <include pattern=".*/http_dict_priv.h" />
+    <include pattern=".*/http_priv.h" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <macroDefinition name="RETARGET_VCOM" />
+  <macroDefinition name="HAVE_CONFIG_H" />
+  <libraryPath uri="libs/libopus_iar.a" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <libraryPath uri="libs/libogg_iar.a" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <libraryFile name="opus_gcc" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryPath uri="libs/" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryFile name="ogg_gcc" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryPath uri="libs/" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <file name="micriumos_webmic.icf" uri="micriumos_webmic.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../platform/micrium_os" />
+  <includePath uri="cfg" />
+  <includePath uri="." />
+  <includePath uri="libs/include" />
+  <includePath uri="net/http" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="../../../../util/third_party/segger/systemview/SEGGER" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Config" />
+  <includePath uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel" />
+  <folder name="SystemView">
+    <file name="SEGGER_RTT.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_RTT.c" />
+    <file name="SEGGER_SYSVIEW.c" uri="../../../../util/third_party/segger/systemview/SEGGER/SEGGER_SYSVIEW.c" />
+    <file name="SEGGER_SYSVIEW_MicriumOSKernel.c" uri="../../../../util/third_party/segger/systemview/Sample/MicriumOSKernel/SEGGER_SYSVIEW_MicriumOSKernel.c" />
+    <file name="SEGGER_SYSVIEW_Config_MicriumOSKernel.c" uri="cfg/SEGGER_SYSVIEW_Config_MicriumOSKernel.c" />
+  </folder>
+  <folder name="src">
+    <file name="common_declarations.h" uri="common_declarations.h" />
+    <file name="displayconfigapp.h" uri="displayconfigapp.h" />
+    <file name="graphics.c" uri="graphics.c" />
+    <file name="images.c" uri="images.c" />
+    <file name="main.c" uri="main.c" />
+    <file name="mic_config.h" uri="mic_config.h" />
+    <file name="mic_i2s.h" uri="mic_i2s.h" />
+    <file name="mic_i2s.c" uri="mic_i2s.c" />
+    <file name="network.c" uri="network.c" />
+    <file name="webserver.c" uri="webserver.c" />
+  </folder>
+  <toolOption toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="${workspace_loc:/${ProjName}/micriumos_webmic.icf}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

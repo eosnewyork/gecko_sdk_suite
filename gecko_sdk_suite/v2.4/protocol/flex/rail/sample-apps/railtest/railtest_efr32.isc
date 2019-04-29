@@ -1,0 +1,163 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[F]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4252A+iar
+deviceName: railtest_efr32
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=true
+appPlugin: circular-queue=true
+appPlugin: command-interpreter=false
+appPlugin: command-interpreter-rail=true
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=false
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=false
+appPlugin: hal=false
+appPlugin: hal-config=false
+appPlugin: hal-efr32=true
+appPlugin: heartbeat=false
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=true
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=false
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: packet-trace=false
+appPlugin: pa-conversions=true
+appPlugin: phy=false
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-lib=true
+appPlugin: railtest-base=true
+appPlugin: rangetest-base=false
+appPlugin: response-printf=true
+appPlugin: serial=false
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=false
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=false
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=false
+appPlugin: stack-counters=false
+appPlugin: stack-counters-stub=false
+appPlugin: stack-form-and-join=false
+appPlugin: stack-mac-queue=false
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=false
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=false
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+PATH(ISC_RELATIVE):app_hal.c
+PATH(ISC_RELATIVE):app_main.c
+PATH(ISC_RELATIVE):app_modes.c
+PATH(ISC_RELATIVE):app_trx.c
+PATH(ISC_RELATIVE):mode_helpers.c
+PATH(ISC_RELATIVE):railtest_helpers.c
+PATH(ISC_RELATIVE):app_ci.h
+PATH(ISC_RELATIVE):app_ci/154_rx_ci.c
+PATH(ISC_RELATIVE):app_ci/ble_ci.c
+PATH(ISC_RELATIVE):app_ci/address_filter_ci.c
+PATH(ISC_RELATIVE):app_ci/autoack_ci.c
+PATH(ISC_RELATIVE):app_ci/debug_ci.c
+PATH(ISC_RELATIVE):app_ci/error_rate_ci.c
+PATH(ISC_RELATIVE):app_ci/info_ci.c
+PATH(ISC_RELATIVE):app_ci/lbt_ci.c
+PATH(ISC_RELATIVE):app_ci/packet_ci.c
+PATH(ISC_RELATIVE):app_ci/parameter_ci.c
+PATH(ISC_RELATIVE):app_ci/script_ci.c
+PATH(ISC_RELATIVE):app_ci/channel_hopping_ci.c
+PATH(ISC_RELATIVE):app_ci/timer_ci.c
+PATH(ISC_RELATIVE):app_ci/trx_ci.c
+PATH(ISC_RELATIVE):../railapp/railapp_antenna.c
+}
+{setupId:boardHeader
+allowMissingHeader:true
+useHeaderInPlace:true
+efr32~family[F]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4252A+iar=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+efr32~series[1]~device_configuration[4]=null,
+}
+{setupId:callbackConfiguration
+main:false
+}
+{setupId:commandLineConfiguration
+off
+}
+{setupId:debugConfiguration
+off
+area name off
+appSerial=1
+}
+{setupId:efr32RadioConfig
+PHY=serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K
+PROFILE=serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base
+}
+{setupId:eventConfiguration
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+RAILtest is an a sample application that allows the different functionalities available via RAIL to be tested over a CLI. An important use of RAILtest is changing the radio configuration via Simplicity Studio, to check for interoperability with other devices.
+
+The application allows configuring transmission in a number of different ways. The simplest is to just transmit a given number of packets, but packets can also be transmitted continuously.
+
+A packet transmission can be scheduled at a specific time in the future, or after a Listen Before Talk algorithm has run. The transmission can be configured to occur after a packet is received, or direct mode can be configured to allow direct transmission from a GPIO.
+
+Different transmission parameters, such as power, channel, and payload, can be set. Modifying the channel will also affect reception. RAILtest includes status counters that can be accessed and reset.
+
+Reception can be enabled or disabled. Packets will be printed on reception. Direct mode can be configured for reception, to view the received bitstream on a GPIO.  Address filtering can be enabled and changed. The RF sense feature can be enabled, which puts the chip to sleep until a certain level of RF power is detected on the antenna. The energy mode of the chip is also configurable during RF sense.
+
+There are also a number of diagnostic and debug APIs that are included. All of the commands available can be accessed through the CLI via the "help" command.
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=${TOOLKIT_DIR}\config\linker\SiliconLaboratories\$--partNumber--$.icf
+linkerLdFile=$--halDir--$/../../Device/SiliconLabs/$--chipFamilyUpperCase--$/Source/GCC/$--chipFamilyLowerCase--$.ld
+}
+{setupId:token
+}
+
+# Plugin options

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3701A_lte_xbee_time_server" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtcc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargettextdisplay.c" />
+    <include pattern="Drivers/textdisplay.c" />
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh06.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <macroDefinition name="XBEE_PLATFORM_HEADER" value='"xbee/platform_efm32.h"' />
+  <macroDefinition name="XBEE_CELLULAR_ENABLED" value="1" />
+  <macroDefinition name="XBEE_DEVICE_ENABLE_ATMODE" value="1" />
+  <macroDefinition name="XBEE_DEMO_CONFIG" />
+  <macroDefinition name="XBEE_DEMO_HOLOGRAM_SIM" />
+  <macroDefinition name="XBEE_CHANGE_APN" />
+  <macroDefinition name="XBEE_TARGET_APN" value='"hologram"' />
+  <includePath uri="." />
+  <includePath uri="../../../../util/third_party/digi_lte/xbee/inc" />
+  <includePath uri="../../../../util/third_party/digi_lte/xbee/src/efm32" />
+  <includePath uri="../../../../util/third_party/digi_lte/xbee/config/inc" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="readme.txt" uri="readme.txt" />
+  </folder>
+  <folder name="XBee">
+    <file name="xbee_atcmd.c" uri="../../../../util/third_party/digi_lte/xbee/src/xbee/xbee_atcmd.c" />
+    <file name="xbee_atmode.c" uri="../../../../util/third_party/digi_lte/xbee/src/xbee/xbee_atmode.c" />
+    <file name="xbee_cbuf.c" uri="../../../../util/third_party/digi_lte/xbee/src/xbee/xbee_cbuf.c" />
+    <file name="xbee_device.c" uri="../../../../util/third_party/digi_lte/xbee/src/xbee/xbee_device.c" />
+    <file name="xbee_ipv4.c" uri="../../../../util/third_party/digi_lte/xbee/src/xbee/xbee_ipv4.c" />
+    <file name="xbee_platform_efm32.c" uri="../../../../util/third_party/digi_lte/xbee/src/efm32/xbee_platform_efm32.c" />
+    <file name="xbee_serial_efm32.c" uri="../../../../util/third_party/digi_lte/xbee/src/efm32/xbee_serial_efm32.c" />
+    <file name="hexdump.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/hexdump.c" />
+    <file name="hexstrtobyte.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/hexstrtobyte.c" />
+    <file name="jslong.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/jslong.c" />
+    <file name="memcheck.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/memcheck.c" />
+    <file name="swapbytes.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/swapbytes.c" />
+    <file name="swapcpy.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/swapcpy.c" />
+    <file name="xmodem_crc16.c" uri="../../../../util/third_party/digi_lte/xbee/src/util/xmodem_crc16.c" />
+    <file name="wpan_types.c" uri="../../../../util/third_party/digi_lte/xbee/src/wpan/wpan_types.c" />
+    <file name="xbee_config.c" uri="../../../../util/third_party/digi_lte/xbee/config/src/xbee_config.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

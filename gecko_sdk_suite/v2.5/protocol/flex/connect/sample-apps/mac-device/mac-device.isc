@@ -1,0 +1,243 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[233]~flash[256K]~temp[G]~package[M]~pins[48]~!module+BRD4150B+iar
+deviceName: mac-device
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=true
+appPlugin: command-interpreter-rail=false
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=true
+appPlugin: diagnostic=true
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=true
+appPlugin: hal=true
+appPlugin: hal-config=true
+appPlugin: hal-efr32=false
+appPlugin: heartbeat=true
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=false
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=true
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: packet-trace=false
+appPlugin: phy=true
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-lib=false
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=false
+appPlugin: serial=true
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=true
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=true
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=true
+appPlugin: stack-counters=true
+appPlugin: stack-counters-stub=false
+appPlugin: stack-mac-queue=true
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=true
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=true
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:boardHeader
+allowMissingHeader:false
+useHeaderInPlace:false
+efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[233]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4150B=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+}
+{setupId:callbackConfiguration
+emberIncomingMessageHandler:true
+emberMessageSentHandler:true
+emberStackStatusHandler:true
+emberChildJoinHandler:false
+emberAfMainInitCallback:false
+emberAfMainTickCallback:false
+emberAfStackStatusCallback:false
+emberAfEnergyScanCompleteCallback:false
+emberAfActiveScanCompleteCallback:false
+emberAfIncomingBeaconExtendedCallback:false
+emberAfChildJoinCallback:false
+emberAfIncomingMacMessageCallback:false
+emberAfMacMessageSentCallback:false
+emberAfPluginMicriumRtosAppTask1InitCallback:false
+emberAfPluginMicriumRtosAppTask1MainLoopCallback:false
+}
+{setupId:commandLineConfiguration
+on
+reset,halReboot,,unlocked
+set-key,setSecurityKeyCommand,b,unlocked
+set-beacon-payload,setBeaconPayloadCommand,b,unlocked
+form,formCommand,vsu,unlocked
+commission,commissionCommand,uvvsu,unlocked
+join,joinNetworkCommand,uvsuu,unlocked
+pjoin,setPermitJoinCommand,u,unlocked
+leave,emberResetNetworkState,,unlocked
+set-options,setOptionsCommand,u,unlocked
+set-poll-dest,setPollDestinationCommand,vb,unlocked
+poll,pollCommand,,unlocked
+send,sendCommand,vvbvbvvb,unlocked
+info,infoCommand,,unlocked
+purge-indirect,purgeIndirectCommand,,unlocked
+active-scan,activeScanCommand,u,unlocked
+energy-scan,energyScanCommand,uu,unlocked
+set-channel,setChannelCommand,u,unlocked
+}
+{setupId:connectStackConfig
+Radio board: BRD4502
+}
+{setupId:debugConfiguration
+on
+area name off
+appSerial=1
+}
+{setupId:multiPhyRadioConfigurator
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="dumbo" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+    <base_channel_configuration name="Protocol Configuration" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Connect">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Connect:PHY_Connect_902MHz_2GFSK_200kbps"/>
+      <channel_config_entries>
+        <channel_config_entry name="Channel Group 1">
+          <physical_channel_offset>SAME_AS_FIRST_CHANNEL</physical_channel_offset>
+          <channel_number_start>0</channel_number_start>
+          <channel_number_end>20</channel_number_end>
+          <max_power>RAIL_TX_POWER_MAX</max_power>
+        </channel_config_entry>
+      </channel_config_entries>
+    </base_channel_configuration>
+  </base_channel_configurations>
+</multi_phy_configuration>
+}
+{setupId:eventConfiguration
+}
+{setupId:genConfig
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+The MAC Device application demonstrates standard 802.15.4 MAC communication between nodes. MAC devices can form a network or join an existing network. Joining nodes can be RX-on MAC mode devices or sleepy MAC mode devices. Sleepy devices must poll the parent node to retrieve pending messages and/or as keep-alive mechanism.
+
+Available CLI commands:
+
+"reset" will reset the board.
+
+"set-key" Sets the security key, e.g. "set-key {AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}"
+
+"set-beacon-payload" allows to optionally set the value of the beacon payload, e.g. "set-beacon-payload {ABCDEF00112233}".
+
+"form" causes the node to create a new network as MAC device with the passed network parameters. The network parameters are the following: PAN ID, Channel and Transmission Power. The node will be the PAN coordinator, thus it will assign itself a short ID of 0x0000. For instance, the CLI command "form 0xABCD 15 0" causes the node to form a new network with PAN ID 0xABCD, on channel 15 and transmission power 0 dBm.
+
+“commission” brings up the node with the passed network parameters without any over-the-air joining process. The network parameters are the following: device type, Node ID, PAN ID, Channel and Transmission Power. For instance, the CLI command “commission 6 0x1111 0xABCD 0 15" causes the node to go up as a mac device with node ID 0x1111, PAN ID 0xABCD, transmission power 0 dBm and channel 15.
+
+"join" is called to perform an over-the-air joinining process of an existing network as per 802.15.4 specs. The parameters are the following: Node type (6: RX-on MAC mode device, 7:Sleepy MAC mode device), PAN ID, Tx power, Channel and a useLongAddress flag. If the passed useLongAddress is set, the joining node shall not request a short ID to the coordinator and it shall use it EUI64 long ID for all communications. Otherwise, the coordinator shall assign a random short ID to the joining node and the joining node can use either the assigned short ID or its EUI64 long ID for all communications. For example "join 0xABCD 15 0 0" causes the node to join the PAN with ID 0xABCD on channel 15 using a TX power of 0 dBm, and it shall request a random short ID to the coordinator.
+
+"pjoin" permits other nodes joining for the passed number of seconds. The maximum value of 255 enables joining indefinitely, e.g. "pjoin 0xFF".
+
+"leave" can be used to leave the network and turn off the radio.
+
+"set-options" sets the TX options bitmask. The following bits can be used:
+ 0x01 = Security enabled
+ 0x02 = ACK requested
+ 0x04 = High priority message
+ 0x08 = Indirect messaging
+
+"set-poll-dest" sets the destination address for 802.15.4 data requests.
+
+"poll" can be used to send a 802.15.4 data request to the parent node.
+
+"send" is a fully customizable command for sending mac frames in various combinations of source and destination addressing modes. It also supports intra-PAN and inter-PAN transmissions.
+
+Parameters:
+ 0: a "nibble mask" indicating which fields are specified, in particular:
+   0x000F - source ID mode (0x00 = none, 0x02 = short, 0x03 = long)
+   0x00F0 - destination ID mode (0x00 = none, 0x02 = short, 0x03 = long)
+   0x0F00 - the source PAN ID is specified (0x01) or not (0x00).
+   0xF000 - the destination PAN ID is specified (0x01) or not (0x00).
+ 1: the source short ID (if specified)
+ 2: the source long ID (if specified)
+ 3: the destination short ID (if specified)
+ 4: the destination long ID (if specified)
+ 5: the source PAN ID (if specified)
+ 6: the destination PAN ID (if specified)
+ 7: MAC message payload
+
+For example, "send 0x0022 0xF000  {} 0xC2DC  {} 0xFFFF 0xFFFF {01 23 45 67}" sends a 4-byte MAC payload of {01 23 45 67} with source short address 0xF000 and destination short address 0xC2DC with no PAN IDs specified (the stack will default to an intra-PAN message using the sender PAN ID), or
+
+"send 0x1133 0xFFFF {AA BB CC DD AA BB CC DD} 0xFFFF {00 11 22 33 00 11 22 33} 0xAAAA 0xBBBB {01 23 45 67}" sends a 4-byte MAC payload of (01 23 45 67} with source long address {AA BB CC DD AA BB CC DD} and destination long address {00 11 22 33 00 11 22 33} with source PAN ID 0xAAAA destination PAN ID 0xBBBB (inter-PAN message).
+
+"info" displays network related information.
+
+"purge-indirect" Removes all the pending indirect transmissions in the indirect message queue.
+
+"active-scan" performs a 802.15.4 acrive scan on the passed channel. For example, "active-scan 11" scans channel 11. Any received beacon shall be printed on the console.
+
+"set-channel" sets the current channel of the device. For instance, "set-channel 2" sets the current channel to 2. 
+
+Example:
+Using the following commands on two nodes in range causes node1 to form a new PAN with PAN ID 0xF000 on channel 1 using TX power 2 dBm. It then enables other nodes to join node1. Finally, node2 joins node1 as RX-on MAC mode device.
+
+  node1> commission 6 0x0000 0xF000 1 2
+  node1> pjoin 0xFF
+  node2> join 6 0xF000 1 2 0
+
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=$--halDir--$/micro/cortexm3/efm32/iar-cfg.icf
+linkerLdFile=$--halDir--$/micro/cortexm3/efm32/gcc-cfg.ld
+}
+{setupId:token
+}
+
+# UI/Setup customization for multi-phy
+hiddenLayoutElements: radio

@@ -1,0 +1,143 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[M]~series[1]~device_configuration[2]~performance[P]~radio[433]~flash[1024K]~temp[G]~package[L]~pins[125]+BRD4164A+iar
+deviceName: switch
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=false
+appPlugin: command-interpreter-rail=true
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=false
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=false
+appPlugin: dmp-demo-ui=true
+appPlugin: dmp-demo-utils=true
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=false
+appPlugin: hal=false
+appPlugin: hal-config=false
+appPlugin: hal-efr32=true
+appPlugin: heartbeat=false
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=true
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=false
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: pa-conversions=false
+appPlugin: packet-trace=false
+appPlugin: phy=false
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-app-config=true
+appPlugin: rail-library=true
+appPlugin: rail-library-mp=false
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=true
+appPlugin: serial=false
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=false
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=false
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=false
+appPlugin: stack-counters=false
+appPlugin: stack-counters-stub=false
+appPlugin: stack-form-and-join=false
+appPlugin: stack-mac-queue=false
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=false
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=false
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+PATH(ISC_RELATIVE):main.c
+PATH(STACK_RELATIVE):util/plugin/
+}
+{setupId:boardHeader
+allowMissingHeader:true
+useHeaderInPlace:true
+efr32~family[F]~series[1]~device_configuration[1]~performance[P]~radio[132]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4252A+iar=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+efr32~series[1]~device_configuration[4]=null,
+}
+{setupId:callbackConfiguration
+main:false
+}
+{setupId:commandLineConfiguration
+off
+}
+{setupId:debugConfiguration
+off
+area name off
+appSerial=1
+}
+{setupId:efr32RadioConfig
+PHY=serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_915M_2GFSK_50Kbps_25K
+PROFILE=serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base
+}
+{setupId:eventConfiguration
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+This application demonstrates the exchange of on/off operations between a RAIL switch and a RAIL or DMP BLE/RAIL light. Each node is capable of sending and receiving messages. On the WSTKs, any button press (PB0/PB1) will broadcast a toggle light command. The light's on/off state can be observed by LED0/1 and the light bulb icon on the LCD. The switch's on/off state is only shown on the LCD. To keep the multiple switches' on/off state in sync, the light periodically (1s) broadcasts its own state to the switches.
+
+NOTE:
+           Only one DMP BLE/RAIL light and multiple switches setups are supported.
+           Due to the higher current consumption of the continuous radio usage (especially in Rx Mode), it is not recommended to power the boards from a coin cell.
+           Instead, an USB power bank can be used if portability is needed.
+\}
+}
+{setupId:macros
+-DDEVICE_TYPE="Switch"
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=${TOOLKIT_DIR}\config\linker\SiliconLaboratories\$--partNumber--$.icf
+linkerLdFile=$--halDir--$/../../Device/SiliconLabs/$--chipFamilyUpperCase--$/Source/GCC/$--chipFamilyLowerCase--$.ld
+}
+{setupId:token
+}
+
+# Plugin options

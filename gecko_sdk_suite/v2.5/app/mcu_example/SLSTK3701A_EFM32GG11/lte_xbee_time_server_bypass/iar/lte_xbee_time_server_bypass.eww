@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\lte_xbee_time_server_bypass.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

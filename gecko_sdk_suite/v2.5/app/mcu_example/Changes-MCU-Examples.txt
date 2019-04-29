@@ -1,0 +1,151 @@
+================ Revision history ============================================
+5.7.0:
+  SLSTK3701A_EFM32GG11
+    - Added qspi_direct example
+    - Added qspi_indirect example
+    - Added micriumos_httpcloader example
+    - Added usbhloader example
+    - Added usbdloader example
+  SLTB009A_EFM32GG12
+    - Added blink
+    - Added pdm-led
+    - Added usbdhidkbd
+    - Added usbdpdmmic
+    - Added vcom
+
+5.6.0:
+  - Added Digi XBee module examples to SLSTK3701A kit.
+
+5.5.0:
+  - Removed uC/OS-III examples from MCU SDK, Micrium OS should be used instead
+  - Added legacy Gecko USB stack examples to SLSTK3701A EFM32GG11 kit.
+
+5.4.0:
+  - Removed CrossWorks for ARM and Atollic TrueSTUDIO generated example
+    templates for all MCU SDK examples.
+  - Renamed STK examples called "rs232" to "vcom" because these examples show
+    how to use the STK VCOM functionality.
+  - Updated Micrium OS examples to use Micrium OS v5.02.01
+  SLSTK3301A_EFM32TG11
+    - Added emode example
+    - Added helges_demo example
+    - Added CSLIB demo
+    - Added micriumos_blink example
+    - Updated LCD example to demonstrate low power operation with charge redistribution
+  SLSTK3701A_EFM32GG11
+    - Handling backspace in micriumos_shell example
+    - Using shell output function for printouts in micriumos_shell example
+    - New persistent_trng example to demonstrate use of the TRNG peripheral plug-in for mbedTLS and NVM3.
+  General CSLIB demos
+    - Added support for redirecting sensor index numbers. This allows for
+      flexibility in layout for sliders.
+
+5.3.5:
+  - Updated Micrium OS examples to use Micrium OS v5.02.00
+
+5.3.4:
+  - No changes.
+
+5.3.3:
+  - No changes.
+
+5.3.2:
+  SLSTK3701A_EFM32GG11
+    - Adding CrossWorks support for micriumos_webmic example.
+
+5.3.1:
+  EFM32GG_STK3700
+  SLSTK3401A_EFM32PG
+    - Updating Micrium OS Examples to using StudioModules.
+  SLSTK3402A_EFM32PG12
+    - Updating Micrium OS Examples to using StudioModules.
+    - Added CrossWorks project files
+  SLSTK3400A_EFM32HG
+    - Added si72xx_wheeldemo for evaluation of the Silicon Labs Si72xx Hall
+      Sensors.
+  SLSTK3701A_EFM32GG11
+    - Added CrossWorks project files
+    - Added spectrum_analyzer demo showing graphical analysis of ADC or
+      Micriphone samples on the color display.
+    - Improved error reporting in micriumos_usbhmsc example
+    - Added Micrium OS webmic example
+    - Updated helges_demo to use updated Si72xx driver from
+      hardware/kit/common/drivers
+    - Updating Micrium OS Examples to using StudioModules.
+    - Fixing build errors in Micrium OS examples due to relative include paths.
+  SLWSTK62xxA_EZR32HG
+    - Added CrossWorks project files
+
+5.3.0:
+  SLSTK3701A_EFM32GG11
+    - helges_demo: changed CSEN threshold levels
+    - Added CAN example called can_board
+    - Added Micrium OS Shell example called micriumos_shell
+  EFM32LG_DK3650
+  EFM32GG_DK3750
+  EFM32WG_DK3850
+  EFM32LG_STK3600
+  EFM32GG_STK3700
+  EFM32WG_STK3800
+    - Added em_core.c as a source file to all examples. This is needed due to
+    an errata fix in em_emu.c.
+
+5.2.2:
+  SLSTK3401A_EFM32PG
+    - Fixed bug in FreeRTOS Demo example. When configuring the demo to use low
+      power the example would enter EM3 and the tick interrupt would not wakeup
+      the MCU.
+
+5.2.1:
+  EFM32GG_DK3750:
+    - Fixed usbdtouch example. Changed FAT partitioning style from SFD to FDISK.
+      This fixes disk mount problem observed when using Windows 10 host.
+  EFM32GG_STK3700
+    - Added MicriumOS Blink example.
+    - Added MicriumOS USB device hid mouse example.
+    - Added MicriumOS USB host MSC example.
+  EFM32WG_STK3800
+    - Added usb_isolation, rs232_isolation and rs485_isolation examples.
+  SLSTK3400A_EFM32HG
+    - Added the gterm example.
+  SLSTK3401A_EFM32PG
+    - Added MicriumOS Blink example.
+  SLSTK3402A_EFM32PG12
+    - Added MicriumOS Blink example.
+  SLSTK3701A_EFM32GG11
+   - Added SLSTK3701A_EFM32GG11 kit examples.
+
+5.1.3:
+  SLSTK3402A_EFM32PG12
+    - Added Simplicity Studio support.
+
+5.1.1:
+  SLSTK3400A_EFM32HG
+    - Fixed incorrect push button pin in emode example.
+
+5.1.0:
+  SLSTK3401A_EFM32PG
+    - Added uC/OS-III Glib example.
+
+5.0.0:
+  EFM32GG_DK3750:
+    - Added leuart example.
+  EFM32GG_STK3700
+    - Added FreeRTOS Demo.
+    - Added leuart example.
+  EFM32WG_STK3800
+    - Added leuart example.
+  EFM32ZG_STK3200
+    - Added leuart example.
+    - Added SPI example.
+  EFM32_Gxxx_STK
+    - Added leuart example.
+  SLSTK3400A_EFM32HG
+    - Added USB Mass Storage Device example.
+    - Added leuart example.
+    - Added SPI example.
+  SLSTK3401A_EFM32PG
+    - Added FreeRTOS Demo.
+    - Added tempdrv example.
+    - Added leuart example.
+    - Added SPI example.

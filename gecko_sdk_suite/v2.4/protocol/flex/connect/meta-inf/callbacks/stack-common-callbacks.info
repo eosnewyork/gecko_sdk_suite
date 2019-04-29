@@ -1,0 +1,49 @@
+
+void emberIncomingMessageHandler(EmberIncomingMessage *message)
+{
+  UNUSED_VAR(message);
+}
+
+void emberIncomingMacMessageHandler(EmberIncomingMacMessage *message)
+{
+  UNUSED_VAR(message);
+}
+
+void emberMessageSentHandler(EmberStatus status, EmberOutgoingMessage *message)
+{
+  UNUSED_VAR(status);
+  UNUSED_VAR(message);
+}
+
+void emberMacMessageSentHandler(EmberStatus status, 
+                                EmberOutgoingMacMessage *message)
+{
+  UNUSED_VAR(status);
+  UNUSED_VAR(message);
+}
+
+
+void emberStackStatusHandler(EmberStatus status)
+{
+  UNUSED_VAR(status);
+}
+
+void emberStackIsrHandler(void)
+{
+}
+
+bool emberStackIdleHandler(uint32_t *idleTimeMs)
+{
+  UNUSED_VAR(idleTimeMs);
+
+  return false;
+}
+
+void emberMarkApplicationBuffersHandler(void)
+{
+}
+
+void emberRadioNeedsCalibratingHandler(void)
+{
+  emberCalibrateCurrentChannel(); 
+}

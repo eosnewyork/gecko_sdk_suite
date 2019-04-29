@@ -1,0 +1,218 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: pc
+deviceName: mac-device
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+device: Unix UART Host
+
+# Plugin configuration
+appPlugin: ash-v3=true
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=true
+appPlugin: command-interpreter-rail=false
+appPlugin: csp-host=true
+appPlugin: csp-ncp=false
+appPlugin: debug-print=true
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=false
+appPlugin: hal=false
+appPlugin: hal-config=false
+appPlugin: hal-efr32=false
+appPlugin: heartbeat=false
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=false
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=true
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: packet-trace=false
+appPlugin: phy=false
+appPlugin: phy-rtos=false
+appPlugin: poll=true
+appPlugin: rail-lib=false
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=false
+appPlugin: serial=true
+appPlugin: serial-bootloader-cli=true
+appPlugin: sim-eeprom1=false
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=false
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=false
+appPlugin: stack-counters=false
+appPlugin: stack-counters-stub=false
+appPlugin: stack-form-and-join=false
+appPlugin: stack-mac-queue=false
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=false
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=false
+appPlugin: unix-library=true
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:boardHeader
+allowMissingHeader:false
+useHeaderInPlace:false
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+}
+{setupId:callbackConfiguration
+emberIncomingMessageHandler:true
+emberMessageSentHandler:true
+emberStackStatusHandler:true
+emberChildJoinHandler:false
+emberAfMainInitCallback:false
+emberAfMainTickCallback:false
+emberAfStackStatusCallback:false
+emberFrequencyHoppingStartClientCompleteHandler:true
+emberAfEnergyScanCompleteCallback:false
+emberAfActiveScanCompleteCallback:false
+emberAfIncomingBeaconExtendedCallback:false
+emberAfChildJoinCallback:false
+emberAfIncomingMacMessageCallback:false
+emberAfMacMessageSentCallback:false
+}
+{setupId:commandLineConfiguration
+on
+reset,halReboot,,unlocked
+set-key,setSecurityKeyCommand,b,unlocked
+set-beacon-payload,setBeaconPayloadCommand,b,unlocked
+join-commissioned,joinCommissionedCommand,uvvsu,unlocked
+join,joinNetworkCommand,uvsu,unlocked
+pjoin,setPermitJoinCommand,u,unlocked
+leave,emberResetNetworkState,,unlocked
+set-allocate-addr,setAllocateAddressFlagCommand,u,unlocked
+set-options,setOptionsCommand,u,unlocked
+set-poll-dest,setPollDestinationCommand,vb,unlocked
+poll,pollCommand,,unlocked
+send,sendCommand,vvbvbvvb,unlocked
+info,infoCommand,,unlocked
+purge-indirect,purgeIndirectCommand,,unlocked
+active-scan,activeScanCommand,u,unlocked
+}
+{setupId:connectStackConfig
+Radio board: BRD4502
+}
+{setupId:debugConfiguration
+on
+area name off
+appSerial=1
+}
+{setupId:efr32RadioConfig
+PHY=serializableObject:Efr32RadioConfiguratorPhy:null:null:Custom settings
+PROFILE=serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base
+}
+{setupId:eventConfiguration
+}
+{setupId:genConfig
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+The MAC Device application demonstrates direct MAC communication between nodes.
+Nodes can form a network (parent nodes) or join an existing network (child nodes). Joining nodes can be MAC-level devices or Sleepy devices. Sleepy devices must poll the parent node for any messages waiting for them to be received.
+For sleepy nodes, the parent node should have the Parent Support plugin enabled!
+
+Available CLI commands:
+
+"reset" will reset the board.
+
+"set-key" Sets the security key, e.g. "set-key {AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}"
+
+"set-beacon-payload" allows to set the value of the beacon optionally, e.g. "set-beacon-payload {ABCDEF00112233}".
+
+"join-commissioned" commissions the network parameters. Namely, node ID, pan ID, channel and transmission power. For instance, the CLI command "commission 0x1111 0xABCD 15 0" causes the node to bring the network up with node ID 0x1111, pan ID 0xABCD on channel 15 with transmission power 0.
+
+"join" is called to perform an over-the-air joinining process of an existing network. The parameters are the node type (6-MAC mode device, 7-MAC mode sleepy device) Node ID, PAN ID, Tx power and channel, e.g. "join 6 0xBEEF 0 0x01".
+
+"pjoin" permits node joining to the coordinator for the given number of seconds. The maximum value of 255 allows permanent join, e.g. "pjoin 0xFF".
+
+"leave" is used to leave the network and turn off the radio.
+
+"set-allocate-addr" sets the "allocate address flag". This flag determines if the joining device wants to get a random 16-bit short ID assigned by the joined device. This function is enabled by default.
+
+"set-options", followed by the option value, sets the TX options. The following values are used:
+ 0x02 = Security disabled
+ 0x03 = Security enabled
+ 0x0A = Indirect, Security disabled
+
+"set-poll-dest" sets the address to poll for the "poll" command.
+
+"poll" can be used to trigger a poll at the sleepy slave at any moment, by calling "poll".
+
+"send" is a fully customizable command for sending mac frames in various combinations of source and destination addressing modes. It also makes transmission intra-PAN and inter-PAN possible. The mac frame contains auto-incremented data bytes.
+
+Parameters:
+ 0: a "nibble mask" indicating which fields are specified, specifically:
+ 0x000F - source ID mode (0x00 = none, 0x02 = short, 0x03 = long)
+ 0x00F0 - source ID mode (0x00 = none, 0x02 = short, 0x03 = long)
+ 0x0F00 - the source pan ID is specified (0x01) or not (0x00).
+ 0xF000 - the destination pan ID is specified (0x01) or not (0x00).
+ 1: the source short ID (if specified)
+ 2: the source long ID (if specified)
+ 3: the destination short ID (if specified)
+ 4: the destination long ID (if specified)
+ 5: the source PAN ID (if specified)
+ 6: the destination PAN ID (if specified)
+ 7: MAC message payload
+
+For example, "send 0x0022 0xF000  {} 0xC2DC  {} 0xFFFF 0xFFFF {01234567}" will send a 4-byte MAC frame containing 01 23 45 67 from short address 0xf000 to short address 0xc2dc with no PAN IDs specified (intra-PAN), or
+
+"send 0x0033 0xFFFF {8C 01 0D FE FF 57 0B 00} 0xFFFF {0A 65 16 FE FF 57 0B 00} 0xFFFF 0xFFFF {01234567}" will send 01 23 45 67 in a MAC frame between the two 64-bit addresses mentioned above.
+
+"info" will display some network related information.
+
+"purge-indirect" Purges all indirect transmissions from the indirect message queue.
+
+"active-scan" scans the given channel for any beacons present. The paremeter is the channel, so e.g. "active-scan 11" will scan channel 11. If a beacon is found, it will be printed on the console.
+
+Example:
+From the command line on each node use the following commands to form a network.
+
+  node1> join-commissioned 6 0x0000 0xf000 1 2
+  node1> pjoin 0xff
+  node2> join 6 0xf000 1 2
+
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+}
+{setupId:token
+}

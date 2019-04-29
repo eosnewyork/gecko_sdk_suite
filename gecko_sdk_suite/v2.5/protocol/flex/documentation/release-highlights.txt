@@ -1,0 +1,15 @@
+
+What's new in Flex 2.5.2.0:
+    * Minor bug fixes
+
+What's new in Flex 2.5.1.0:
+    * Critical Security Update in Gecko Bootloader version 1.8.0.  Please see release notes.
+
+What's new in Flex 2.5.0.0:
+    * Added alpha support for mbedtls in Connect
+    * Added ability to enable/disable sleeping via push button to the Connect idle/sleep plugin
+    * Added callback to the Connect Micrium plugin to allow the application to control entering low power modes
+    * Added new emberMacFormNetwork Connect stack API
+    * Added NCP and Micrium IPC versions of the emberMacGetParentAddress Connect stack API
+    * Added new minSleepTime option to the Connect idle/sleep plugin
+    * Various bug fixes

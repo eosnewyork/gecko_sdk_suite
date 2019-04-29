@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems
+xmlns="http://www.silabs.com/ss/ContentItem.ecore"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.silabs.com/ss/ContentItem.ecore file:/C:/Users/CAOWENS/Documents/ssv4/contentItems.xsd">
+  <contentItemData
+    priority="9"
+    category="Getting Started"
+    itemURI="file:index.html"
+    label="Documentation Index"
+    description="Provides an overview and hyperlinks to all packaged documentation."
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="API References"
+    itemURI="file:API_RAIL_HTML/index.html"
+    label="Silicon Labs RAIL API Reference Guide"
+    description="Contains a comprehensive list of APIs used to interface to the Silicon Labs RAIL library. "
+  ></contentItemData>
+  <contentItemData
+    priority="6"
+    category="Fundamentals"
+    itemURI="file:ug103-07-non-volatile-data-storage-fundamentals.pdf"
+    label="UG103.07: Non-Volatile Data Storage Fundamentals"
+    description="Introduces non-volatile data storage using flash and the three different storage implementations offered  for Silicon Labs microcontrollers and SoCs: Simulated EEPROM, PS Store, and NVM3.  "
+  ></contentItemData>
+  <contentItemData
+    priority="3"
+    category="User's Guides"
+    itemURI="file:ug235-03-architecture-of-connect.pdf"
+    label="UG235.03: Architecture of the Silicon Labs Connect Stack"
+    description="Describes the architecture of the Silicon Labs Connect stack."
+  ></contentItemData>
+  <contentItemData
+    priority="2"
+    category="Fundamentals"
+    itemURI="file:ug103-13-fundamentals-rail.pdf"
+    label="UG103.13: RAIL Fundamentals"
+    description="Describes the features and functions of Silicon Labs RAIL (Radio Abstraction Interface Layer). RAIL provides an intuitive, easily-customizable radio interface layer that is designed to support proprietary or standards-based wireless protocols. "
+  ></contentItemData>
+  <contentItemData
+    priority="17"
+    category="Application Notes"
+    itemURI="file:an844-ashv3-host-uart-iInterface-guide.pdf"
+    label="AN844: Host/Network Co-Processor Communications Using Silicon Labs Thread and Connect"
+    description="Describes how to set up and test UART communication between a host and Network Co-Processor (NCP) using ASHv3-UART.  You should have a Raspberry Pi, USB cable (for UART communication), and a development board."
+  ></contentItemData>
+  <contentItemData
+    priority="4"
+    category="User's Guides"
+    itemURI="file:ug235-04-customizing-applications-with-connect.pdf"
+    label="UG235.04: Customizing Applications with Silicon Labs Connect"
+    description="Describes how to use plugins, callbacks, and events on top of the Application Framework to provide developer-configurable features and application behavior."
+  ></contentItemData>
+  <contentItemData
+    priority="3"
+    category="Release Notes"
+    itemURI="file:flex-release-notes.pdf"
+    label="Flex SDK Release Notes"
+    description="Lists compatibility requirements and sources for all software componentsin the development environment. Discusses the latest changes to the SiliconLabs Flex SDK, including added/deleted/deprecated features/API. Reviews bugs that have been fixed since the last release, and any pending ones. Intended for project managers and software developers."
+  ></contentItemData>
+  <contentItemData
+    priority="9"
+    category="User's Guides"
+    itemURI="file:ug235-09-developing-ncp-apps-with-connect.pdf"
+    label="UG235.09: Developing NCP Applications with Silicon Labs Connect"
+    description="Describes how to develop Network Co-processor (NCP) applications with Silicon Labs Connect."
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="Application Notes"
+    itemURI="file:an1127-power-amplifier-power-conversion-functions.pdf"
+    label="AN1127: Power Amplifier Power Conversion Functions in RAIL 2.x"
+    description="Outlines how to account for the variation in output characteristics across custom boards and applications for the Silicon Labs EFR32 family of chips."
+  ></contentItemData>
+  <contentItemData
+    priority="6"
+    category="User's Guides"
+    itemURI="file:ug235-06-bootloading-and-ota-with-connect.pdf"
+    label="UG235.06: Bootloading and OTA with Silicon Labs Connect"
+    description="Explains the bootloader options (standalone, application, and Over the Air (OTA)) available for use within Connect-based applications."
+  ></contentItemData>
+  <contentItemData
+    priority="15"
+    category="Application Notes"
+    itemURI="file:an902-connect-low-power-networks.pdf"
+    label="AN902: Building Low Power Networks with the Silicon Labs Connect Stack"
+    description="Illustrates techniques using the Silicon Labs Connect stack to reduce power consumption in a sensor network developed using  the Silicon Labs Connect Stack. "
+  ></contentItemData>
+  <contentItemData
+    priority="5"
+    category="User's Guides"
+    itemURI="file:ug235-05-using-micrium-with-connect.pdf"
+    label="UG235.05: Using Micrium OS (RTOS) with Silicon Labs Connect"
+    description="Describes how to run the Silicon Labs Connect stack on top of the Micrium OS kernel, a full-featured real-time operating system (RTOS) for embedded systems. "
+  ></contentItemData>
+  <contentItemData
+    priority="9"
+    category="Application Notes"
+    itemURI="file:an1115-32-bit-device-peripheral-configuration-in-simplicity-studio.pdf"
+    label="AN1115: Configuring Peripherals for 32-Bit Devices in Simplicity Studio"
+    description="Describes how to initialize and customize peripherals for 32-bit devices, both in the Simplicity IDE and using the  standalone Hardware Configurator tool. "
+  ></contentItemData>
+  <contentItemData
+    priority="10"
+    category="Application Notes"
+    itemURI="file:an961-custom-nodes-efr32.pdf"
+    label="AN961: Bringing Up Custom Devices for the Mighty Gecko and Flex Gecko Families"
+    description="Describes how to initialize a piece of custom hardware (a 'device') based on the Mighty Gecko and Flex Gecko families so that it  interfaces correctly with a network stack. The same procedures can be used to restore devices whose settings have been corrupted or erased."
+  ></contentItemData>
+  <contentItemData
+    priority="27"
+    category="User's Guides"
+    itemURI="file:RailTestUserGuide.html"
+    label="Using RAIL Test"
+    description="Describes the functionality available in the RAILTest application.  "
+  ></contentItemData>
+  <contentItemData
+    priority="3"
+    category="Fundamentals"
+    itemURI="file:ug103-01-fundamentals-wireless-network.pdf"
+    label="UG103.01: Wireless Networking Fundamentals"
+    description="Introduces some fundamental concepts of wireless networking. These concepts are referred to in other Fundamentals documents. If you are new to wireless networking, you should read this document first. "
+  ></contentItemData>
+  <contentItemData
+    priority="8"
+    category="User's Guides"
+    itemURI="file:ug235-08-using-cli-with-connect.pdf"
+    label="UG235.08: Using the Command Line Interface with Silicon Labs Connect"
+    description="Describes how to use the Command Line Interface (CLI) with Silicon Labs Connect."
+  ></contentItemData>
+  <contentItemData
+    priority="5"
+    category="Fundamentals"
+    itemURI="file:ug103-06-fundamentals-bootloading.pdf"
+    label="UG103.06: Bootloader Fundamentals"
+    description="Introduces bootloading for Silicon Labs networking devices. Discusses the Gecko Bootloader as well  as legacy Ember and Bluetooth bootloaders, and describes the file formats used by each. "
+  ></contentItemData>
+  <contentItemData
+    priority="5"
+    category="Application Notes"
+    itemURI="file:an972-efr32-rf-eval-guide.pdf"
+    label="AN972: EFR32 RF Evaluation Guide"
+    description="Describes using RAILTest to evaluate radio functionality, as well as peripherals, deep sleep states, etc. With it you can fully evaluate the receiving and transmitting performance and test RF functionality of development kit hardware or custom hardware."
+  ></contentItemData>
+  <contentItemData
+    priority="19"
+    category="User's Guides"
+    itemURI="file:ug115-ashv3-protocol-reference.pdf"
+    label="UG115: ASHv3 Protocol Reference"
+    description="Describes the protocol used by the UART-based ASHv3 to carry commands and responses reliably between a host processor  and a network co-processor.  "
+  ></contentItemData>
+  <contentItemData
+    priority="12"
+    category="Application Notes"
+    itemURI="file:an1085-gecko-bootloader-connect.pdf"
+    label="AN1085: Using the Gecko Bootloader with Silicon Labs Connect"
+    description="Includes detailed information on using the Silicon Labs Gecko Bootloader with Connect.  It supplements the general Gecko Bootloader implementation information provided in UG266: Silicon Labs Gecko Bootloader User's Guide. "
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="Quick Start Guides"
+    itemURI="file:qsg138-flex-efr32.pdf"
+    label="QSG138: Getting Started with the Silicon Labs Flex SDK for the Wireless Gecko (EFR32) Portfolio"
+    description="For the EFR32 portfolio, provides basic information on configuring, building, and installing applications using the Silicon Labs Flex SDK, which offers two paths to application development. One, using Silicon Labs Connect, provides a fully-featured, easily-customizable wireless networking solution. The other begins with Silicon Labs RAIL (Radio Abstraction Interface Layer), and offers a customizable radio interface layer designed to support proprietary or standards-based wireless protocols."
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="Fundamentals"
+    itemURI="file:ug103-12-fundamentals-connect.pdf"
+    label="UG103.12: Connect Fundamentals"
+    description="Describes the features and functions of the Silicon Labs Connect stack, including its device types, network topologies, and its 'building block' development methodology using plugins. "
+  ></contentItemData>
+  <contentItemData
+    priority="10"
+    category="API References"
+    itemURI="file:API_CONNECT_HTML/index.html"
+    label="Silicon Labs Connect API Reference Guide"
+    description="Contains a comprehensive list of APIs used to interface to the Silicon Labs Connect stack. "
+  ></contentItemData>
+  <contentItemData
+    priority="25"
+    category="User's Guides"
+    itemURI="file:ug147-flex-gecko-range-test-demo.pdf"
+    label="UG147: Flex Gecko 2.4 GHz, 20 dBm Range Test Demo Users Guide"
+    description="Provides an easy way to evaluate the link budget of the Wireless Gecko EFR32 devices using Silicon Labs RAIL (RAIL) by performing a range test between two nodes using Range Test, a standalone test application. The range test demo implements Packet Error Rate (PER) measurement."
+  ></contentItemData>
+  <contentItemData
+    priority="3"
+    category="Application Notes"
+    itemURI="file:an971-efr32-radio-configurator-guide.pdf"
+    label="AN971: EFR32 Radio Configurator Guide"
+    description="Describes the radio configurator GUI for RAIL framework applications. With it, you can create standard or custom radio configurations on which to run your RAIL-based applications. The role of each GUI item is explained. "
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="User's Guides"
+    itemURI="file:ug235-01-developing-code-with-connect.pdf"
+    label="UG235.01: Developing Code with Silicon Labs Connect"
+    description="Introduces the Connect User's Guide and its contents."
+  ></contentItemData>
+  <contentItemData
+    priority="14"
+    category="User's Guides"
+    itemURI="file:ug266-gecko-bootloader-user-guide.pdf"
+    label="UG266: Silicon Labs Gecko Bootloader User's Guide"
+    description="Describes the high-level implementation of the Silicon Labs Gecko Bootloader for EFR32 SoCs and NCPs,  and provides information on how to get started using the Gecko Bootloader with Silicon Labs wireless protocol stacks.  "
+  ></contentItemData>
+  <contentItemData
+    priority="9"
+    category="Quick Start Guides"
+    itemURI="file:qsg155-dynamic-multiprotocol-demo-quick-start-guide.pdf"
+    label="QSG155: Using the Silicon Labs Dynamic Multiprotocol Demonstrations"
+    description="Shows how to demonstrate Dynamic Multiprotocol functionality using a Bluetooth LE smartphone app  with either Zigbee-Bluetooth or RAIL-Bluetooth demo applications."
+  ></contentItemData>
+  <contentItemData
+    priority="9"
+    category="Fundamentals"
+    itemURI="file:ug103-16-multiprotocol-fundamentals.pdf"
+    label="UG103.16: Multiprotocol Fundamentals"
+    description="Describes the four multiprotocol modes, discusses considerations when selecting protocols for  multiprotocol implementations, and reviews the Radio Scheduler, a required component of a  dynamic multiprotocol solution."
+  ></contentItemData>
+  <contentItemData
+    priority="23"
+    category="Application Notes"
+    itemURI="file:an703-simulated-eeprom.pdf"
+    label="AN703: Using Simulated EEPROM Version 1 and Version 2 for the EM35x and EFR32 Series 1 SoC Platforms"
+    description="Describes how to use the simulated EEPROM in Silicon Labs' EM35x and EFR32 Series 1 platforms, gives an  overview of the internal design, and discusses design considerations. You should already be familiar with  the token system in the HAL. For more information on HAL and the token system, see the online HAL API documentation."
+  ></contentItemData>
+  <contentItemData
+    priority="1"
+    category="Application Notes"
+    itemURI="file:an1113-porting-rail-applications-to-rail-version2.pdf"
+    label="AN1113: Porting RAIL Applications to RAIL Version 2.0"
+    description="Describes the main drivers for RAIL 2.0 and key programmatic considerations when porting an application  from RAIL 1.6 to RAIL 2.0. "
+  ></contentItemData>
+  <contentItemData
+    priority="12"
+    category="User's Guides"
+    itemURI="file:ug162-simplicity-commander-reference-guide.pdf"
+    label="UG162: Simplicity Commander Reference Guide"
+    description="Describes how and when to use Simplicity Commander's Command-Line Interface.  Only EFR32 is currently supported. EM3xx is not supported at this time."
+  ></contentItemData>
+  <contentItemData
+    priority="2"
+    category="User's Guides"
+    itemURI="file:ug235-02-using-connect-with-ieee-802-15-4.pdf"
+    label="UG235.02: Using Silicon Labs Connect with IEEE 802.15.4"
+    description="Describes how to use the Silicon Labs Connect stack with IEEE 802.15.4. "
+  ></contentItemData>
+  <contentItemData
+    priority="7"
+    category="User's Guides"
+    itemURI="file:ug235-07-energy-savings-with-connect.pdf"
+    label="UG235.07: Energy Saving with Silicon Labs Connect"
+    description="Discusses techniques to reduce power consumption of network applications based on the Silicon Labs Connect Stack."
+  ></contentItemData>
+  <contentItemData
+    priority="25"
+    category="Application Notes"
+    itemURI="file:an1154-tokens-for-non-volatile-storage.pdf"
+    label="AN1154: Using Tokens for Non-Volatile Data Storage"
+    description="Describes tokens and shows how to use them for non-volatile data storage in EmberZNet PRO, Silicon Labs Flex,  and Silicon Labs Thread applications.  "
+  ></contentItemData>
+  <contentItemData
+    priority="6"
+    category="Application Notes"
+    itemURI="file:an1119-rail-wmbus.pdf"
+    label="AN1119: Using RAIL for Wireless M-Bus Applications with EFR32"
+    description="Describes using the Flex SDK for Wireless M-Bus development on EFR32 Wireless Geckos.  Includes features and limitations as well as examples. "
+  ></contentItemData>
+</contentItems>

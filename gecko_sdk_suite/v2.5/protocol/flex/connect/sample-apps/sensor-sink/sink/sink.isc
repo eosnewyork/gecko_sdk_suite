@@ -1,0 +1,210 @@
+#ISD afv6
+# ISD version: 4.18.1.qualifier
+
+# Application configuration
+appId: flex
+frameworkRoot: protocol/flex_dev/connect
+architecture: efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[233]~flash[256K]~temp[G]~package[M]~pins[48]~!module+BRD4150B+iar
+deviceName: sink
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: ash-v3=false
+appPlugin: bootloader-interface=false
+appPlugin: buffer-pool-memory-manager=false
+appPlugin: circular-queue=false
+appPlugin: command-interpreter=true
+appPlugin: command-interpreter-rail=false
+appPlugin: csp-host=false
+appPlugin: csp-ncp=false
+appPlugin: debug-print=true
+appPlugin: diagnostic=true
+appPlugin: diagnostic-stub=false
+appPlugin: free-rtos=false
+appPlugin: frequency-hopping=false
+appPlugin: frequency-hopping-stub=true
+appPlugin: hal=true
+appPlugin: hal-config=true
+appPlugin: hal-efr32=false
+appPlugin: heartbeat=true
+appPlugin: host-network-management-cli=false
+appPlugin: idle-sleep=false
+appPlugin: lcd-graphics=false
+appPlugin: mailbox-client=false
+appPlugin: mailbox-server=false
+appPlugin: main=true
+appPlugin: ncp-main=false
+appPlugin: ncp-uart-link=false
+appPlugin: ota-bootloader-test-common=false
+appPlugin: ota-broadcast-bootloader-client=false
+appPlugin: ota-broadcast-bootloader-server=false
+appPlugin: ota-broadcast-bootloader-test=false
+appPlugin: ota-unicast-bootloader-client=false
+appPlugin: ota-unicast-bootloader-server=false
+appPlugin: ota-unicast-bootloader-test=false
+appPlugin: packet-trace=false
+appPlugin: phy=true
+appPlugin: phy-rtos=false
+appPlugin: poll=false
+appPlugin: rail-lib=false
+appPlugin: railtest-base=false
+appPlugin: rangetest-base=false
+appPlugin: response-printf=false
+appPlugin: serial=true
+appPlugin: serial-bootloader-cli=false
+appPlugin: sim-eeprom1=true
+appPlugin: spi-flash=false
+appPlugin: stack-aes-security=true
+appPlugin: stack-aes-security-stub=false
+appPlugin: stack-common=true
+appPlugin: stack-counters=true
+appPlugin: stack-counters-stub=false
+appPlugin: stack-mac-queue=true
+appPlugin: stack-mac-queue-stub=false
+appPlugin: stack-parent-support=true
+appPlugin: stack-parent-support-stub=false
+appPlugin: stack-xxtea-security=false
+appPlugin: stack-xxtea-security-stub=true
+appPlugin: unix-library=false
+appPlugin: usb-cdc=false
+appPlugin: usb-common=false
+appPlugin: usb-hidkbd=false
+appPlugin: wstk-sensors=false
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:boardHeader
+allowMissingHeader:false
+useHeaderInPlace:false
+efr32~family[M]~series[1]~device_configuration[1]~performance[P]~radio[233]~flash[256K]~temp[G]~package[M]~pins[48]+BRD4150B=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+efr32~series[1]~device_configuration[1]=null,
+efr32~series[1]~device_configuration[2]=null,
+efr32~series[1]~device_configuration[3]=null,
+efr32~series[1]~device_configuration[4]=null,
+efr32~series[2]~device_configuration[1]=null,
+}
+{setupId:callbackConfiguration
+emberIncomingMessageHandler:true
+emberMessageSentHandler:true
+emberStackStatusHandler:true
+emberAfMainInitCallback:false
+emberAfMainTickCallback:false
+emberAfStackStatusCallback:false
+emberAfIncomingMessageCallback:false
+emberAfMessageSentCallback:false
+emberAfFrequencyHoppingStartClientCompleteCallback:false
+emberAfEnergyScanCompleteCallback:false
+emberAfPluginMicriumRtosAppTask1InitCallback:false
+emberAfPluginMicriumRtosAppTask1MainLoopCallback:false
+}
+{setupId:commandLineConfiguration
+on
+form,formCommand,u,unlocked
+pjoin,pjoinCommand,u,unlocked
+set-tx-power,setTxPowerCommand,s,unlocked
+set-tx-options,setTxOptionsCommand,u,unlocked
+set-key,setSecurityKeyCommand,b,unlocked
+remove-child,removeChildCommand,uvb,unlocked
+advertise,advertiseCommand,,unlocked
+info,infoCommand,,unlocked
+leave,emberResetNetworkState,,unlocked
+counter,counterCommand,u,unlocked
+reset,halReboot,,unlocked
+sensors,sensorsCommand,,unlocked
+start-energy-scan,startEnergyScanCommand,uu,unlocked
+}
+{setupId:connectStackConfig
+Radio board: BRD4502
+}
+{setupId:debugConfiguration
+on
+area name off
+appSerial=1
+}
+{setupId:multiPhyRadioConfigurator
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="dumbo" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+    <base_channel_configuration name="Protocol Configuration" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Connect">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Connect:PHY_Connect_902MHz_2GFSK_200kbps"/>
+      <channel_config_entries>
+        <channel_config_entry name="Channel Group 1">
+          <physical_channel_offset>SAME_AS_FIRST_CHANNEL</physical_channel_offset>
+          <channel_number_start>0</channel_number_start>
+          <channel_number_end>20</channel_number_end>
+          <max_power>RAIL_TX_POWER_MAX</max_power>
+        </channel_config_entry>
+      </channel_config_entries>
+    </base_channel_configuration>
+  </base_channel_configurations>
+</multi_phy_configuration>
+}
+{setupId:eventConfiguration
+advertiseControl,advertiseHandler
+dataReportControl,dataReportHandler
+}
+{setupId:genConfig
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+The sink and sensor applications demonstrate how to properly setup a star network topology in which communication occurs in both directions between the sink and the sensor(s) nodes.
+
+The sink node shall be started as network coordinator using the "form" CLI command. The only parameter to be passed to this CLI command is the channel (PAN ID is fixed). For example, "form 10" forms a new network on channel 10.
+
+The "pjoin" CLI command shall be used to (temporarily) allow sensor nodes to join the network. The only parameter to be passed is the time in seconds that joining should be allowed for. A value of 0xFF keeps permit join on for ever. A value of 0x00 switches permit join off. For instance "pjoin 60" allows joining for 60 seconds.
+
+The "set-tx-options" CLI command sets the TX options bitmask. Bit 0x01 indicates whether packets should be secured. Bit 0x02 indicates whether packets should require an acknowledgment. Bit 0x04 indicates whether packets should be sent out with priority. For instance, "set-tx-options 0x03" causes packets to be transmitted secured and using acknowledgments. See stack/include/ember-types.h for more info on TX options.
+
+The "set-tx-power" CLI command changes the TX power of the radio. By default, the node joins the network with TX power 0.
+
+The "set-key" CLI command sets the security key. The passed parameter is a 16-byte string. For instance, "set-key \\{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\}" sets the security key to all 0xAAs. 
+
+The "leave" CLI command causes the node to leave the current network and go back to initial state.
+
+The "reset" CLI command power cycles the node (notice that the network parameters are stored in persistent memory, after power cycling the node will go back up to the stored network if the node was previously up on a network).
+
+The "info" CLI command prints out node information such as network state, node type, short ID, long ID, PAN ID, channel and TX power.
+
+The "counter" CLI command prints out the passed stack counter. For instance, "counter 2" prints out the incoming MAC unicast frames that have been received so far (see EMBER_COUNTER_MAC_IN_UNICAST in ember-types.h). 
+
+The sink periodically broadcast an advertise command to the sensor nodes.
+
+Upon receiving an advertise request command from a sleepy sensor, the sink replies to the sleepy sensor with a advertise command (unicast).
+
+Upon receiving a pair request command from a sensor, the sink adds the sensor to its sensors table and replies with a pair confirm command.
+
+Upon receiving a data message from a sensor, the sink updates the sensor's entry in its own sensors table with the time the sink heard from the sensor. If the sink does not receive data from a sensor node for a prolonged interval of time, it eventually times out and removes the sensor from its sensors table. At that point the sensor will have to perform the pairing procedure.
+
+The 'sensors' CLI command can be used to print the current sensors table.  
+
+The 'advertise' CLI command can be used to force the sink to broadcast an advertise command.  
+
+The "start-energy-scan" CLI command scans the energy level on the given channel. For instance, "start-energy-scan 0 10" results in 10 RSSI samples collected on channel 0. The energy scan callback provides detailed statistics (mean, min, max, variance) from the collected RSSI samples.
+\}
+}
+{setupId:macros
+}
+{setupId:phyOptions
+}
+{setupId:template
+linkerIcfFile=$--halDir--$/micro/cortexm3/efm32/iar-cfg.icf
+linkerLdFile=$--halDir--$/micro/cortexm3/efm32/gcc-cfg.ld
+}
+{setupId:token
+}
+
+# Plugin options
+
+# UI/Setup customization for multi-phy
+hiddenLayoutElements: radio
